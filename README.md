@@ -8,4 +8,4 @@
   • [Kawan Fritoli](https://github.com/KawanFGsptech) <br>
   • [Lucas Rodrigues](https://github.com/LucasRodriguesCartaxo) <br>
   • [Pedro Henrique Cruz](https://github.com/PedroHCruzz) <br>
-  • [Sandor Thimoteo](https://github.com/SandroThi) <br>
+  • [Sandro Thimoteo](https://github.com/SandroThi) <br>
