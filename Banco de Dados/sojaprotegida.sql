@@ -1,44 +1,45 @@
 CREATE DATABASE sojaprotegida;
 USE sojaprotegida;
 
-CREATE TABLE cadastro (
-	idcadastro int primary key auto_increment,
-    usuario varchar(20) not null,
+CREATE TABLE usuario (
+	idusuario int primary key auto_increment,
+    nome varchar(50) not null,
     email varchar(70) not null,
-    senha varchar(40) not null
+    senha varchar(30) not null,
+    status_usuario varchar(10),
+    telefone varchar(11),
+    constraint chk_status CHECK (status_usuario IN ('Ativo', 'Inativo'))
 );
 
-INSERT INTO cadastro VALUES
-(default, 'joaosilva', 'joao.silva@email.com', '1234senhaJoao'),
-(default, 'mariarosa', 'maria.rosa@email.com', 'maria@5678'),
-(default, 'pedro123', 'pedro.almeida@email.com', 'pedro!senha2024');
+INSERT INTO usuario VALUES
+(default, 'João Silva', 'joao.silva@email.com', '1234senhaJoao', 'Ativo', '11912345678'),
+(default, 'Maria Rosa', 'maria.rosa@email.com', 'maria@5678', 'Ativo', '11987654321'),
+(default, 'Pedro Almeida', 'pedro.almeida@email.com', 'pedro!senha2024', 'Ativo', '1118273645');
 
-SELECT * FROM cadastro;
+SELECT * FROM usuario;
 
-SELECT * FROM cadastro ORDER BY usuario;
+SELECT * FROM usuario ORDER BY nome;
 
-SELECT usuario FROM cadastro
-WHERE usuario LIKE '%maria%';
+SELECT nome FROM usuario
+WHERE nome LIKE '%Maria%';
 
 CREATE TABLE fazenda (
 	idfazenda int primary key auto_increment,
     nome varchar(40),
     cnpj varchar(20),
-    status_cliente varchar(15),
     qtd_sensores int,
-    hectares varchar(10), 
+    hectares int, 
     dtInicio date,
     dtCancelamento date,
-    gastoFuncida float,
-    quant_contaminacao int,
-    valor_prejuizo double,
-    constraint chk_status CHECK (status_cliente IN ('Ativo', 'Inativo'))
+    fkUsuario int,
+    constraint fkUsuarioFazenda foreign key (fkUsuario) references usuario (idusuario)
 );
 
 INSERT INTO fazenda VALUES 
-(default, 'Fazenda Bela Vista', '12.345.678/0001-99', 'Ativo', 5, 1500, '2020-10-21', null),
-(default, 'AgroSantos', '98.765.432/0001-11', 'Inativo', 8, 3000, '2017-02-11', '2024-09-30'),
-(default, 'Fazenda Esperança', '11.223.344/0001-55', 'Ativo', 10, 2500, '2022-11-10', null);
+(default, 'Fazenda Bela Vista', '12.345.678/0001-99', 5, 1500, '2020-10-21', null, 1),
+(default, 'AgroSantos', '98.765.432/0001-11', 8, 3000, '2017-02-11', '2024-09-30', 2),
+(default, 'Fazenda Esperança', '11.223.344/0001-55', 10, 2500, '2022-11-10', null, 3),
+(default, 'Fazenda Super Soja', '97.438.167/0001-70', 5, 1200, '2019-04-15', null, 1);
 
 SELECT * FROM fazenda;
 
@@ -56,14 +57,21 @@ CREATE TABLE sensor (
     umidade float,
     avisos varchar(40),
     dtAviso date,
-    horario time
-    constraint chk_avisos CHECK (avisos IN ('Umidade padrão', 'Umidade elevada', 'Umidade baixa'))
+    horario time,
+    fkFazenda int,
+    constraint chk_avisos CHECK (avisos IN ('Umidade padrão', 'Umidade elevada', 'Umidade critica')),
+    constraint fkFazendaSensor foreign key (fkFazenda) references fazenda (idfazenda)
 );
 
 INSERT INTO sensor VALUES
-(default, 55.3, 26.5, 'Umidade padrão'),
-(default, 70.1, 22.4, 'Temperatura elevada'),
-(default, 45.7, 18.9, 'Umidade baixa');
+(default, 55.3, 'Umidade elevada', '2020-10-22', '10:00:00', 1),
+(default, 54.1, 'Umidade elevada', '2020-10-22', '11:00:00', 1),
+(default, 48.7, 'Umidade padrão', '2017-02-12', '09:30:00', 2),
+(default, 51.1, 'Umidade elevada', '2017-02-12', '10:30:00', 2),
+(default, 72.9, 'Umidade critica', '2022-11-11', '10:00:00', 3),
+(default, 65.5, 'Umidade elevada', '2022-11-11', '11:00:00', 3),
+(default, 50.3, 'Umidade elevada', '2018-04-16', '09:30:00', 4),
+(default, 44.9, 'Umidade padrão', '2018-04-16', '10:30:00', 4);
 
 SELECT * FROM sensor;
 
@@ -72,63 +80,3 @@ WHERE avisos = 'Umidade baixa';
 
 SELECT * FROM sensor
 WHERE umidade > 40 and temperatura > 20;
-
-CREATE TABLE responsavel_fazenda (
-	idresponsavel int primary key auto_increment,
-    nome varchar(40),
-    cargo varchar(40),
-    cpf varchar(20),
-    dtNasc date,
-    telefone varchar(20),
-    email varchar(60)
-);
-
-INSERT INTO responsavel_fazenda VALUES
-(default, 'João da Silva', 'Gerente', '123.456.789-00', '1980-02-15', '11987654321', 'joao.gerente@fazenda.com'),
-(default, 'Maria Santos', 'Administradora', '987.654.321-00', '1975-09-25', '21976543210', 'maria.santos@agrosantos.com'),
-(default, 'Pedro Almeida', 'Supervisor', '111.222.333-44', '1990-07-11', '31998765432', 'pedro.almeida@fazenda.com');
-
-SELECT * FROM responsavel_fazenda;
-
-DESC responsavel_fazenda;
-
-SELECT telefone FROM responsavel_fazenda
-WHERE nome LIKE 'pedro%';
-
-SELECT email FROM responsavel_fazenda
-WHERE nome LIKE 'joao%' and cargo = 'Gerente';
-
-CREATE TABLE endereco_fazenda (
-	idendereco int primary key auto_increment,
-    logradouro varchar(50),
-    numero int,
-    complemento varchar(50),
-    bairro varchar(50),
-    cidade varchar(50),
-    estado varchar(30),
-    cep varchar(20),
-    pais varchar(30)
-);
-
-INSERT INTO endereco_fazenda VALUE
-(default, 'Estrada do Campo', 1234, 'Sítio A', 'Zona Rural', 'Uberlândia', 'MG', '38400-000', 'Brasil'),
-(default, 'Avenida Principal', 567, 'Fazenda 3', 'Centro', 'Goiânia', 'GO', '74000-000', 'Brasil'),
-(default, 'Rodovia 101', null, 'Km 45', 'Distrito Sul', 'Curitiba', 'PR', '80000-000', 'Brasil');
-
-SELECT * FROM endereco_fazenda;
-
-SELECT * FROM endereco_fazenda
-WHERE cidade = 'Curitiba';
-
-SELECT * FROM endereco_fazenda
-WHERE estado = 'GO';
-
-SELECT * FROM endereco_fazenda
-WHERE estado = 'MG' or estado = 'PR';
-
-SELECT logradouro, numero, complemento FROM endereco_fazenda
-WHERE bairro LIKE 'centro';
-
-
-
-
