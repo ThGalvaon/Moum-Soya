@@ -23,8 +23,25 @@ SELECT * FROM usuario ORDER BY nome;
 SELECT nome FROM usuario
 WHERE nome LIKE '%Maria%';
 
+create table Endereco (
+	idEndereco int primary key auto_increment,
+	cidade varchar(45),
+	bairro varchar(45),
+	logradouro varchar(45),
+	numero varchar(5),
+	cep char(9)
+);
+
+insert into Endereco values
+	(default, 'Ribeirão Preto', 'Vila José', 'Rua Capitão Silva', '12345', '12345-678'),
+    (default, 'Campinas', 'Vila Marcia', 'Rua Coronel Souza', '54321', '87654-321'),
+    (default, 'Mairiporã', 'Vila Claudia', 'Rua Tenente Ferreira', '67890', '24680-135'),
+    (default, 'São José', 'Vila Augusta', 'Rua Cabo Gomes', '19876', '13579-246');
+
 CREATE TABLE fazenda (
-	idfazenda int primary key auto_increment,
+	idfazenda int auto_increment,
+    fkEndereco int,
+    constraint pkEndFaz primary key (idFazenda, fkEndereco),
     nome varchar(40),
     cnpj varchar(20),
     qtd_sensores int,
@@ -36,10 +53,10 @@ CREATE TABLE fazenda (
 );
 
 INSERT INTO fazenda VALUES 
-(default, 'Fazenda Bela Vista', '12.345.678/0001-99', 5, 1500, '2020-10-21', null, 1),
-(default, 'AgroSantos', '98.765.432/0001-11', 8, 3000, '2017-02-11', '2024-09-30', 2),
-(default, 'Fazenda Esperança', '11.223.344/0001-55', 10, 2500, '2022-11-10', null, 3),
-(default, 'Fazenda Super Soja', '97.438.167/0001-70', 5, 1200, '2019-04-15', null, 1);
+(default, 1, 'Fazenda Bela Vista', '12.345.678/0001-99', 5, 1500, '2020-10-21', null, 1),
+(default, 2, 'AgroSantos', '98.765.432/0001-11', 8, 3000, '2017-02-11', '2024-09-30', 2),
+(default, 3, 'Fazenda Esperança', '11.223.344/0001-55', 10, 2500, '2022-11-10', null, 3),
+(default, 4, 'Fazenda Super Soja', '97.438.167/0001-70', 5, 1200, '2019-04-15', null, 1);
 
 SELECT * FROM fazenda;
 
