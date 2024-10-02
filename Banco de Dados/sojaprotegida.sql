@@ -14,7 +14,8 @@ CREATE TABLE usuario (
 INSERT INTO usuario VALUES
 (default, 'João Silva', 'joao.silva@email.com', '1234senhaJoao', 'Ativo', '11912345678'),
 (default, 'Maria Rosa', 'maria.rosa@email.com', 'maria@5678', 'Ativo', '11987654321'),
-(default, 'Pedro Almeida', 'pedro.almeida@email.com', 'pedro!senha2024', 'Ativo', '1118273645');
+(default, 'Pedro Almeida', 'pedro.almeida@email.com', 'pedro!senha2024', 'Ativo', '1118273645'),
+(default, 'Jucelino Aparecida', 'jucelino.aparecida@email.com', 'Jucilino258$', 'Inativo', '11958746328');
 
 SELECT * FROM usuario;
 
@@ -56,18 +57,20 @@ INSERT INTO fazenda VALUES
 (default, 1, 'Fazenda Bela Vista', '12.345.678/0001-99', 5, 1500, '2020-10-21', null, 1),
 (default, 2, 'AgroSantos', '98.765.432/0001-11', 8, 3000, '2017-02-11', '2024-09-30', 2),
 (default, 3, 'Fazenda Esperança', '11.223.344/0001-55', 10, 2500, '2022-11-10', null, 3),
-(default, 4, 'Fazenda Super Soja', '97.438.167/0001-70', 5, 1200, '2019-04-15', null, 1);
+(default, 4, 'Fazenda Super Soja', '97.438.167/0001-70', 5, 1200, '2019-04-15', null, 4);
 
 SELECT * FROM fazenda;
 
-SELECT idfazenda, nome, cnpj, dtCancelamento FROM fazenda
-WHERE status_cliente = 'Inativo';
+SELECT f.idfazenda, f.nome as 'Nome da Fazenda', u.nome as 'Nome do usuário', f.cnpj, f.dtCancelamento, status_usuario
+FROM usuario as u JOIN fazenda as f
+ON idusuario = fkUsuario
+WHERE status_usuario = 'Inativo';
 
 SELECT * FROM fazenda
 WHERE hectares > 10;
 
-SELECT * FROM fazenda
-WHERE qtd_sensores > 5 and status_cliente = 'Ativo';
+SELECT * FROM fazenda JOIN usuario
+WHERE qtd_sensores > 5 and status_usuario = 'Ativo';
 
 CREATE TABLE sensor (
 	idsensor int primary key auto_increment,
@@ -87,7 +90,7 @@ INSERT INTO sensor VALUES
 (default, 51.1, 'Umidade elevada', '2017-02-12', '10:30:00', 2),
 (default, 72.9, 'Umidade critica', '2022-11-11', '10:00:00', 3),
 (default, 65.5, 'Umidade elevada', '2022-11-11', '11:00:00', 3),
-(default, 50.3, 'Umidade elevada', '2018-04-16', '09:30:00', 4),
+(default, null, 'Umidade elevada', '2018-04-16', '09:30:00', 4),
 (default, 44.9, 'Umidade padrão', '2018-04-16', '10:30:00', 4);
 
 SELECT * FROM sensor;
@@ -96,4 +99,17 @@ SELECT * FROM sensor
 WHERE avisos = 'Umidade baixa';
 
 SELECT * FROM sensor
-WHERE umidade > 40 and temperatura > 20;
+WHERE umidade > 40;
+
+SELECT f.nome as 'Nome fazenda',
+ifnull(umidade, 'Verificar sensor') as 'Status do sensor'
+FROM fazenda as f JOIN sensor
+ON fkFazenda = idFazenda;
+
+SELECT f.nome as 'Nome da fazenda', idSensor, CASE 
+  WHEN umidade > 50 THEN 'Verificar local, umidade elevada!'
+  ELSE 'Umidade dentro da normalidade'
+  END as Umidade
+  FROM fazenda as f JOIN sensor
+  ON fkFazenda = idFazenda
+  ORDER BY umidade;
