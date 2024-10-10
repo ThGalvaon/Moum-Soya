@@ -2,12 +2,14 @@ CREATE DATABASE sojaprotegida;
 USE sojaprotegida;
 
 CREATE TABLE usuario (
-	idusuario int primary key auto_increment,
+	idUsuario int primary key auto_increment,
     nome varchar(50) not null,
     email varchar(70) not null,
     senha varchar(30) not null,
     status_usuario varchar(10),
     telefone varchar(11),
+    fkAdmin int,
+    constraint fkAdminUsu foreign key (fkAdmin) references usuario (idUsuario),
     constraint chk_status CHECK (status_usuario IN ('Ativo', 'Inativo'))
 );
 
@@ -43,13 +45,13 @@ CREATE TABLE fazenda (
 	idfazenda int auto_increment,
     fkEndereco int,
     constraint pkEndFaz primary key (idFazenda, fkEndereco),
-    nome varchar(40),
-    cnpj varchar(20),
+    nome varchar(40) not null,
+    cnpj varchar(20) not null,
     qtd_sensores int,
     hectares int, 
-    dtInicio date,
+    dtInicio date not null,
     dtCancelamento date,
-    fkUsuario int,
+    fkUsuario int not null,
     constraint fkUsuarioFazenda foreign key (fkUsuario) references usuario (idusuario)
 );
 
@@ -73,13 +75,11 @@ SELECT * FROM fazenda JOIN usuario
 WHERE qtd_sensores > 5 and status_usuario = 'Ativo';
 
 CREATE TABLE sensor (
-	idsensor int primary key auto_increment,
+	idSensor int primary key auto_increment,
     umidade float,
-    avisos varchar(40),
-    dtAviso date,
-    horario time,
+    localSensor varchar(45),
+    statusSensor varchar(45),
     fkFazenda int,
-    constraint chk_avisos CHECK (avisos IN ('Umidade padrão', 'Umidade elevada', 'Umidade critica')),
     constraint fkFazendaSensor foreign key (fkFazenda) references fazenda (idfazenda)
 );
 
@@ -113,3 +113,15 @@ SELECT f.nome as 'Nome da fazenda', idSensor, CASE
   FROM fazenda as f JOIN sensor
   ON fkFazenda = idFazenda
   ORDER BY umidade;
+  
+CREATE TABLE alerta (
+idAlerta int primary key auto_increment,
+statusAlerta varchar(45),
+idFazenda int,
+umidadeAlerta varchar(45),
+dtAlerta datetime,
+constraint chkStatus check (statusAlerta in('Umidade elevada', 'Umidade alta', 'Umidade crítica'))
+);
+
+INSERT INTO alerta VALUES
+	(default, 'Umidade elevada', 1, );
