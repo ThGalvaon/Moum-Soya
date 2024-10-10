@@ -1,6 +1,6 @@
 # Moum Soya:
-  Monitoramento da qualidade do ar no plantio de soja. <br><br>
-  Com a nossa solução apoiamos nossos clientes nas tomadas de decisõese avisaremos antecipadamente os riscos de proliferação do fungo.
+  Monitoramento da umidade do ar no plantio de soja. <br><br>
+  Com a nossa solução apoiamos nossos clientes nas tomadas de decisões e avisaremos antecipadamente sobre os riscos de proliferação do fungo ferrugem asiatica.
 
 # ⌨️ Integrantes
   • [Thiago Galvão](https://github.com/ThGalvaon) <br>
