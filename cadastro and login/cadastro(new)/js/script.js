@@ -62,6 +62,7 @@ function validateForm() {
         return false;
     }
 
+    alert('Usuario cadastrado com sucesso')
     return true; // Se todas as validações passarem
 }
 
