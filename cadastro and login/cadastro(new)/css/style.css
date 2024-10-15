@@ -129,7 +129,7 @@
     font-size: 12px;
 }
 
-#ir_cadastro a:hover{
+#ir_login a:hover{
     color: var(--color-purple-50);
 }
 
