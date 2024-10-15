@@ -78,6 +78,7 @@
 
 #social_media img {
     width: 170px;
+    transition: 0.5s linear;
 }
 
 #social_media img:hover {
