@@ -58,7 +58,7 @@
 #form_header h1:before{
     position: absolute;
     content: "";
-    width: 40%;
+    width: 100%;
     background-color: var(--color-purple-50);
     height: 3px;
     bottom: 10px;

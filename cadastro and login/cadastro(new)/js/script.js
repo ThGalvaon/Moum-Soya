@@ -111,7 +111,7 @@ function validarSenha() {
     var possui_letra_maiuscula = /[A-Z]/.test(senha); // Verifica se a senha contém letra maiúscula
     var possui_letra_minuscula = /[a-z]/.test(senha); // Verifica se a senha contém letra minúscula
     var possui_caracter_especial = /[!@#$%¨&*()]/.test(senha);
-    
+
     /* 
     Esta é a expressão regular. Está entre barras (/), que delimitam o início e o fim da expressão.
     O que está dentro dos colchetes ([...]) é um conjunto de caracteres que estamos buscando. 
