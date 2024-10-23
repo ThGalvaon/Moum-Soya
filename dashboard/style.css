@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: auto;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: #d3d3d3;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.content {
+    margin-left: 260px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 260px);
+}
+
+.charts {
+    display: flex;
+    justify-content: space-between; /* Para garantir espaço entre os gráficos */
+    width: 100%;
+    max-width: 1000px; /* Largura máxima dos gráficos de barra/pizza */
+    margin-top: 20px; /* Espaço entre os gráficos de linha e os de barra/pizza */
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 1000px; /* Largura máxima do gráfico de linha */
+    margin-bottom: 20px; /* Margem entre os gráficos */
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    height: 500px; /* Aumenta a altura do gráfico de linha */
+}
+
+.chart-box {
+    width: 48%; /* Largura original dos gráficos de barra/pizza */
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    height: 350px; /* Altura dos gráficos de barra/pizza */
+    margin: 0 1%; /* Margem lateral para separar os gráficos */
+}
+
+
+
+.chart-title {
+    background-color: rgba(60, 179, 113, 1);
+    color: white;
+    text-align: center;
+    padding: 5px;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+/* O restante do CSS permanece inalterado */
+
+
+.button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.kpi-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.kpi {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 30%;
+    background-color: rgba(60, 179, 113, 0.1);
+    font-size: 1.5em;
+    margin: 0 10px;
+    font-weight: normal;
+}
+
+.kpi h3 {
+    margin: 0;
+}
+
+.alerts {
+    color: red;
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 400;
+    font-size: 3em; 
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.tech-title {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1.2em; 
+    font-weight: 300;
+    display: block;
+}
