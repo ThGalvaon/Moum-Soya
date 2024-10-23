@@ -1,26 +1,29 @@
+/* Importa a fonte Poppins do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Declaração de variáveis CSS para cores e gradientes */
 :root {
-    --color-light-50: #f8fafc;
+    --color-light-50: #f8fafc; /* Cor clara (usada como fundo principal) */
 
-    --color-dark-50: #797984; 
-    --color-dark-100: #311d37; 
-    --color-dark-900: #000; 
+    --color-dark-50: #797984; /* Cor escura média (texto) */
+    --color-dark-100: #311d37; /* Cor escura (fundo do modo escuro) */
+    --color-dark-900: #000;  /* Preto absoluto (usado em textos ou elementos) */
 
-    --color-purple-50: #9e35e9;
-    --color-purple-100: #100d28;
-    --color-purple-200: #0a0818;
+    --color-purple-50: #9e35e9; /* Tom roxo claro */
+    --color-purple-100: #100d28; /* Tom roxo escuro */
+    --color-purple-200: #0a0818; /* Tom roxo muito escuro */
 
+    /* Gradiente criado a partir das cores roxas */
     --color-gradient: linear-gradient(90deg,var(--color-purple-50),var(--color-purple-100),var(--color-purple-200));
 }
 
+/* Estilização geral de todos os elementos */
 * {
-    font-family: 'Poppins',sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-    overflow: hidden;  /* Remove o scroll */
+    font-family: 'Poppins',sans-serif; /* Define a fonte Poppins para todos os elementos */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimento padrão */
+    box-sizing: border-box; /* Faz com que a largura e altura incluam padding e bordas */
+    overflow: hidden; /* Remove o scroll */
 }
 
 #container {
