@@ -26,49 +26,54 @@
     overflow: hidden; /* Remove o scroll */
 }
 
+/* Estilo do container principal */
 #container {
-    height: 100vh;
-    width: 100%;
-    background-color: #264653;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100vh; /* Altura total da tela */
+    width: 100%; /* Largura total */
+    background-color: #264653; /* Cor de fundo do container */
+    display: flex; /* Usa Flexbox para layout */
+    align-items: center; /* Centraliza verticalmente os filhos */
+    justify-content: center; /* Centraliza horizontalmente os filhos */
 }
 
+/* Estilo do formulário de cadastro */
 #cadastro_form{
-    background-color: var(--color-light-50);
-    display: flex;
-    flex-direction: column;
-    padding: 30px 80px;
-    border-radius: 10px;
-    gap: 30px;
-    box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.336);
-    height: fit-content;
-    animation: dark-to-light 0.3s ease-in-out;
+    background-color: var(--color-light-50); /* Cor de fundo do formulário */
+    display: flex; /* Utiliza Flexbox */
+    flex-direction: column; /* Alinha os elementos em coluna */
+    padding: 30px 80px; /* Preenchimento interno do formulário */
+    border-radius: 10px; /* Bordas arredondadas */
+    gap: 30px; /* Espaço entre os elementos internos */
+    box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.336); /* Sombra do formulário */
+    height: fit-content; /* Altura ajustada ao conteúdo */
+    animation: dark-to-light 0.3s ease-in-out; /* Animação ao aparecer */
 }
 
+/* Estilo do cabeçalho do formulário */
 #form_header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+/* Estilo do título do cabeçalho */
 #form_header h1{
-    font-size: 40px;
-    position: relative;
+    font-size: 40px; /* Tamanho da fonte do título */
+    position: relative; /* Para posicionar o pseudo-elemento abaixo do título */
 }
 
+/* Linha abaixo do título usando um pseudo-elemento */
 #form_header h1:before{
-    position: absolute;
-    content: "";
-    width: 100%;
-    background-color: var(--color-purple-50);
-    height: 3px;
-    bottom: 10px;
-    border-radius: 5px;
-}
+    position: absolute; /* Permite que seja posicionado em relação ao título */
+    content: ""; /* Necessário para exibir o elemento */
+    width: 100%; /* Largura total da linha */
+    background-color: var(--color-purple-50); /* Cor da linha */
+    height: 3px; /* Altura da linha */
+    bottom: 10px; /* Distância da parte inferior do título */
+    border-radius: 5px; /* Bordas arredondadas da linha */
 
 
+/* Estilo do ícone que muda o modo (dia/noite) */   
 #mode_icon{
     cursor: pointer;
     font-size: 20px;
