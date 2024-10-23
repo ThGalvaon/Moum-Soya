@@ -19,6 +19,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden; /* Remove o scroll */
 }
 
 #container {
@@ -34,7 +35,7 @@
     background-color: var(--color-light-50);
     display: flex;
     flex-direction: column;
-    padding: 30px 40px;
+    padding: 30px 60px;
     border-radius: 8px;
     gap: 30px;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.336);
@@ -145,6 +146,14 @@
     cursor: pointer;
     transition: 0.5s linear;
 }
+
+#login_button {
+    width: 100%; /* Isso fará o botão ocupar toda a largura do contêiner */
+}
+#login_button {
+    padding: 7px 40px; /* Aumente os valores de padding horizontal para mais espaço */
+}
+
 
 #login_button:hover{
     transform: scale(1.05);
