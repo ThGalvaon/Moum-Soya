@@ -19,24 +19,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden; /* Remove o scroll */
+    overflow: hidden;
+    overflow: hidden;  /* Remove o scroll */
 }
 
 #container {
     height: 100vh;
     width: 100%;
-    background-color: #100d28;
+    background-color: #264653;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#login_form{
+#cadastro_form{
     background-color: var(--color-light-50);
     display: flex;
     flex-direction: column;
-    padding: 30px 60px;
-    border-radius: 8px;
+    padding: 30px 80px;
+    border-radius: 10px;
     gap: 30px;
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.336);
     height: fit-content;
@@ -135,39 +136,33 @@
     color: var(--color-purple-50);
 }
 
-#login_button{
+#cadastro_button{
     border: none;
     background-color: #16a34a;
     color: var(--color-light-50);
-    padding: 7px;
+    padding: 7px 40px;
     font-size: 18px;
     border-radius: 3px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.5s linear;
-}
-
-#login_button {
-    width: 100%; /* Isso fará o botão ocupar toda a largura do contêiner */
-}
-#login_button {
-    padding: 7px 40px; /* Aumente os valores de padding horizontal para mais espaço */
+    width: 90%;
 }
 
 
-#login_button:hover{
+#cadastro_button:hover{
     transform: scale(1.05);
 }
 
 
-.dark#login_form{
+.dark#cadastro_form{
     color: var(--color-light-50);
     background-color: var(--color-dark-100);
     animation: light-to-dark 0.3s ease-in-out;
 }
 
-.dark#login_form .input-field input,
-.dark#login_form .input-field i{
+.dark#cadastro_form .input-field input,
+.dark#cadastro_form .input-field i{
     color: var(--color-light-50);
 }
 
