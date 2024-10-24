@@ -283,22 +283,30 @@ FROM usuario as u JOIN fazenda as f
 ON idusuario = fkUsuario
 WHERE status_usuario = 'Inativo';
 
+-- SELECIONAR OS DADOS DAS FAZENDAS QUE POSSUEM MAIS DE 10 HECTARES
 SELECT * FROM fazenda
 WHERE hectares > 10;
 
+-- SELECIONAR OS DADOS DOS USUARIOS ATIVOS E DAS FAZENDAS QUE POSSUEM MAIS DE 5 SENSORES
 SELECT * FROM fazenda JOIN usuario
 WHERE qtd_sensores > 5 and status_usuario = 'Ativo';
 
+-- SELECIONAR OS DADOS DOS SENSORES
 SELECT * FROM sensor;
 
+-- SELECIONAR OS DADOS DOS SENSORES QUE ESTÃO MONITORANDO UMIDADES ACIMA DE 40
 SELECT * FROM sensor
 WHERE umidade > 40;
 
+
+-- SELECIONAR O NOME DAS FAZENDAS E VERIFICAR OS SENSORES EM FUNCIONAMENTO
 SELECT f.nome as 'Nome fazenda',
 ifnull(umidade, 'Verificar sensor') as 'Status do sensor'
 FROM fazenda as f JOIN sensor
 ON fkFazenda = idFazenda;
 
+
+-- SELECIONAR O NOME DAS FAZENDAS, O IDENTIFICADOS DOS SENSORES E SE A UMIDADE ESTÁ DENTRO DA NORMALIDADE
 SELECT f.nome as 'Nome da fazenda', idSensor, CASE 
   WHEN umidade > 50 THEN 'Verificar local, umidade elevada!'
   ELSE 'Umidade dentro da normalidade'
@@ -306,8 +314,9 @@ SELECT f.nome as 'Nome da fazenda', idSensor, CASE
   FROM fazenda as f JOIN sensor
   ON fkFazenda = idFazenda
   ORDER BY umidade;
-  
-  SELECT * FROM sensor;
+
+-- SELECIONAR OS DADOS DO SENSOR E CALCULAR AS TEMPERATURAS MÁXIMAS, MÍNIMAS E MÉDIAS  
+SELECT * FROM sensor;
 SELECT avg(umidade)FROM sensor;
 SELECT min(umidade)FROM sensor;
 SELECT max(umidade)FROM sensor;
