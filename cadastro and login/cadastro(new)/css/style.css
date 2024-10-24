@@ -105,36 +105,40 @@
     gap: 20px; /* Espaço entre os inputs */
 }
 
-
+/* Estilo dos rótulos dos campos de entrada */
 .input-box label {
-    font-size: 14px;
-    color: var(--color-dark-50);
+    font-size: 14px; /* Tamanho da fonte do rótulo */
+    color: var(--color-dark-50); /* Cor do texto do rótulo */
 }
 
+/* Estilo do campo de entrada */
 .input-field{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 3px;
-    cursor: text;
-    border-bottom: 1px solid var(--color-purple-50);
+    display: flex; /* Utiliza Flexbox */
+    align-items: center; /* Alinha verticalmente os elementos */
+    gap: 15px; /* Espaço entre ícones e campos de entrada */
+    padding: 3px; /* Preenchimento interno do campo */
+    cursor: text; /* Indica que o campo é editável */
+    border-bottom: 1px solid var(--color-purple-50); /* Borda inferior do campo */
 }
 
+/* Estilo do texto dentro do campo de entrada */
 .input-field {
-    font-size: 18px;
-    color: var(--color-dark-900);
+    font-size: 18px; /* Tamanho da fonte do texto */
+    color: var(--color-dark-900); /* Cor do texto */
 }
 
+/* Estilo do elemento de input dentro do campo de entrada */
 .input-field input{
-    border: none;
-    background-color: transparent;
-    width: 260px;
-    font-size: 18px;
-    padding: 0px 5px;
+    border: none; /* Remove a borda padrão */
+    background-color: transparent; /* Fundo transparente */
+    width: 260px; /* Largura do campo de entrada */
+    font-size: 18px; /* Tamanho da fonte do campo de entrada */
+    padding: 0px 5px; /* Preenchimento interno do campo */
 }
 
+/* Remove o contorno ao focar no campo de entrada */
 .input-field input:focus:focus {
-    outline: none;
+    outline: none; /* Remove a borda de foco padrão */
 }
 
 #ir_login a {
