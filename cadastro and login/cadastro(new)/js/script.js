@@ -1,17 +1,21 @@
-const mode = document.getElementById('mode_icon');
+const mode = document.getElementById('mode_icon'); /* estou pegando
+o botao para adicionar os devidos eventos, peguei ele pelo id'mode_icon' */ 
 
-mode.addEventListener('click', () => {
-    const form = document.getElementById('cadastro_form');
-    if (mode.classList.contains('fa-moon')) {
-        mode.classList.remove('fa-moon');
-        mode.classList.add('fa-sun');
 
-        form.classList.add('dark');
-        return;
+/*agora irei adicionar um evento de clique nele, quando clicar nela vai acontecer algo */
+mode.addEventListener('click', () => { 
+    const form = document.getElementById('cadastro_form'); // estou pegando formulario 
+    if (mode.classList.contains('fa-moon')) { //estou pegando o icone e vendo se ele tem a classe 'fa-moon'
+        mode.classList.remove('fa-moon'); // caso ele contenha o icone de lua, nos iremos remover o icone de lua
+        mode.classList.add('fa-sun'); // e adicionar o igno de sol, por isso a classe mudou para 'fa-son'
+       
+        form.classList.add('dark'); // quando o form estiver no 'fa-moon' entao ele terá que adicionar a classe dark
+        return; // se chegar nessa validaçao vai parar nela 
     }
 
-    mode.classList.add('fa-moon');
-    mode.classList.remove('fa-sun');
+    // caso nao passe na condiçao acima entao ira cair na de baixo (semelhante a um ELSE)
+    mode.classList.add('fa-moon'); // aqui eu estou adicionando a lua
+    mode.classList.remove('fa-sun'); // e aqui eu estou removendo o icone de lua
     form.classList.remove('dark');
 });
 
