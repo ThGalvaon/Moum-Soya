@@ -145,7 +145,7 @@
 #ir_login a {
     color: var(--color-dark-50); /* Cor do texto do link */
     text-decoration: none; /* Remove o sublinhado do link */
-    font-size: 12px; /* Tamanho da fonte do link */
+    font-size: 14px; /* Tamanho da fonte do link */
 }
 
 /* Efeito de hover no link para login */
@@ -164,7 +164,7 @@
     font-weight: bold; /* Texto em negrito */
     cursor: pointer; /* Indica que o botão é clicável */
     transition: 0.5s linear; /* Transição suave para hover */
-    width: 90%; /* Largura do botão */
+    width: 100%; /* Largura do botão */
 }
 
 /* Efeito de hover no botão de cadastro */
