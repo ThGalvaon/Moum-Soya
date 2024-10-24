@@ -70,29 +70,30 @@
     background-color: var(--color-purple-50); /* Cor da linha */
     height: 3px; /* Altura da linha */
     bottom: 10px; /* Distância da parte inferior do título */
-    border-radius: 5px; /* Bordas arredondadas da linha */
+    border-radius: 5px;  /* Bordas arredondadas da linha */
+}
 
-
-/* Estilo do ícone que muda o modo (dia/noite) */   
+/* Estilo do ícone que muda o modo (dia/noite) */
 #mode_icon{
-    cursor: pointer;
-    font-size: 20px;
+    cursor: pointer; /* Indica que o ícone é clicável */
+    font-size: 20px; /* Tamanho da fonte do ícone */
 }
 
-
+/* Estilo para a logo */
 #social_media{
-    display: flex;
-    justify-content: space-around;
+    display: flex; /* Utiliza Flexbox */
+    justify-content: space-around; /* Espaça os ícones igualmente */
 }
 
-
+/* Estilo das imagem da logo */
 #social_media img {
-    width: 170px;
-    transition: 0.5s linear;
+    width: 170px; /* Largura das imagens */
+    transition: 0.5s linear; /* Transição suave para efeito de hover */
 }
 
+/* Efeito de hover nas imagens das redes sociais */
 #social_media img:hover {
-    transform: scale(1.2);
+    transform: scale(1.2); /* Aumenta a imagem ao passar o mouse */
 }
 
 #inputs {
