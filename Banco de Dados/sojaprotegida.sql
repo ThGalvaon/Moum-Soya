@@ -264,6 +264,7 @@ INSERT INTO DadosSensor (fkSensor, umidade, dtCaptura) VALUES
 (15, 62.2, '2022-01-15 10:00:00'),
 (15, 63.1, '2022-01-15 11:00:00');
 
+-- SELECIONAR TODOS OS DADOS DA TABELA USUARIO
 SELECT * FROM usuario;
 
 SELECT * FROM usuario ORDER BY nome;
