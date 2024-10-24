@@ -91,18 +91,20 @@
     transition: 0.5s linear; /* Transição suave para efeito de hover */
 }
 
-/* Efeito de hover nas imagens das redes sociais */
+/* Efeito de hover nas imagem da logo */
 #social_media img:hover {
     transform: scale(1.2); /* Aumenta a imagem ao passar o mouse */
 }
 
+/* Estilo da seção de inputs do formulário */
 #inputs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    display: flex; /* Utiliza Flexbox */
+    flex-direction: column; /* Alinha os inputs em coluna */
+    align-items: center; /* Centraliza horizontalmente os elementos */
+    justify-content: center; /* Centraliza verticalmente os elementos */
+    gap: 20px; /* Espaço entre os inputs */
 }
+
 
 .input-box label {
     font-size: 14px;
