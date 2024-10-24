@@ -136,3 +136,27 @@ h1 {
     font-weight: 300;
     display: block;
 }
+
+.kpi :hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: green;
+    transition: all 0.3s ease;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 5em;
+    text-align: center;
+    margin-bottom: 10px;
+    animation: shrinkTitle 2s forwards;
+}
+
+@keyframes shrinkTitle {
+    0% {
+        font-size: 5em; /* Tamanho inicial */
+    }
+    100% {
+        font-size: 3em; /* Tamanho final */
+    }
+}
