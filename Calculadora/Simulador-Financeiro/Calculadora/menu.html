@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +11,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
-
 <body>
     <div class="div_fundo">
         <img src="imagens/logoteste.png" alt="" id="img_fundo">
@@ -25,48 +23,34 @@
             </div>
 
             <div class="div_questionario">
-
                 <div class="div_linha1">
-
                     <div class="div_hectare">
                         <p id="lbl_hectare">Hectares:</p>
                         <input type="number" id="txt_hectare" placeholder="Digite um valor">
                     </div>
-
                     <div class="div_custo">
                         <p id="lbl_custo">Custo por hectare:</p>
-
                         <div class="div_cifrao">
                             <p id="lbl_cifrao">R$</p>
                             <input type="number" id="txt_custo" placeholder="Digite um valor">
                         </div>
-
                     </div>
-
                     <div class="div_faturamento">
                         <p id="lbl_faturamento">Faturamento mensal:</p>
-
                         <div class="div_cifrao2">
                             <p id="lbl_cifrao2">R$</p>
                             <input type="number" id="txt_faturamento" placeholder="Digite um valor">
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="div_linha2">
-
                     <div class="div_fungicida">
                         <p id="lbl_fungicida">Custo com fungicidas <a id="lbl_mensal">/mês</a>:</p>
-
                         <div class="div_cifrao3">
                             <p id="lbl_cifrao3">R$</p>
                             <input type="number" id="txt_fungicida" placeholder="Digite um valor">
                         </div>
-
                     </div>
-
                     <div class="div_estado">
                         <p id="lbl_estado">Sigla do Estado:</p>
                         <select id="txt_estado">
@@ -102,30 +86,26 @@
                     </div>
 
                     <div class="div_chuva">
-                        <p id="lbl_chuva">Volume da chuva:</p>
+                        <p id="lbl_chuva">Volume de chuva:</p>
                         <select id="txt_chuva">
                             <option selected>Selecione um item</option>
-                            <option>Pouca</option>
-                            <option>Moderada</option>
-                            <option>Muita</option>
+                            <option>Pouco</option>
+                            <option>Moderado</option>
+                            <option>Muito</option>
                         </select>
                     </div>
-
                 </div>
-
                 <div class="div_linha3">
-
                     <div class="div_historico">
-                        <p id="lbl_historico">A produção já foi contaminada?</p>
+                        <p id="lbl_historico">Sua produção já foi contaminada?</p>
                         <select id="txt_historico">
                             <option selected>Selecione um item</option>
                             <option>Sim</option>
                             <option>Não</option>
                         </select>
                     </div>
-
                     <div class="div_temperatura">
-                        <p id="lbl_temperatura">Temperatura do ambiente:</p>
+                        <p id="lbl_temperatura">Temperatura da região:</p>
                         <select id="txt_temperatura">
                             <option selected>Selecione um item</option>
                             <option>Muito frio</option>
@@ -135,15 +115,12 @@
                             <option>Muito Quente</option>
                         </select>
                     </div>
-
                 </div>
-
                 <div class="div_calcular">
                     <div class="div_sacas">
-                        <p id="lbl_sacas">Sacas coletadas /hectare:</p>
+                        <p id="lbl_sacas">Sacas coletadas por hectare:</p>
                         <input type="number" id="txt_sacas" placeholder="Digite um valor">
                     </div>
-
                     <button onclick="Calcular()" id="btn_calcular">Calcular</button>
                 </div>
 
@@ -178,11 +155,8 @@
 
     </div>
 </body>
-
 </html>
-
 <script>
-
     function Calcular() {
         var hectare = Number(txt_hectare.value)
         var custo = Number(txt_custo.value)
@@ -323,9 +297,7 @@
             } else if (txt_fungicida.value > 0) {
                 lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20%<img alt="" id="img_seta_baixo"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             }
-
             lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
-
             if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
                 lbl_resultado_faturamento.innerHTML = (`Faturamento: $0%<img src="imagens/mais.png" alt="" id="img_mais">`)
                 lbl_resultado_ganhos_faturamento.innerHTML = (`R$0<img src="imagens/mais.png" alt="" id="img_mais">`)
@@ -333,11 +305,9 @@
                 lbl_resultado_faturamento.innerHTML = (`Faturamento: ${ganhos_porcentagem_faturamento.toFixed(2)}%<img src="imagens/mais.png" alt="" id="img_mais">`)
                 lbl_resultado_ganhos_faturamento.innerHTML = (`R$${novo_faturamento.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais">`)
             }
-
             lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
-
 
         } else if (risco == 11) {
             probabilidade = (risco / 13) * 100
@@ -346,7 +316,6 @@
             lbl_alerta.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
             lbl_resultado_probabilidade.innerHTML = (`<img src="imagens/ponto.png" alt="" id="img_ponto">Probabilidade de contaminação: ${probabilidade.toFixed(2)}%`)
             lbl_alerta2.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
-
             lbl_ganhos.innerHTML = (`<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">GANHOS COM O NOSSO PROJETO<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">`)
 
             if (txt_fungicida.value == 0 || txt_fungicida.value == '') {
@@ -354,7 +323,6 @@
             } else if (txt_fungicida.value > 0) {
                 lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20%<img src="imagens/seta_baixo.png" alt="" id="img_seta_baixo"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             }
-
             lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
 
             if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
@@ -368,7 +336,6 @@
             lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
-
 
         } else if (risco == 10) {
             probabilidade = (risco / 13) * 100
@@ -400,7 +367,6 @@
             lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
 
-
         } else if (risco == 9) {
             probabilidade = (risco / 13) * 100
             risco_texto = 'Alto'
@@ -430,7 +396,6 @@
             lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
-
 
         } else if (risco == 8) {
             probabilidade = (risco / 13) * 100
@@ -462,7 +427,6 @@
             lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
 
-
         } else if (risco == 7) {
             probabilidade = (risco / 13) * 100
             risco_texto = 'Médio'
@@ -492,7 +456,6 @@
             lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
             lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
-
 
         } else if (risco == 6) {
             probabilidade = (risco / 13) * 100
