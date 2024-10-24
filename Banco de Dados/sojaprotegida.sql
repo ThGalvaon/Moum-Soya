@@ -64,6 +64,7 @@ umidade float,
 dtCaptura datetime
 );
 
+-- INSERÇÃO DE DADOS FICTÍCIOS PARA TESTE
 INSERT INTO Usuario (nome, email, senha, status_usuario, telefone, fkAdmin) VALUES
 ('Maria Silva', 'maria@gmail.com', 'senha123', 'Ativo', '11987654321', NULL),
 ('João Santos', 'joao@gmail.com', 'senha123', 'Ativo', '11987654322', NULL),
