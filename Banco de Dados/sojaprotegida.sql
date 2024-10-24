@@ -277,6 +277,7 @@ WHERE nome LIKE '%Maria%';
 -- SELECIONAR TODOS OS DADOS DA TABELA FAZENDA
 SELECT * FROM fazenda;
 
+-- SELECIONAR O IDENTIFICADOR, NOME E CNPJ DA FAZENDA, NOME DO USUARIO E DATA DE CANCELAMENTO DE USUARIOS INATIVOS
 SELECT f.idfazenda, f.nome as 'Nome da Fazenda', u.nome as 'Nome do usuário', f.cnpj, f.dtCancelamento, status_usuario
 FROM usuario as u JOIN fazenda as f
 ON idusuario = fkUsuario
