@@ -274,6 +274,7 @@ SELECT * FROM usuario ORDER BY nome;
 SELECT nome FROM usuario
 WHERE nome LIKE '%Maria%';
 
+-- SELECIONAR TODOS OS DADOS DA TABELA FAZENDA
 SELECT * FROM fazenda;
 
 SELECT f.idfazenda, f.nome as 'Nome da Fazenda', u.nome as 'Nome do usuário', f.cnpj, f.dtCancelamento, status_usuario
