@@ -141,27 +141,30 @@
     outline: none; /* Remove a borda de foco padrão */
 }
 
+/* Estilo do link que leva ao login */
 #ir_login a {
-    color: var(--color-dark-50);
-    text-decoration: none;
-    font-size: 12px;
+    color: var(--color-dark-50); /* Cor do texto do link */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-size: 12px; /* Tamanho da fonte do link */
 }
 
+/* Efeito de hover no link para login */
 #ir_login a:hover{
-    color: var(--color-purple-50);
+    color: var(--color-purple-50); /* Muda a cor do link ao passar o mouse */
 }
 
+/* Estilo do botão de cadastro */
 #cadastro_button{
-    border: none;
-    background-color: #16a34a;
-    color: var(--color-light-50);
-    padding: 7px 40px;
-    font-size: 18px;
-    border-radius: 3px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.5s linear;
-    width: 90%;
+    border: none; /* Remove a borda padrão */
+    background-color: #16a34a; /* Cor de fundo do botão */
+    color: var(--color-light-50); /* Cor do texto do botão */
+    padding: 7px 40px; /* Preenchimento interno do botão */
+    font-size: 18px; /* Tamanho da fonte do botão */
+    border-radius: 3px; /* Bordas arredondadas do botão */
+    font-weight: bold; /* Texto em negrito */
+    cursor: pointer; /* Indica que o botão é clicável */
+    transition: 0.5s linear; /* Transição suave para hover */
+    width: 90%; /* Largura do botão */
 }
 
 
