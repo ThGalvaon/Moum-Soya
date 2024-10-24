@@ -1,6 +1,7 @@
 CREATE DATABASE sojaprotegida;
 USE sojaprotegida;
 
+-- CRIAÇÃO DAS TABELAS
 CREATE TABLE Usuario (
 	idUsuario int primary key auto_increment,
     nome varchar(50) not null,
