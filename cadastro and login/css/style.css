@@ -127,7 +127,7 @@
 #ir_cadastro a {
     color: var(--color-dark-50);
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 #ir_cadastro a:hover{

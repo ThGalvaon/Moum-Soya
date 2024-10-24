@@ -26,7 +26,7 @@
     overflow: hidden; /* Remove o scroll */
 }
 
-/* Estilo do container principal */
+/*Estilo do container principal*/
 #container {
     height: 100vh; /* Altura total da tela */
     width: 100%; /* Largura total */
