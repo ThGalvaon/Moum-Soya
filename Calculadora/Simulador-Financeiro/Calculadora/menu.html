@@ -216,7 +216,8 @@
         }
         else if (estado == 'PR' || estado == 'SC' || estado == 'RS' || estado == 'MT' || estado == 'MS' || estado == 'GO' || estado == 'DF' || estado == 'SP') {
             risco += 5
-        }
+        } 
+        // os Estados que estão no topo do ranking nos aumentamos o risco em 5 no nosso calculo final
         else { risco += 3 }
 
         if (txt_historico.value == (`Selecione um item`)) {
