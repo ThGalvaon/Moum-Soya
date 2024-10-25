@@ -7,6 +7,10 @@ body {
     overflow: auto;
 }
 
+.link{
+    color: blue;
+}
+
 .sidebar {
     position: fixed;
     width: 250px;
@@ -35,7 +39,6 @@ body {
 }
 
 .chart-container {
-    width: 100%;
     max-width: 1000px; /* Largura máxima do gráfico de linha */
     margin-bottom: 20px; /* Margem entre os gráficos */
     border: 2px solid #ccc;
@@ -44,6 +47,7 @@ body {
     position: relative;
     text-align: center;
     height: 500px; /* Aumenta a altura do gráfico de linha */
+    width: 750px;
 }
 
 .chart-box {
@@ -53,10 +57,19 @@ body {
     border-radius: 5px;
     position: relative;
     height: 350px; /* Altura dos gráficos de barra/pizza */
-    margin: 0 1%; /* Margem lateral para separar os gráficos */
+    margin: 0 1%;
+    flex-direction: column;
 }
 
+.pie-chart{
+    display: flex;
+}
 
+.bar-chart{
+    display: flex;
+    height: fit-content;
+    width: 700px;
+}
 
 .chart-title {
     background-color: rgba(60, 179, 113, 1);
@@ -66,10 +79,8 @@ body {
     width: fit-content;
     margin: 0 auto;
     border-radius: 5px;
+    height: fit-content;            
 }
-
-/* O restante do CSS permanece inalterado */
-
 
 .button {
     display: block;
