@@ -32,31 +32,31 @@ body {
 
 .charts {
     display: flex;
-    justify-content: space-between; /* Para garantir espaço entre os gráficos */
+    justify-content: space-between; 
     width: 100%;
-    max-width: 1000px; /* Largura máxima dos gráficos de barra/pizza */
-    margin-top: 20px; /* Espaço entre os gráficos de linha e os de barra/pizza */
+    max-width: 1000px; 
+    margin-top: 20px; 
 }
 
 .chart-container {
-    max-width: 1000px; /* Largura máxima do gráfico de linha */
-    margin-bottom: 20px; /* Margem entre os gráficos */
+    max-width: 1000px;
+    margin-bottom: 20px;
     border: 2px solid #ccc;
     padding: 10px;
     border-radius: 5px;
     position: relative;
     text-align: center;
-    height: 500px; /* Aumenta a altura do gráfico de linha */
+    height: 500px;
     width: 750px;
 }
 
 .chart-box {
-    width: 48%; /* Largura original dos gráficos de barra/pizza */
+    width: 48%; 
     border: 2px solid #ccc;
     padding: 10px;
     border-radius: 5px;
     position: relative;
-    height: 350px; /* Altura dos gráficos de barra/pizza */
+    height: 350px; 
     margin: 0 1%;
     flex-direction: column;
 }
@@ -120,8 +120,16 @@ body {
     font-size: 1.5em;
     margin: 0 10px;
     font-weight: normal;
+    transition: all 0.3s ease; 
 }
 
+.kpi:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: green;
+    transform: scale(1.1); 
+    font-size: 2em; 
+
+}
 .kpi h3 {
     margin: 0;
 }

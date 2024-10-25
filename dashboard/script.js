@@ -13,6 +13,7 @@ const sensorStatusData = {
     }]
 };
 
+
 const monthlyHumidityData = {
     labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
     datasets: [{
@@ -32,7 +33,7 @@ const humidityLineChart = new Chart(ctxLine, {
         datasets: [{
             label: 'Umidade Relativa (%)',
             data: humidityData,
-            borderColor: 'rgba(60, 179, 113, 1)', // Verde escuro
+            borderColor: 'rgba(60, 179, 113, 1)',
             fill: false,
         }]
     },
