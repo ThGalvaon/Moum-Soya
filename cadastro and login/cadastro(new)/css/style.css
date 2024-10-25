@@ -41,9 +41,9 @@
     background-color: var(--color-light-50); /* Cor de fundo do formulário */
     display: flex; /* Utiliza Flexbox */
     flex-direction: column; /* Alinha os elementos em coluna */
-    padding: 30px 80px; /* Preenchimento interno do formulário */
+    padding: 1% 7%; /* Preenchimento interno do formulário */
     border-radius: 10px; /* Bordas arredondadas */
-    gap: 30px; /* Espaço entre os elementos internos */
+    gap: 15px; /* Espaço entre os elementos internos */
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.336); /* Sombra do formulário */
     height: fit-content; /* Altura ajustada ao conteúdo */
     animation: dark-to-light 0.3s ease-in-out; /* Animação ao aparecer */
@@ -102,7 +102,7 @@
     flex-direction: column; /* Alinha os inputs em coluna */
     align-items: center; /* Centraliza horizontalmente os elementos */
     justify-content: center; /* Centraliza verticalmente os elementos */
-    gap: 20px; /* Espaço entre os inputs */
+    gap: 15px; /* Espaço entre os inputs */
 }
 
 /* Estilo dos rótulos dos campos de entrada */
