@@ -228,7 +228,7 @@
         } else {
             risco += 1
         }
-
+        // se ja foi contaminada o risco aumenta
         if (temperatura == 'Muito frio' || temperatura == 'Muito Quente') {
             risco += 3
         } else if (temperatura == 'Frio' || temperatura == 'Quente') {
@@ -238,7 +238,7 @@
         } else if (txt_temperatura.value == (`Selecione um item`)) {
             alert(`Resposta inválida! para o valor da temperatura`)
         }
-
+        // os extremos da temperatura aumentam o risco em 3 
 
         if (chuva == 'Muita') {
             risco += 3
