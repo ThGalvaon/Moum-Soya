@@ -16,7 +16,7 @@
 
 .breathing-effect {
   display: inline-block; /* Necessário para aplicar transformações */
-  background: #100d28; /* Cor de fundo */
+  background: #264653; /* Cor de fundo */
   color: white; /* Cor do texto */
   padding: 5px 10px; /* Espaçamento interno */
   border-radius: 5px; /* Cantos arredondados */
@@ -77,7 +77,7 @@ button {
   left: 0; /* Garante que o header fique alinhado à esquerda */
   width: 100%; /* Alinha o header à largura da página */
   height: 201px; /* Altura do header */
-  background: #100d28;
+  background: rgb(39, 71, 84);
   z-index: 1000;
   overflow: hidden;
 }
@@ -106,7 +106,7 @@ button {
   left: 1517px;
   padding: 12px 12px 12px 12px;
   background: #ffffff;
-  border: 1px solid #100d28;
+  border: 1px solid #264653;
   z-index: 8;
   overflow: hidden;
   border-radius: 9.545px;
@@ -116,7 +116,7 @@ button {
   flex-basis: auto;
   position: relative;
   height: 22px;
-  color: #100d28;
+  color: #264653;
   font-family: Inter, var(--default-font-family);
   font-size: 16px;
   font-weight: 400;
@@ -138,7 +138,7 @@ button {
   left: 1692px;
   padding: 12px 12px 12px 12px;
   background: #7ed957;
-  border: 1px solid #100d28;
+  border: 1px solid #264653;
   z-index: 10;
   overflow: hidden;
   border-radius: 9.545px;
@@ -148,7 +148,7 @@ button {
   flex-basis: auto;
   position: relative;
   height: 22px;
-  color: #100d28;
+  color: #264653;
   font-family: Inter, var(--default-font-family);
   font-size: 16px;
   font-weight: 400;
@@ -387,7 +387,7 @@ button {
   height: 40px;
   top: 18px;
   left: 347px;
-  color: #100d28;
+  color: #264653;
   font-family: Lato, var(--default-font-family);
   font-size: 40px;
   font-weight: 400;
@@ -402,7 +402,7 @@ button {
   position: relative;
   height: 57px;
   margin: 23px 0 0 96px;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 48px;
   font-weight: 700;
@@ -426,7 +426,7 @@ button {
 }
 .informed-precision-decisions {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -435,7 +435,7 @@ button {
 }
 .real-time {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -444,7 +444,7 @@ button {
 }
 .informed-precision-decisions-4 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -453,7 +453,7 @@ button {
 }
 .real-time-5 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -462,7 +462,7 @@ button {
 }
 .informed-precision-decisions-6 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -471,7 +471,7 @@ button {
 }
 .real-time-7 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -480,7 +480,7 @@ button {
 }
 .informed-precision-decisions-8 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -489,7 +489,7 @@ button {
 }
 .real-time-9 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -498,7 +498,7 @@ button {
 }
 .informed-precision-decisions-a {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -507,7 +507,7 @@ button {
 }
 .real-time-b {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -516,7 +516,7 @@ button {
 }
 .informed-precision-decisions-c {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -525,7 +525,7 @@ button {
 }
 .real-time-d {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -534,7 +534,7 @@ button {
 }
 .informed-precision-decisions-e {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -543,7 +543,7 @@ button {
 }
 .real-time-f {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -552,7 +552,7 @@ button {
 }
 .informed-precision-decisions-10 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -561,7 +561,7 @@ button {
 }
 .real-time-11 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -570,7 +570,7 @@ button {
 }
 .informed-precision-decisions-12 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -579,7 +579,7 @@ button {
 }
 .real-time-13 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -588,7 +588,7 @@ button {
 }
 .informed-precision-decisions-14 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -597,7 +597,7 @@ button {
 }
 .real-time-15 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -606,7 +606,7 @@ button {
 }
 .informed-precision-decisions-16 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -615,7 +615,7 @@ button {
 }
 .real-time-17 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -624,7 +624,7 @@ button {
 }
 .informed-precision-decisions-18 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -633,7 +633,7 @@ button {
 }
 .real-time-19 {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -642,7 +642,7 @@ button {
 }
 .informed-precision-decisions-1a {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -651,7 +651,7 @@ button {
 }
 .real-time-1b {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 700;
@@ -660,7 +660,7 @@ button {
 }
 .informed-precision-decisions-1c {
   position: relative;
-  color: #000000;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 26px;
   font-weight: 300;
@@ -1030,7 +1030,7 @@ button {
   height: 38px;
   top: 18px;
   left: 347px;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 38px;
   font-weight: 400;
@@ -1054,7 +1054,7 @@ button {
   height: 72px;
   top: 0;
   left: calc(50% - 24.5px);
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 48px;
   font-weight: 700;
@@ -1104,7 +1104,7 @@ button {
 }
 .text-46 {
   position: relative;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 35px;
   font-weight: 300;
@@ -1113,7 +1113,7 @@ button {
 }
 .text-47 {
   position: relative;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 35px;
   font-weight: 700;
@@ -1122,7 +1122,7 @@ button {
 }
 .text-48 {
   position: relative;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 35px;
   font-weight: 300;
@@ -1131,7 +1131,7 @@ button {
 }
 .text-49 {
   position: relative;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 35px;
   font-weight: 700;
@@ -1140,7 +1140,7 @@ button {
 }
 .text-4a {
   position: relative;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 35px;
   font-weight: 300;
@@ -1149,7 +1149,7 @@ button {
 }
 .text-4b {
   position: relative;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 35px;
   font-weight: 700;
@@ -1158,7 +1158,7 @@ button {
 }
 .text-4c {
   position: relative;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 35px;
   font-weight: 300;
@@ -1167,7 +1167,7 @@ button {
 }
 .text-4d {
   position: relative;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 35px;
   font-weight: 700;
@@ -1176,7 +1176,7 @@ button {
 }
 .text-4e {
   position: relative;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 35px;
   font-weight: 300;
@@ -1223,7 +1223,7 @@ button {
   height: 38px;
   top: 382px;
   left: 787px;
-  color: #100d28;
+  color: #264653;
   font-family: Poppins, var(--default-font-family);
   font-size: 38px;
   font-weight: 400;
@@ -1237,7 +1237,7 @@ button {
   width: 1920px;
   height: 7px;
   margin: 63px 0 0 0;
-  background: #100d28;
+  background: #264653;
   z-index: 62;
   overflow: hidden;
 }
@@ -1312,7 +1312,7 @@ button {
   height: 546.432px;
   top: 0;
   left: 1381px;
-  background: #100d28;
+  background: #264653;
   transform: rotate(-0.12deg);
   z-index: 70;
   border-radius: 50px;
@@ -1425,7 +1425,7 @@ button {
   height: 545px;
   top: 1px;
   left: 734px;
-  background: #100d28;
+  background: #264653;
   z-index: 69;
   border-radius: 50px;
 }
@@ -1582,7 +1582,7 @@ button {
   height: 545px;
   top: 3px;
   left: 96px;
-  background: #100d28;
+  background: #264653;
   z-index: 68;
   border-radius: 50px;
 }
@@ -1717,7 +1717,7 @@ button {
   height: 38px;
   top: 18px;
   left: calc(50% - 169px);
-  color: #100d28;
+  color: #264653;
   font-family: Lato, var(--default-font-family);
   font-size: 38px;
   font-weight: 400;
@@ -1823,7 +1823,7 @@ button {
   height: 806px;
   margin: 16px 0 0 -4px;
   font-size: 0px;
-  background: #100d28;
+  background: #264653;
   z-index: 54;
   overflow: hidden;
 }
@@ -2020,7 +2020,7 @@ button {
   height: 16px;
   top: 22px;
   left: calc(50% - 290px);
-  color: #100d28;
+  color: #264653;
   font-family: Lato, var(--default-font-family);
   font-size: 16px;
   font-weight: 400;
