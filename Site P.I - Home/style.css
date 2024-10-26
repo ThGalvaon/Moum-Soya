@@ -1,13 +1,49 @@
-*{
-  padding: 0;
-  margin: 0;
-}
-
 :root {
   --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
     "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
     "Source Han Sans CN", sans-serif;
+}
+
+@keyframes breathing {
+  0%, 100% {
+      transform: scale(1); /* Tamanho normal */
+  }
+  50% {
+      transform: scale(1.05); /* Aumenta o tamanho para 105% */
+  }
+}
+
+.breathing-effect {
+  display: inline-block; /* Necessário para aplicar transformações */
+  background: #100d28; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  padding: 5px 10px; /* Espaçamento interno */
+  border-radius: 5px; /* Cantos arredondados */
+  text-align: center; /* Centraliza o texto */
+  transition: transform 0.5s ease; /* Transição suave para o efeito */
+}
+
+.breathing-effect:hover {
+  animation: breathing 3s ease-in-out infinite; /* Aplica a animação de respiração ao passar o mouse */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none; 
+}
+
+html {
+  scroll-behavior: smooth; /* Habilita scrolling suave */
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .main-container {
@@ -26,36 +62,26 @@ button {
   outline: 0;
 }
 
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #100d28;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
-  overflow: hidden;
-}
-
-
 .main-container {
   position: relative;
   width: 1920px;
-  height: 6039px;
+  height: 6039px; /* Certifique-se de que esta altura é necessária */
   margin: 0 auto;
   background: #ffffff;
-  overflow: hidden;
+  padding-top: 201px; /* Adiciona espaço para o header */
 }
+
 .header {
-  position: relative;
-  width: 1920px;
-  height: 201px;
-  margin: -7px 0 0 0;
+  position: fixed;
+  top: 0; /* Garante que o header fique no topo */
+  left: 0; /* Garante que o header fique alinhado à esquerda */
+  width: 100%; /* Alinha o header à largura da página */
+  height: 201px; /* Altura do header */
   background: #100d28;
-  z-index: 1;
+  z-index: 1000;
   overflow: hidden;
 }
+
 .logo {
   position: absolute;
   width: 311px;
@@ -369,6 +395,7 @@ button {
   text-align: left;
   white-space: nowrap;
   z-index: 60;
+
 }
 .quem-somos-3 {
   display: block;
@@ -383,6 +410,7 @@ button {
   text-align: left;
   white-space: nowrap;
   z-index: 18;
+  scroll-margin-top: 300px;
 }
 .na-moum-soya {
   position: relative;
@@ -670,6 +698,7 @@ button {
   font-weight: 400;
   line-height: 30px;
   text-align: left;
+  scroll-margin-top: 250px;
 }
 .text-2a {
   position: relative;
@@ -1033,6 +1062,7 @@ button {
   text-align: left;
   white-space: nowrap;
   z-index: 33;
+  scroll-margin-top: 350px;
 }
 .img-4 {
   position: absolute;
@@ -1561,7 +1591,7 @@ button {
   width: 332px;
   height: 517px;
   top: 80px;
-  left: 165px;
+  left: 70px;
   font-family: Poppins, var(--default-font-family);
   font-size: 32px;
   font-weight: 400;

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="div_fundo">
+        <img src="imagens/logoteste.png" alt="" id="img_fundo">
+
+        <div class="div_menu">
+
+            <div class="div_logo">
+                <img src="imagens/Logo.png" alt="logo do projeto" id="img_logo">
+                <b id="txt_simulador">Simulador Financeiro</b>
+            </div>
+
+            <div class="div_questionario">
+                <div class="div_linha1">
+                    <div class="div_hectare">
+                        <p id="lbl_hectare">Hectares:</p>
+                        <input type="number" id="txt_hectare" placeholder="Digite um valor">
+                    </div>
+                    <div class="div_custo">
+                        <p id="lbl_custo">Custo por hectare:</p>
+                        <div class="div_cifrao">
+                            <p id="lbl_cifrao">R$</p>
+                            <input type="number" id="txt_custo" placeholder="Digite um valor">
+                        </div>
+                    </div>
+                    <div class="div_faturamento">
+                        <p id="lbl_faturamento">Faturamento mensal:</p>
+                        <div class="div_cifrao2">
+                            <p id="lbl_cifrao2">R$</p>
+                            <input type="number" id="txt_faturamento" placeholder="Digite um valor">
+                        </div>
+                    </div>
+                </div>
+                <div class="div_linha2">
+                    <div class="div_fungicida">
+                        <p id="lbl_fungicida">Custo com fungicidas <a id="lbl_mensal">/mês</a>:</p>
+                        <div class="div_cifrao3">
+                            <p id="lbl_cifrao3">R$</p>
+                            <input type="number" id="txt_fungicida" placeholder="Digite um valor">
+                        </div>
+                    </div>
+                    <div class="div_estado">
+                        <p id="lbl_estado">Sigla do Estado:</p>
+                        <select id="txt_estado">
+                            <option selected>Selecione um item</option>
+                            <option>AC</option>
+                            <option>AL</option>
+                            <option>AP</option>
+                            <option>AM</option>
+                            <option>BA</option>
+                            <option>CE</option>
+                            <option>DF</option>
+                            <option>ES</option>
+                            <option>GO</option>
+                            <option>MA</option>
+                            <option>MT</option>
+                            <option>MS</option>
+                            <option>MG</option>
+                            <option>PA</option>
+                            <option>PB</option>
+                            <option>PR</option>
+                            <option>PE</option>
+                            <option>PI</option>
+                            <option>RJ</option>
+                            <option>RN</option>
+                            <option>RS</option>
+                            <option>RO</option>
+                            <option>RR</option>
+                            <option>SC</option>
+                            <option>SP</option>
+                            <option>SE</option>
+                            <option>TO</option>
+                        </select>
+                    </div>
+
+                    <div class="div_chuva">
+                        <p id="lbl_chuva">Volume de chuva:</p>
+                        <select id="txt_chuva">
+                            <option selected>Selecione um item</option>
+                            <option>Pouco</option>
+                            <option>Moderado</option>
+                            <option>Muito</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="div_linha3">
+                    <div class="div_historico">
+                        <p id="lbl_historico">Sua produção já foi contaminada?</p>
+                        <select id="txt_historico">
+                            <option selected>Selecione um item</option>
+                            <option>Sim</option>
+                            <option>Não</option>
+                        </select>
+                    </div>
+                    <div class="div_temperatura">
+                        <p id="lbl_temperatura">Temperatura da região:</p>
+                        <select id="txt_temperatura">
+                            <option selected>Selecione um item</option>
+                            <option>Muito frio</option>
+                            <option>Frio</option>
+                            <option>Moderado</option>
+                            <option>Quente</option>
+                            <option>Muito Quente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="div_calcular">
+                    <div class="div_sacas">
+                        <p id="lbl_sacas">Sacas coletadas por hectare:</p>
+                        <input type="number" id="txt_sacas" placeholder="Digite um valor">
+                    </div>
+                    <button onclick="Calcular()" id="btn_calcular">Calcular</button>
+                </div>
+
+                <div class="div_resultado1" style="display: none;">
+                    <p id="lbl_resultado_risco"></p>
+                    <p id="lbl_alerta"></p>
+                    <p id="lbl_resultado_probabilidade"></p>
+                    <p id="lbl_alerta2"></p>
+                </div>
+
+                <div class="div_resultado2" style="display: none;">
+                    <p id="lbl_ganhos"></p>
+                </div>
+
+                <div class="div_resultado3" style="display: none;">
+                    <p id="lbl_resultado_fungicida"></p>
+                    <p id="lbl_resultado_produtividade"></p>
+                    <p id="lbl_resultado_faturamento"></p>
+                </div>
+
+                <div class="div_resultado4" style="display: none;">
+                    <p id="lbl_resultado_ganhos_fungicida"></p>
+                    <p id="lbl_resultado_ganhos_produtividade"></p>
+                    <p id="lbl_resultado_ganhos_faturamento"></p>
+                </div>
+
+                <div class="div_resultado5" style="display: none;">
+                    <p id="lbl_lucro"></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+<script>
+    function Calcular() {
+        var hectare = Number(txt_hectare.value)
+        var custo = Number(txt_custo.value)
+        var estado = (txt_estado.value)
+        var temperatura = (txt_temperatura.value)
+        var chuva = (txt_chuva.value)
+        var historico = (txt_historico.value)
+        var fungicida = Number(txt_fungicida.value)
+        var faturamento = Number(txt_faturamento.value)
+        var saca = Number(txt_sacas.value)
+        var risco = 0
+        var probabilidade = 0
+        var risco_texto = ''
+        var custo_inicial = custo * hectare // custo total da produção sem sensor
+        var gastos_fungicida = fungicida * 0.8 // custo novo de fungicidas com sensor
+        var custo_final = custo_inicial - (fungicida * 0.2) // custo final da produção menos o desconto com sensor
+        var ganhos_saca = saca * 0.1
+        var ganhos_produtividade = hectare * ganhos_saca // novos ganhos em sacas da produtivade(colheita) com sensor
+        var ganhos_faturamento = ganhos_produtividade * 150 // novos ganhos da produtivade(colheita) em reais com sensor
+        var ganhos_porcentagem_faturamento = (ganhos_faturamento / faturamento) * 100 // A porcentagem do novo faturamento com sensor
+        var novo_faturamento = faturamento + ganhos_faturamento // novo faturamento total sem descontos com sensor
+        var lucro_sensor = novo_faturamento - custo_final // lucro final com sensor
+
+        var div_resultado1 = document.getElementsByClassName('div_resultado1')[0];
+        var div_resposta1 = div_resultado1.style.display;
+        if (div_resposta1 == 'none') {
+            div_resultado1.style.display = 'flex';
+        }
+        var div_resultado2 = document.getElementsByClassName('div_resultado2')[0];
+        var div_resposta2 = div_resultado2.style.display;
+        if (div_resposta2 == 'none') {
+            div_resultado2.style.display = 'flex';
+        }
+        var div_resultado3 = document.getElementsByClassName('div_resultado3')[0];
+        var div_resposta3 = div_resultado3.style.display;
+        if (div_resposta3 == 'none') {
+            div_resultado3.style.display = 'flex';
+        }
+        var div_resultado4 = document.getElementsByClassName('div_resultado4')[0];
+        var div_resposta4 = div_resultado4.style.display;
+        if (div_resposta4 == 'none') {
+            div_resultado4.style.display = 'flex';
+        }
+        var div_resultado5 = document.getElementsByClassName('div_resultado5')[0];
+        var div_resposta5 = div_resultado5.style.display;
+        if (div_resposta5 == 'none') {
+            div_resultado5.style.display = 'flex';
+        }
+
+        if (estado == `Selecione um item`) {
+            alert(`Resposta inválida! para um estado brasileiro`)
+        }
+        else if (estado == 'PR' || estado == 'SC' || estado == 'RS' || estado == 'MT' || estado == 'MS' || estado == 'GO' || estado == 'DF' || estado == 'SP') {
+            risco += 5
+        }
+        else { risco += 3 }
+
+        if (txt_historico.value == (`Selecione um item`)) {
+            alert(`Resposta inválida! para o historico da doença`)
+        }
+        else if (historico == 'Sim') {
+            risco += 2
+        } else {
+            risco += 1
+        }
+
+        if (temperatura == 'Muito frio' || temperatura == 'Muito Quente') {
+            risco += 3
+        } else if (temperatura == 'Frio' || temperatura == 'Quente') {
+            risco += 2
+        } else if (temperatura == 'Moderado') {
+            risco += 1
+        } else if (txt_temperatura.value == (`Selecione um item`)) {
+            alert(`Resposta inválida! para o valor da temperatura`)
+        }
+
+
+        if (chuva == 'Muita') {
+            risco += 3
+        } else if (chuva == 'Moderada') {
+            risco += 2
+        } else if (chuva == 'Pouca') {
+            risco += 1
+        } else if (txt_chuva.value = (`Selecione um item`)) {
+            alert(`Resposta inválida! para o nivel de chuva`)
+        }
+
+        if (txt_hectare.value == '' || txt_hectare.value <= 0) {
+            alert(`Insira um valor de hectares válido!`)
+        } if (txt_custo.value == '' || txt_custo.value <= 0) {
+            alert(`Insira um valor de custo válido!`)
+        } if (txt_fungicida.value < 0) {
+            alert(`Insira um valor do custo com fungicida válido!`)
+        } if (txt_faturamento.value < 0) {
+            alert(`Insira um valor do faturamento válido!`)
+        } else if (risco == 13) {
+            risco_texto = 'Muito alto'
+            lbl_resultado_risco.innerHTML = (`Risco: ${risco_texto}`)
+            lbl_alerta.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+            lbl_resultado_probabilidade.innerHTML = (`<img src="imagens/ponto.png" alt="" id="img_ponto">Probabilidade de contaminação: 95%`)
+            lbl_alerta2.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+
+            lbl_ganhos.innerHTML = (`<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">GANHOS COM O NOSSO PROJETO<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">`)
+
+            if (txt_fungicida.value == 0 || txt_fungicida.value == '') {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: 0%<img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            } else if (txt_fungicida.value > 0) {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20% alt="" id="img_seta_baixo"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            }
+
+            lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+
+            if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: $0%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$0<img src="imagens/mais.png" alt="" id="img_mais">`)
+            } else if (txt_faturamento.value > 0) {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: ${ganhos_porcentagem_faturamento.toFixed(2)}%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$${novo_faturamento.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais">`)
+            }
+
+            lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
+
+
+        } else if (risco == 12) {
+            probabilidade = (risco / 13) * 100
+            risco_texto = 'Muito alto'
+            lbl_resultado_risco.innerHTML = (`Risco: ${risco_texto}`)
+            lbl_alerta.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+            lbl_resultado_probabilidade.innerHTML = (`Probabilidade de contaminação: ${probabilidade.toFixed(2)}%`)
+            lbl_alerta2.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+
+            lbl_ganhos.innerHTML = (`<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">GANHOS COM O NOSSO PROJETO<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">`)
+
+            if (txt_fungicida.value == 0 || txt_fungicida.value == '') {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: 0%<img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            } else if (txt_fungicida.value > 0) {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20%<img alt="" id="img_seta_baixo"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            }
+            lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: $0%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$0<img src="imagens/mais.png" alt="" id="img_mais">`)
+            } else if (txt_faturamento.value > 0) {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: ${ganhos_porcentagem_faturamento.toFixed(2)}%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$${novo_faturamento.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais">`)
+            }
+            lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
+
+        } else if (risco == 11) {
+            probabilidade = (risco / 13) * 100
+            risco_texto = 'Muito alto'
+            lbl_resultado_risco.innerHTML = (`Risco: ${risco_texto}`)
+            lbl_alerta.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+            lbl_resultado_probabilidade.innerHTML = (`<img src="imagens/ponto.png" alt="" id="img_ponto">Probabilidade de contaminação: ${probabilidade.toFixed(2)}%`)
+            lbl_alerta2.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+            lbl_ganhos.innerHTML = (`<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">GANHOS COM O NOSSO PROJETO<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">`)
+
+            if (txt_fungicida.value == 0 || txt_fungicida.value == '') {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: 0%<img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            } else if (txt_fungicida.value > 0) {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20%<img src="imagens/seta_baixo.png" alt="" id="img_seta_baixo"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            }
+            lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+
+            if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: $0%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$0<img src="imagens/mais.png" alt="" id="img_mais">`)
+            } else if (txt_faturamento.value > 0) {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: ${ganhos_porcentagem_faturamento.toFixed(2)}%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$${novo_faturamento.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais">`)
+            }
+
+            lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
+
+        } else if (risco == 10) {
+            probabilidade = (risco / 13) * 100
+            risco_texto = 'Alto'
+            lbl_resultado_risco.innerHTML = (`Risco: ${risco_texto}`)
+            lbl_alerta.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+            lbl_resultado_probabilidade.innerHTML = (`<img src="imagens/ponto.png" alt="" id="img_ponto">Probabilidade de contaminação: ${probabilidade.toFixed(2)}%`)
+            lbl_alerta2.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+
+            lbl_ganhos.innerHTML = (`<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">GANHOS COM O NOSSO PROJETO<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">`)
+
+            if (txt_fungicida.value == 0 || txt_fungicida.value == '') {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: 0%<img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            } else if (txt_fungicida.value > 0) {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20%<img src="imagens/seta_baixo.png" alt="" id="img_seta_baixo"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            }
+
+            lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+
+            if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: $0%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$0<img src="imagens/mais.png" alt="" id="img_mais">`)
+            } else if (txt_faturamento.value > 0) {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: ${ganhos_porcentagem_faturamento.toFixed(2)}%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$${novo_faturamento.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais">`)
+            }
+
+            lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
+
+        } else if (risco == 9) {
+            probabilidade = (risco / 13) * 100
+            risco_texto = 'Alto'
+            lbl_resultado_risco.innerHTML = (`Risco: ${risco_texto}`)
+            lbl_alerta.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+            lbl_resultado_probabilidade.innerHTML = (`<img src="imagens/ponto.png" alt="" id="img_ponto">Probabilidade de contaminação: ${probabilidade.toFixed(2)}%`)
+            lbl_alerta2.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+
+            lbl_ganhos.innerHTML = (`<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">GANHOS COM O NOSSO PROJETO<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">`)
+
+            if (txt_fungicida.value == 0 || txt_fungicida.value == '') {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: 0%<img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            } else if (txt_fungicida.value > 0) {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20%<img src="imagens/seta_baixo.png" alt="" id="img_seta_baixo"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            }
+
+            lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+
+            if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: $0%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$0<img src="imagens/mais.png" alt="" id="img_mais">`)
+            } else if (txt_faturamento.value > 0) {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: ${ganhos_porcentagem_faturamento.toFixed(2)}%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$${novo_faturamento.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais">`)
+            }
+
+            lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
+
+        } else if (risco == 8) {
+            probabilidade = (risco / 13) * 100
+            risco_texto = 'Alto'
+            lbl_resultado_risco.innerHTML = (`Risco: ${risco_texto}`)
+            lbl_alerta.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+            lbl_resultado_probabilidade.innerHTML = (`<img src="imagens/ponto.png" alt="" id="img_ponto">Probabilidade de contaminação: ${probabilidade.toFixed(2)}%`)
+            lbl_alerta2.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+
+            lbl_ganhos.innerHTML = (`<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">GANHOS COM O NOSSO PROJETO<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">`)
+
+            if (txt_fungicida.value == 0 || txt_fungicida.value == '') {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: 0%<img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            } else if (txt_fungicida.value > 0) {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20%<img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            }
+
+            lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+
+            if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: $0%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$0<img src="imagens/mais.png" alt="" id="img_mais">`)
+            } else if (txt_faturamento.value > 0) {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: ${ganhos_porcentagem_faturamento.toFixed(2)}%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$${novo_faturamento.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais">`)
+            }
+
+            lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
+
+        } else if (risco == 7) {
+            probabilidade = (risco / 13) * 100
+            risco_texto = 'Médio'
+            lbl_resultado_risco.innerHTML = (`Risco: ${risco_texto}`)
+            lbl_alerta.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+            lbl_resultado_probabilidade.innerHTML = (`<img src="imagens/ponto.png" alt="" id="img_ponto">Probabilidade de contaminação: ${probabilidade.toFixed(2)}%`)
+            lbl_alerta2.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+
+            lbl_ganhos.innerHTML = (`<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">GANHOS COM O NOSSO PROJETO<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">`)
+
+            if (txt_fungicida.value == 0 || txt_fungicida.value == '') {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: 0%<img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            } else if (txt_fungicida.value > 0) {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20%<img src="imagens/ponto.png" alt="" id="img_seta_baixo"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            }
+
+            lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+
+            if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: $0%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$0<img src="imagens/mais.png" alt="" id="img_mais">`)
+            } else if (txt_faturamento.value > 0) {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: ${ganhos_porcentagem_faturamento.toFixed(2)}%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$${novo_faturamento.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais">`)
+            }
+
+            lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
+
+        } else if (risco == 6) {
+            probabilidade = (risco / 13) * 100
+            risco_texto = 'Médio'
+            lbl_resultado_risco.innerHTML = (`Risco: ${risco_texto}`)
+            lbl_alerta.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+            lbl_resultado_probabilidade.innerHTML = (`<img src="imagens/ponto.png" alt="" id="img_ponto">Probabilidade de contaminação: ${probabilidade.toFixed(2)}%`)
+            lbl_alerta2.innerHTML = (`<img src="imagens/alerta.png" alt="" id="img_alerta">`)
+
+            lbl_ganhos.innerHTML = (`<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">GANHOS COM O NOSSO PROJETO<img src="imagens/seta_ganhos.png" alt="" id="img_ganhos">`)
+
+            if (txt_fungicida.value == 0 || txt_fungicida.value == '') {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: 0%<img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            } else if (txt_fungicida.value > 0) {
+                lbl_resultado_fungicida.innerHTML = (`Gastos com fungicida: -20%<img src="imagens/ponto.png" alt="" id="img_seta_baixo"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            }
+
+            lbl_resultado_produtividade.innerHTML = (`Produtividade: 10%<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+
+            if (txt_faturamento.value == 0 || txt_faturamento.value == '') {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: $0%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$0<img src="imagens/mais.png" alt="" id="img_mais">`)
+            } else if (txt_faturamento.value > 0) {
+                lbl_resultado_faturamento.innerHTML = (`Faturamento: ${ganhos_porcentagem_faturamento.toFixed(2)}%<img src="imagens/mais.png" alt="" id="img_mais">`)
+                lbl_resultado_ganhos_faturamento.innerHTML = (`R$${novo_faturamento.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais">`)
+            }
+
+            lbl_resultado_ganhos_fungicida.innerHTML = (`R$${gastos_fungicida.toFixed(2)}<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_resultado_ganhos_produtividade.innerHTML = (`${ganhos_produtividade} Sacas<img src="imagens/mais.png" alt="" id="img_mais"><img src="imagens/ponto.png" alt="" id="img_ponto">`)
+            lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
+        }
+    }
+</script>

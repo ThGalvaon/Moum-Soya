@@ -4,25 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moum Soya</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap" />
-<link rel="stylesheet" href="script.js">
-    <link rel="stylesheet" href="index.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="main-container">
-      <div class="header">
-        <div class="logo"></div>
-        <div class="button"><span class="button-login">Login</span></div>
-        <div class="button-1">
+      <div class="header" data-aos="fade-down">
+        <a href="#"><div class="logo"></div></a>
+        <a href="./login/login.html"><div class="button"><span class="button-login">Login</span></div></a>
+        <a href="./cadastro/cadastro.html"><div class="button-1">
           <span class="button-register">Cadastre-se</span>
-        </div>
-        <span class="quem-somos">QUEM SOMOS</span
-        ><span class="o-fungo">O FUNGO</span
-        ><span class="servicos">SERVIÇOS</span
-        ><span class="objetivo">OBJETIVO</span
-        ><span class="contato">CONTATO</span>
+        </div></a>
+        <a href="#quem-somos"><span class="quem-somos">QUEM SOMOS</span></a>
+        <a href="#o-fungo"><span class="o-fungo">O FUNGO</span></a>
+        <a href="#contatos"><span class="servicos">CONTATO</span></a>
+        <a href="#objetivo"><span class="objetivo">OBJETIVO</span></a>
+        <a href="#cuidado-soja"><span class="contato">SERVIÇOS</span></a>
       </div>
       <div class="background">
         <span class="seja-bem-vindo">SEJA BEM VINDO A<br />MOUM SOYA</span
@@ -33,23 +46,19 @@
         >
         <div class="plugin-file-cover"></div>
       </div>
-      <div class="flex-row-de">
+      <div class="flex-row-de" data-aos="fade-right">
         <span class="tecnologia-em-plantacoes"
           >TECNOLOGIA EM PLANTAÇÕES PARA MAIOR EFICIÊNCIA <br />DAS SAFRAS</span
         >
         <div class="design-sem-nome"></div>
       </div>
-      <div class="flex-row-f">
-        <span class="saiba-mais">SAIBA MAIS</span>
-        <div class="rectangle"><div class="icon"></div></div>
-      </div>
-      <div class="plugin-file-cover-2">
-        <span class="venha-transformar"
+      <div class="plugin-file-cover-2" data-aos="zoom-in">
+        <span  class="venha-transformar"
           >VENHA TRANSFORMAR E EXPANDIR O SEU NEGÓCIO CONOSCO!</span
         >
       </div>
-      <span class="quem-somos-3">QUEM SOMOS</span>
-      <div class="na-moum-soya">
+      <span id="quem-somos" class="quem-somos-3" data-aos="fade-up">QUEM SOMOS</span>
+      <div class="na-moum-soya" data-aos="fade-up">
         <span class="informed-precision-decisions">Na </span
         ><span class="real-time">Moum Soya</span
         ><span class="informed-precision-decisions-4"
@@ -98,9 +107,9 @@
           mais próspero e saudável para todos.</span
         >
       </div>
-      <div class="proliferation"></div>
-      <div class="moisture-factor">
-        <span class="moisture-ideal-conditions">O QUE É </span
+      <div class="proliferation" data-aos="fade-left"></div>
+      <div class="moisture-factor" data-aos="fade-right">
+        <span id="o-fungo" class="moisture-ideal-conditions">O QUE É </span
         ><span class="text-2a">FERRUGEM ASIÁTICA</span
         ><span class="text-2b"> </span>
       </div>
@@ -115,9 +124,9 @@
         ><span class="text-31">10% a 90%</span
         ><span class="text-32"> da soja. </span>
       </div>
-      <div class="section-6"></div>
-      <span class="text-33">SINTOMAS</span>
-      <div class="box">
+      <div class="section-6" data-aos="fade-up"></div>
+      <span class="text-33" data-aos="fade-left">SINTOMAS</span>
+      <div class="box" data-aos="zoom-in">
         <span class="text-34">Os</span
         ><span class="text-35"> principais sintomas</span
         ><span class="text-36">
@@ -128,9 +137,9 @@
           >que impede a formação completa <br />dos grãos.</span
         >
       </div>
-      <div class="wrapper-4"></div>
-      <span class="text-38">PROLIFERAÇÃO</span>
-      <div class="group-5">
+      <div class="wrapper-4" data-aos="fade-up"></div>
+      <span class="text-38" data-aos="fade-up">PROLIFERAÇÃO</span>
+      <div class="group-5" data-aos="zoom-out">
         <span class="para-proliferacao-fungo">A umidade do ar é um </span
         ><span class="fator-crucial">fator crucial</span
         ><span class="para-proliferacao-fungo-1d">
@@ -145,16 +154,16 @@
         ><span class="fator-crucial-24">esporos</span
         ><span class="pelo-vento"> pelo vento.</span>
       </div>
-      <div class="section-7"></div>
-      <div class="section-8">
+      <div class="section-7" data-aos="fade-right"></div>
+      <div class="section-8" data-aos="fade-left">
         <span class="assombrando-produtores-soja"
           >O FUNGO VEM ASSOMBRANDO A MAIORIA DOS PRODUTORES DE SOJA</span
         >
       </div>
-      <div class="wrapper-5">
-        <span class="objetivo-25">OBJETIVO</span>
-        <div class="img-4"></div>
-        <div class="pic-2"></div>
+      <div class="wrapper-5" data-aos="zoom-in">
+        <span id="objetivo" class="objetivo-25">OBJETIVO</span>
+        <div class="img-4 animate__animated animate__backInLeft"></div>
+        <div class="pic-2 animate__animated animate__backInLeft"></div>
         <div class="fornecer-informacoes-decisao">
           <span class="text-46">Nós temos como objetivo fornecer </span
           ><span class="text-47">informações</span
@@ -167,18 +176,18 @@
           ><span class="text-4d"> multiplique seus lucros</span
           ><span class="text-4e">. </span>
         </div>
-        <div class="pic-3"></div>
-        <div class="chevron-right"><div class="pic-4"></div></div>
+        <div class="pic-3 animate__animated animate__backInLeft"></div>
+        <a href="./login/login.html"><div class="chevron-right"><div class="pic-4"></div></div></a>
         <span class="junte-se-a-nos">Junte-se a nós</span>
       </div>
-      <div class="group-6"></div>
-      <div class="wrapper-8">
+      <div class="group-6" data-aos="fade-up"></div>
+      <div class="wrapper-8" data-aos="fade-down">
         <span class="visao">VISÃO</span><span class="missao">MISSÃO</span
         ><span class="valores">VALORES</span>
       </div>
-      <div class="section-9">
+      <div class="section-9" data-aos="fade-right">
         <div
-          class="foco-cliente-responsabilidade-excelencia-honestidade-respeito"
+          class="breathing-effect foco-cliente-responsabilidade-excelencia-honestidade-respeito"
         >
           <div class="wrapper-9">
             <span class="focus-on-client">- </span
@@ -193,7 +202,7 @@
             ><span class="focus-on-client-2e">Respeito</span>
           </div>
         </div>
-        <div class="rectangle-2f">
+        <div class="breathing-effect rectangle-2f">
           <div class="technology-monitoring">
             <span class="offer">Oferecer</span
             ><span class="cutting-edge-technology"> tecnologia de ponta </span
@@ -213,22 +222,24 @@
             ><span class="offer-3c">.</span>
           </div>
         </div>
-        <div class="rectangle-3d"></div>
-        <div class="reference-solutions">
-          <span class="reference-solutions-3e">Ser a </span
-          ><span class="reference">referência</span
-          ><span class="reference-solutions-3f"> em soluções de </span
-          ><span class="reference-40">monitoramento</span
-          ><span class="reference-solutions-41"> de umidade do ar para a </span
-          ><span class="reference-42">agricultura</span
-          ><span class="reference-solutions-43">, promovendo </span
-          ><span class="reference-44">práticas sustentáveis</span
-          ><span class="reference-solutions-45"> e aumentando a </span
-          ><span class="reference-46">produtividade</span
-          ><span class="agricultores-de-soja"> dos agricultores de soja.</span>
-        </div>
+        <div class="breathing-effect rectangle-3d">
+          <div class="reference-solutions">
+              <span class="reference-solutions-3e">Ser a </span>
+              <span class="reference">referência</span>
+              <span class="reference-solutions-3f"> em soluções de </span>
+              <span class="reference-40">monitoramento</span>
+              <span class="reference-solutions-41"> de umidade do ar para a </span>
+              <span class="reference-42">agricultura</span>
+              <span class="reference-solutions-43">, promovendo </span>
+              <span class="reference-44">práticas sustentáveis</span>
+              <span class="reference-solutions-45"> e aumentando a </span>
+              <span class="reference-46">produtividade</span>
+              <span class="agricultores-de-soja"> dos agricultores de soja.</span>
+          </div>
+      </div>
+              
         <div class="seja-moum-soya">
-          <span class="seja-moum-soya-47">SEJA MOUM SOYA!</span>
+          <span id="cuidado-soja" class="seja-moum-soya-47">SEJA MOUM SOYA!</span>
         </div>
       </div>
       <div class="cuidado-soja-moum">
@@ -238,19 +249,19 @@
         ><span class="cuidado-soja-moum-49"> OFERECE</span>
       </div>
       <div class="flex-row-dd">
-        <span class="simulacao">Faça já uma simulação</span>
-        <div class="rectangle-4a"><div class="icon-4b"></div></div>
+        <span  class="simulacao">Faça já uma simulação</span>
+        <a href="./calculadora Soya/menu.html"><div class="rectangle-4a"><div class="icon-4b"></div></a> </div>
       </div>
       <div class="plugin-file-cover-4c"></div>
-      <div class="contatos">
+      <div id="contatos" class="contatos" data-aos="fade-up">
         <span class="navegue-site">Navegue pelo site </span>
         <div class="flex-row-fe">
-          <span class="valores-o-que-fazemos"
-            ><br />Valores <br /><br />O que fazemos <br /><br />Equipe
-            <br /><br />Simulador</span
-          ><span class="home-tecnologia-monitoramento"
-            >Home<br /><br />Tecnologia para monitoramento<br /><br />Problemas
-            da ferrugem asiatica<br /><br />Quem somos<br /></span
+          <a href="#o-fungo"><span class="valores-o-que-fazemos"> <br>Problemas da ferrugem asiatica</span></a>
+          <span></span>
+          <span class="home-tecnologia-monitoramento"> Home<br/> 
+          <br/>Simulador<br/>
+          <br/>Quem somos<br/>
+          </span
           ><span class="redes-sociais">Redes sociais:</span>
           <div class="pngwing"></div>
           <div class="line"></div>
@@ -280,6 +291,16 @@
       <div class="background-57"></div>
       <div class="rectangle-58"></div>
     </div>
-    <!-- Generated by Codia AI - https://codia.ai/ -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init({
+        duration: 1000, // Duração de 1 segundo para cada animação
+        once: true, // As animações ocorrerão apenas uma vez, ao entrar na viewport
+      });
+    </script>
+    
+
   </body>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animação no Site Inteiro</title>
+<style>
+  /* Estilos básicos */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.1s, opacity 0.1s;
+    transform-origin: center center;
+  }
+
+  h1, p {
+    text-align: center;
+  }
+
+  section {
+    padding: 50px;
+    margin: 50px auto;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+</style>
+</head>
+<body>
+
+<h1>Animação do Site Todo</h1>
+<p>Role a página para ver o efeito de animação em todo o conteúdo.</p>
+
+<section>Conteúdo da Seção 1</section>
+<section>Conteúdo da Seção 2</section>
+<section>Conteúdo da Seção 3</section>
+<section>Conteúdo da Seção 4</section>
+
+<script>
+  // Função para aplicar transformação ao site inteiro com base no scroll
+  function animateWholeSite() {
+    // Pega o total de pixels rolados na página
+    const scrollY = window.scrollY;
+
+    // Define a escala e rotação com base na rolagem
+    const scale = 1 + scrollY * 0.0001; // Suave efeito de zoom
+    const rotation = scrollY * 0.02; // Rotações pequenas
+
+    // Aplica as transformações ao body
+    document.body.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+    document.body.style.opacity = 1 - scrollY * 0.0002; // Diminui a opacidade gradualmente
+  }
+
+  // Escuta o evento de scroll para ativar a animação
+  window.addEventListener('scroll', animateWholeSite);
+</script>
+
+</body>
+</html>
