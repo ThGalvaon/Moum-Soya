@@ -97,6 +97,30 @@ body {
     border: none;
 }
 
+.toggle-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button.mostrar {
+    background-color: #dc3545;
+}
+
+.toggle-button.remover {
+    background-color: #28a745;
+}
+
+
 .profile-pic {
     width: 100px;
     height: 100px;
@@ -189,10 +213,10 @@ h1 {
 
 @keyframes shrinkTitle {
     0% {
-        font-size: 5em; /* Tamanho inicial */
+        font-size: 5em; 
     }
     100% {
-        font-size: 3em; /* Tamanho final */
+        font-size: 3em;
     }
 }
 
@@ -200,6 +224,11 @@ h1 {
     justify-self: center;
     width: 900px;
     height: fit-content;
+}
+
+.bar .title {
+    justify-content: center;
+    align-items: center;
 }
 
 #alertTitle{
