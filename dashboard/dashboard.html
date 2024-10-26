@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0"></script>
 <body>
 
     <div class="sidebar">
@@ -25,20 +24,22 @@
 
     <div id="tela1" class="content">
         <h1><strong>Moum Soya</strong><br><span class="tech-title">TECHNOLOGY</span></h1><br><br>
-
         <div class="kpi-container">
             <div class="kpi">
                 <h3>Total de Sensores</h3>
                 <p class="txt-kpi">20</p>
             </div>
+
             <div class="kpi">
                 <h3>Umidade Média Ultimos 7 Dias</h3>
                 <p  class="txt-kpi">52%</p>
             </div>
+
             <div class="kpi">
                 <h3>Alertas no Dia</h3>
                 <p class="alerts">5</p>
             </div>
+
             <div class="kpi">
                 <h3>Último Alerta Registrado</h3>
                 <p class="alerts-moderate">73%</p>
@@ -49,31 +50,31 @@
             <div class="chart-title">Umidade Relativa ao Longo do Tempo</div>
             <canvas id="humidityLineChart"></canvas>
         </div>
-        
+
         <div class="charts">
             <div class="chart-box pie-chart">
                 <div class="chart-title">Status dos Sensores</div>
                 <canvas id="sensorStatusChart"></canvas>
             </div>
+
             <div class="chart-box bar-chart">
                 <div class="chart-title">Umidade Média por Mês</div>
                 <canvas id="monthlyHumidityChart"></canvas>
+                <button id="toggleButton" class="toggle-button">Mostrar Linha Limite</button>
             </div>
         </div>
-        
-        
     </div>
+
     <div id="tela2" class="content">
         <h1><strong>Moum Soya</strong><br><span class="tech-title">TECHNOLOGY</span></h1><br><br>
         <div class="chart-box bar-alert">
             <div id="alertTitle" class="chart-title">Total Alertas</div>
             <canvas id="alertChart"></canvas>
         </div>
-
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

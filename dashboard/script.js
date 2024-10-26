@@ -1,10 +1,10 @@
-const humidityData = [45, 55, 50, 65, 70, 85, 78, 90, 92, 88, 95];
-const timeLabels = ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45', '00:50'];
+const humidityData = [45, 50, 55, 65, 60, 69, 67, 75, 79, 74, 71];
+const timeLabels = ['12:00', '12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45', '12:50'];
 
 const sensorStatusData = {
-    labels: ['Ativos', 'Inativos', 'Manutenção'],
+    labels: ['Quantidade de Ativos', 'Quantidade de Inativos', 'Quantidade capitando umidade alta'],
     datasets: [{
-        data: [12, 5, 3],
+        data: [14, 2, 4],
         backgroundColor: [
             'rgba(0, 128, 0, 0.8)',
             'rgba(60, 179, 113, 0.6)', 
@@ -18,7 +18,7 @@ const monthlyHumidityData = {
     labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
     datasets: [{
         label: 'Umidade Média (%)',
-        data: [60, 70, 75, 68, 80, 72, 78, 85, 90, 88, 82, 76],
+        data: [60, 64, 68, 69, 70, 72, 70, 76, 78, 74, 80, 82],
         backgroundColor: 'rgba(60, 179, 113, 0.6)',
         borderColor: 'rgba(0, 128, 0, 1)',
         borderWidth: 1,
@@ -87,23 +87,7 @@ const monthlyHumidityChart = new Chart(ctxBar, {
         responsive: true,
         plugins: {
             legend: {
-                display: false
-            },
-            annotation: {
-                annotations: {
-                    line1: {
-                        type: 'line',
-                        yMin: 70,
-                        yMax: 70,
-                        borderColor: 'red',
-                        borderWidth: 2,
-                        label: {
-                            enabled: true,
-                            content: 'Limite Máximo (70%)',
-                            position: 'end'
-                        }
-                    }
-                }
+                display: true
             }
         },
         scales: {
@@ -123,6 +107,34 @@ const monthlyHumidityChart = new Chart(ctxBar, {
         }
     }
 });
+
+// Função para alternar a linha limite de 70
+document.getElementById('toggleButton').addEventListener('click', function () {
+    const limitDataset = {
+        label: 'Limite Máximo (70%)',
+        data: new Array(monthlyHumidityData.labels.length).fill(70),
+        backgroundColor: 'rgba(255, 0, 0, 0.4)'
+    };
+
+    // Verifica se o dataset já foi adicionado ao gráfico
+    const existingDatasetIndex = monthlyHumidityChart.data.datasets.findIndex(
+        dataset => dataset.label === 'Limite Máximo (70%)'
+    );
+
+    if (existingDatasetIndex === -1) {
+        // Adiciona o dataset de limite ao gráfico
+        monthlyHumidityChart.data.datasets.push(limitDataset);
+        this.textContent = 'Remover Linha Limite';
+    } else {
+        // Remove o dataset de limite do gráfico
+        monthlyHumidityChart.data.datasets.splice(existingDatasetIndex, 1);
+        this.textContent = 'Mostrar Linha Limite';
+    }
+
+    // Atualiza o gráfico para exibir/ocultar o novo dataset
+    monthlyHumidityChart.update();
+});
+
 
 document.getElementById('tela2').style.display = 'none'
 document.getElementById('home').style.display = 'none'
