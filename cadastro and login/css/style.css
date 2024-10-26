@@ -43,69 +43,80 @@
     animation: dark-to-light 0.3s ease-in-out;
 }
 
+/* Estilo do cabeçalho do formulário */
 #form_header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+
+/* Estilo do título do cabeçalho */
 #form_header h1{
-    font-size: 40px;
-    position: relative;
+    font-size: 40px; /* Tamanho da fonte do título */
+    position: relative; /* Para posicionar o pseudo-elemento abaixo do título */
 }
 
+/* Linha abaixo do título usando um pseudo-elemento */
 #form_header h1:before{
-    position: absolute;
-    content: "";
-    width: 40%;
-    background-color: var(--color-purple-50);
-    height: 3px;
-    bottom: 10px;
-    border-radius: 5px;
+    position: absolute; /* Permite que seja posicionado em relação ao título */
+    content: ""; /* Necessário para exibir o elemento */
+    width: 40%; /* Largura total da linha */
+    background-color: var(--color-purple-50); /* Cor da linha */
+    height: 3px;  /* Altura da linha */ 
+    bottom: 10px; /* Distância da parte inferior do título */
+    border-radius: 5px; /* Bordas arredondadas da linha */
 }
 
-
+/* Estilo do ícone que muda o modo (dia/noite) */
 #mode_icon{
-    cursor: pointer;
-    font-size: 20px;
+    cursor: pointer; /* Indica que o ícone é clicável */
+    font-size: 20px; /* Tamanho da fonte do ícone */
 }
 
 
+/* Estilo para a logo */
 #social_media{
-    display: flex;
-    justify-content: space-around;
+    display: flex;/* Utiliza Flexbox */
+    justify-content: space-around; /* Espaça os ícones igualmente */
+}
+
+/* Estilo das imagem da logo */
+#social_media img { 
+    width: 170px; /* Largura das imagens */
+    transition: 0.5s linear;/* Transição suave para efeito de hover */
 }
 
 
-#social_media img {
-    width: 170px;
-    transition: 0.5s linear;
+#social_media img:hover { 
+    transform: scale(1.2); /* Aumenta a imagem ao passar o mouse */
 }
 
-#social_media img:hover {
-    transform: scale(1.2);
-}
 
+/* Estilo da seção de inputs do formulário */
 #inputs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    display: flex; /* Utiliza Flexbox */
+    flex-direction: column; /* Alinha os inputs em coluna */
+    align-items: center; /* Centraliza horizontalmente os elementos */
+    justify-content: center; /* Centraliza verticalmente os elementos */
+    gap: 20px; /* Espaço entre os inputs */
 }
 
+
+/* Estilo dos rótulos dos campos de entrada */
 .input-box label {
-    font-size: 14px;
-    color: var(--color-dark-50);
+    font-size: 14px; /* Tamanho da fonte do rótulo */
+    color: var(--color-dark-50); /* Cor do texto do rótulo */
 }
 
+/* Estilo do campo de entrada */
 .input-field{
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 3px;
-    cursor: text;
-    border-bottom: 1px solid var(--color-purple-50);
+    display: flex; /* Utiliza Flexbox */
+    align-items: center; /* Alinha verticalmente os elementos */
+    gap: 15px;  /* Espaço entre ícones e campos de entrada */
+    padding: 3px; /* Preenchimento interno do campo */
+    cursor: text; /* Indica que o campo é editável */
+    border-bottom: 1px solid var(--color-purple-50); /* Borda inferior do campo */
 }
 
 /* Estilo do texto dentro do campo de entrada */
