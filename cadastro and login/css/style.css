@@ -108,64 +108,80 @@
     border-bottom: 1px solid var(--color-purple-50);
 }
 
+/* Estilo do texto dentro do campo de entrada */
 .input-field {
-    font-size: 18px;
-    color: var(--color-dark-900);
+    font-size: 18px; /* Tamanho da fonte do texto */
+    color: var(--color-dark-900); /* Cor do texto */
 }
 
+/* Estilo do elemento de input dentro do campo de entrada */
 .input-field input{
-    border: none;
-    background-color: transparent;
-    width: 260px;
-    font-size: 18px;
-    padding: 0px 5px;
+    border: none;  /* Remove a borda padrão */
+    background-color: transparent; /* Fundo transparente */
+    width: 260px;  /* Largura do campo de entrada */
+    font-size: 18px; /* Tamanho da fonte do campo de entrada 
+    padding: 0px 5px; /* Preenchimento interno do campo */
 }
 
+
+/* Remove o contorno ao focar no campo de entrada */
 .input-field input:focus:focus {
     outline: none;
+    /* Remove a borda de foco padrão */
 }
+
 
 #ir_cadastro a {
-    color: var(--color-dark-50);
-    text-decoration: none;
-    font-size: 14px;
+    color: var(--color-dark-50); /* Cor do texto do link */
+    text-decoration: none; /* Remove o sublinhado do link *
+    font-size: 14px; /* Tamanho da fonte do link */
 }
 
+/* Efeito de hover no link para cadastro */
 #ir_cadastro a:hover{
-    color: var(--color-purple-50);
+    color: var(--color-purple-50); 
+    /* Muda a cor do link ao passar o mouse */
 }
+
 
 #login_button{
-    border: none;
-    background-color: #16a34a;
-    color: var(--color-light-50);
-    padding: 7px;
-    font-size: 18px;
-    border-radius: 3px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.5s linear;
+    border: none; /* Remove a borda padrão */
+    background-color: #16a34a; /* Cor de fundo do botão */
+    color: var(--color-light-50); /* Cor do texto do botão */
+    padding: 7px; /* Preenchimento interno do botão */
+    font-size: 18px; /* Tamanho da fonte do botão */
+    border-radius: 3px; /* Bordas arredondadas do botão */
+    font-weight: bold; /* Texto em negrito */
+    cursor: pointer; /* Indica que o botão é clicável */
+    transition: 0.5s linear; /* Transição suave para hover */
 }
 
+/* Efeito de hover no botão de cadastro */
 #login_button:hover{
-    transform: scale(1.05);
+    transform: scale(1.05); /* Aumenta o botão ao passar o mouse */
 }
 
 
+/* Estilos para o modo escuro do formulário */
 .dark#login_form{
-    color: var(--color-light-50);
-    background-color: var(--color-dark-100);
-    animation: light-to-dark 0.3s ease-in-out;
+    color: var(--color-light-50);/* Cor do texto no modo escuro */
+    background-color: var(--color-dark-100);/* Cor de fundo no modo escuro */
+    animation: light-to-dark 0.3s ease-in-out; /* Animação ao mudar para o modo escuro */
 }
 
+/* Estilos dos inputs e ícones no modo escuro */
 .dark#login_form .input-field input,
 .dark#login_form .input-field i{
-    color: var(--color-light-50);
+    color: var(--color-light-50);/* Cor do texto e ícones no modo escuro */
 }
 
+
+/* Animação para transição de cores do fundo 
+do formulário do modo claro para o modo escuro */
 @keyframes dark-to-light {
-    0%{
-        background-color:var(--color-dark-100) ;
+    0%{/* Estado inicial da animação */
+        background-color:var(--color-dark-100);/* Cor de fundo final 
+        (modo escuro) */
     }
 
     100%{
@@ -174,12 +190,16 @@
 }
 
 
+/* Animação para transição de cores do fundo 
+do formulário do modo claro para o modo escuro */
 @keyframes light-to-dark {
-    0%{
-        background-color: var(--color-light-50);
+    0%{/* Estado inicial da animação */
+        background-color: var(--color-light-50);/* Cor de fundo inicial 
+        (modo claro) */
     }
 
-    100%{
-        background-color:var(--color-dark-100) ;
+    100%{/* Estado final da animação */
+        background-color:var(--color-dark-100) ; /* Cor de fundo final 
+        (modo escuro) */
     }
 }
