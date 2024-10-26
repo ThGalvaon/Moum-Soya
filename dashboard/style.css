@@ -23,7 +23,7 @@ body {
 
 .content {
     margin-left: 260px;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +35,8 @@ body {
     justify-content: space-between; 
     width: 100%;
     max-width: 1000px; 
-    margin-top: 20px; 
+    margin-top: 20px;
+    padding-bottom: 3%; 
 }
 
 .chart-container {
@@ -63,6 +64,8 @@ body {
 
 .pie-chart{
     display: flex;
+    width: fit-content;
+    height: fit-content;
 }
 
 .bar-chart{
@@ -115,7 +118,7 @@ body {
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 5px;
-    width: 30%;
+    width: fit-content;
     background-color: rgba(60, 179, 113, 0.1);
     font-size: 1.5em;
     margin: 0 10px;
@@ -132,10 +135,23 @@ body {
 }
 .kpi h3 {
     margin: 0;
+    width: fit-content;
+    height: fit-content;
+}
+
+.txt-kpi{
+    font-size: 2em;
+    margin-top: 10px;
 }
 
 .alerts {
     color: red;
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 10px;
+}
+.alerts-moderate {
+    color: orange;
     font-weight: bold;
     font-size: 2em;
     margin-top: 10px;
@@ -178,4 +194,15 @@ h1 {
     100% {
         font-size: 3em; /* Tamanho final */
     }
+}
+
+.bar-alert{
+    justify-self: center;
+    width: 900px;
+    height: fit-content;
+}
+
+#alertTitle{
+    background-color: red;
+    font-size: 20px;
 }

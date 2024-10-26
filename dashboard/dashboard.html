@@ -17,27 +17,31 @@
         <h2>Usuário</h2>
         <p>Nome: XPTO</p>
         <p>Email: xpto@sptech.school</p>
-        <a href="#" class="button">Voltar para Home</a>
+        <a class="button" onclick="voltar()" id="home">Voltar para Home</a>
         <a href="#" class="button">Editar Perfil</a>
-        <a href="#" class="button">Ver Alertas</a><br><br><br><br><br><br><br><br>
-        <p><a href="#" class="link">Suporte e Ajuda</a></p>
+        <a class="button" onclick="ver()" id="dash-alert">Ver Alertas</a>
+        <!-- <p><a href="#" class="link">Suporte e Ajuda</a></p>         -->
     </div>
 
-    <div class="content">
+    <div id="tela1" class="content">
         <h1><strong>Moum Soya</strong><br><span class="tech-title">TECHNOLOGY</span></h1><br><br>
 
         <div class="kpi-container">
             <div class="kpi">
                 <h3>Total de Sensores</h3>
-                <p>20</p>
+                <p class="txt-kpi">20</p>
             </div>
             <div class="kpi">
-                <h3>Umidade Média/hectare</h3>
-                <p>75%</p>
+                <h3>Umidade Média Ultimos 7 Dias</h3>
+                <p  class="txt-kpi">52%</p>
             </div>
             <div class="kpi">
                 <h3>Alertas no Dia</h3>
                 <p class="alerts">5</p>
+            </div>
+            <div class="kpi">
+                <h3>Último Alerta Registrado</h3>
+                <p class="alerts-moderate">73%</p>
             </div>
         </div>
 
@@ -58,6 +62,14 @@
         </div>
         
         
+    </div>
+    <div id="tela2" class="content">
+        <h1><strong>Moum Soya</strong><br><span class="tech-title">TECHNOLOGY</span></h1><br><br>
+        <div class="chart-box bar-alert">
+            <div id="alertTitle" class="chart-title">Total Alertas</div>
+            <canvas id="alertChart"></canvas>
+        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
