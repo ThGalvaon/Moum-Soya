@@ -76,7 +76,7 @@
 /* Estilo do ícone que muda o modo (dia/noite) */
 #mode_icon{
     cursor: pointer; /* Indica que o ícone é clicável */
-    font-size: 20px; /* Tamanho da fonte do ícone */
+    font-size: 25px; /* Tamanho da fonte do ícone */
 }
 
 /* Estilo para a logo */
