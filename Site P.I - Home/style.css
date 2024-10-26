@@ -5,7 +5,29 @@
     "Source Han Sans CN", sans-serif;
 }
 
-/* Estilos globais */
+@keyframes breathing {
+  0%, 100% {
+      transform: scale(1); /* Tamanho normal */
+  }
+  50% {
+      transform: scale(1.05); /* Aumenta o tamanho para 105% */
+  }
+}
+
+.breathing-effect {
+  display: inline-block; /* Necessário para aplicar transformações */
+  background: #264653; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  padding: 5px 10px; /* Espaçamento interno */
+  border-radius: 5px; /* Cantos arredondados */
+  text-align: center; /* Centraliza o texto */
+  transition: transform 0.5s ease; /* Transição suave para o efeito */
+}
+
+.breathing-effect:hover {
+  animation: breathing 3s ease-in-out infinite; /* Aplica a animação de respiração ao passar o mouse */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,80 +35,20 @@
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none; 
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Habilita scrolling suave */
 }
 
 body {
   overflow-x: hidden;
 }
 
-/* Container principal com largura responsiva */
 .main-container {
-  position: relative;
-  width: 100%; /* Ajusta a largura conforme a tela */
-  max-width: 1920px; /* Largura máxima para telas grandes */
-  margin: 0 auto;
-  padding: 0 20px; /* Espaço lateral para telas menores */
-  background: #ffffff;
-}
-
-/* Header fixo */
-.header {
-  position: fixed;
-  width: 100%; /* Ajusta o cabeçalho conforme a tela */
-  max-width: 1920px;
-  height: 201px;
-  background: #100d28;
-  z-index: 1000;
   overflow: hidden;
-  padding: 0 20px;
 }
-
-/* Outros estilos */
-input, select, textarea, button {
-  outline: 0;
-}
-
-/* Animação de rolagem suave */
-.breathing-effect:hover {
-  animation: breathing 2s ease-in-out infinite;
-}
-
-@keyframes breathing {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-/* Media Queries para responsividade */
-@media (max-width: 1200px) {
-  .header {
-    height: 150px;
-  }
-  
-  .main-container {
-    padding: 0 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    height: 120px;
-    padding: 10px;
-  }
-
-  .main-container {
-    padding: 0 10px;
-  }
-}
-
 
 .main-container,
 .main-container * {
