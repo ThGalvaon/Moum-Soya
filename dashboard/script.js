@@ -148,63 +148,70 @@ document.getElementById('tela2').style.display = 'none'
 document.getElementById('home').style.display = 'none'
 
 
-function ver(){
-    document.getElementById('tela1').style.display = 'none'
-    document.getElementById('tela2').style.display = 'block'
-    document.getElementById('dash-alert').style.display = 'none'
-    document.getElementById('home').style.display = 'block'
+function ver() {
+    document.getElementById('tela1').style.display = 'none';
+    document.getElementById('tela2').style.display = 'block';
+    document.getElementById('dash-alert').style.display = 'none';
+    document.getElementById('home').style.display = 'block';
 
     const alertData = {
-        labels: ['13:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'],
-        datasets: [{
-            label: 'alerts',
-            data: [0, 0, 0, 0, 1, 1, 0],
-            backgroundColor: 'red',
-            borderColor: 'rgba(0, 128, 0, 1)',
-            borderWidth: 1,
-        },
-        {
-            label: 'alerts',
-            data: [0, 1, 0, 1, 2, 1, 0],
-            backgroundColor: 'orange',
-            borderColor: 'rgba(0, 128, 0, 1)',
-            borderWidth: 1,
-        }]
-    };
-    const ctxBar = document.getElementById('alertChart').getContext('2d');
-const alertChart = new Chart(ctxBar, {
-    type: 'bar',
-    data: alertData,
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: false
+        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'],
+        datasets: [
+            {
+                label: 'Alertas > 70% Umidade',
+                data: [0, 0, 0, 0, 1, 1, 0],
+                backgroundColor: 'red',
+                borderColor: 'rgba(0, 128, 0, 1)',
+                borderWidth: 1,
             },
-        },
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: {
+            {
+                label: 'Alertas > 60% Umidade',
+                data: [0, 1, 0, 1, 2, 1, 1],
+                backgroundColor: 'orange',
+                borderColor: 'rgba(0, 128, 0, 1)',
+                borderWidth: 1,
+            }
+        ]
+    };
+
+    const ctxBar = document.getElementById('alertChart').getContext('2d');
+    const alertChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: alertData,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
                     display: true,
-                    text: 'Quantidade de Alertas'
+                    position: 'top',
+                    labels: {
+                        color: 'black',
+                        boxWidth: 15,
+                    }
                 }
             },
-            x: {
-                title: {
-                    display: true,
-                    text: 'Intervalo/Hora'
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Quantidade de Alertas'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Intervalo/Hora'
+                    }
                 }
             }
         }
-    }
-})
+    });
 }
 
-function voltar(){
-    document.getElementById('tela1').style.display = 'flex'
-    document.getElementById('tela2').style.display = 'none'
-
-    document.getElementById('home').style.display = 'none'
-    document.getElementById('dash-alert').style.display = 'block'
+function voltar() {
+    document.getElementById('tela1').style.display = 'flex';
+    document.getElementById('tela2').style.display = 'none';
+    document.getElementById('home').style.display = 'none';
+    document.getElementById('dash-alert').style.display = 'block';
 }
