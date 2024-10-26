@@ -30,12 +30,21 @@ const humidityLineChart = new Chart(ctxLine, {
     type: 'line',
     data: {
         labels: timeLabels,
-        datasets: [{
-            label: 'Umidade Relativa (%)',
-            data: humidityData,
-            borderColor: 'rgba(60, 179, 113, 1)',
-            fill: false,
-        }]
+        datasets: [
+            {   label: 'Umidade Relativa (%)',
+                data: humidityData,
+                borderColor: 'rgba(60, 179, 113, 1)',
+                fill: false,
+            },
+            {
+                label: 'Limite Máximo (70%)',
+                data: new Array(timeLabels.length).fill(70),
+                borderColor: 'rgba(255, 0, 0, 0.7)',
+                borderDash: [5, 5],
+                pointRadius: 0,
+                fill: false,
+            }
+        ]
     },
     options: {
         scales: {
@@ -80,6 +89,22 @@ const monthlyHumidityChart = new Chart(ctxBar, {
             legend: {
                 display: false
             },
+            annotation: {
+                annotations: {
+                    line1: {
+                        type: 'line',
+                        yMin: 70,
+                        yMax: 70,
+                        borderColor: 'red',
+                        borderWidth: 2,
+                        label: {
+                            enabled: true,
+                            content: 'Limite Máximo (70%)',
+                            position: 'end'
+                        }
+                    }
+                }
+            }
         },
         scales: {
             y: {
