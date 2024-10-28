@@ -1,26 +1,25 @@
-const humidityData = [45, 55, 50, 65, 70, 85, 78, 90, 92, 88, 95];
-const timeLabels = ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45', '00:50'];
+const humidityData = [45, 50, 55, 65, 60, 69, 67, 75, 78, 74, 68];
+const timeLabels = ['12:00', '12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45', '12:50'];
 
 const sensorStatusData = {
-    labels: ['Ativos', 'Inativos', 'Manutenção'],
+    labels: ['Quantidade de Ativos', 'Quantidade de Inativos', 'Quantidade captando umidade alta'],
     datasets: [{
-        data: [12, 5, 3],
+        data: [14, 2, 4],
         backgroundColor: [
             'rgba(0, 128, 0, 0.8)',
-            'rgba(60, 179, 113, 0.6)', 
-            'rgba(144, 238, 144, 0.4)' 
+            'rgb(255, 165, 0)', 
+            'rgb(255, 0, 0)' 
         ],
     }]
 };
-
 
 const monthlyHumidityData = {
     labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
     datasets: [{
         label: 'Umidade Média (%)',
-        data: [60, 70, 75, 68, 80, 72, 78, 85, 90, 88, 82, 76],
-        backgroundColor: 'rgba(60, 179, 113, 0.6)',
-        borderColor: 'rgba(0, 128, 0, 1)',
+        data: [60, 64, 68, 69, 70, 72, 70, 76, 78, 74, 80, 82],
+        backgroundColor: 'rgba(0, 128, 0, 0.8)' ,
+        borderColor: 'rgba(60, 179, 113, 0.6)',
         borderWidth: 1,
     }]
 };
@@ -30,12 +29,29 @@ const humidityLineChart = new Chart(ctxLine, {
     type: 'line',
     data: {
         labels: timeLabels,
-        datasets: [{
-            label: 'Umidade Relativa (%)',
-            data: humidityData,
-            borderColor: 'rgba(60, 179, 113, 1)',
-            fill: false,
-        }]
+        datasets: [
+            {   label: 'Umidade Relativa (%)',
+                data: humidityData,
+                borderColor: 'rgba(60, 179, 113, 1)',
+                fill: false,
+            },
+            {
+                label: 'Limite Máximo (70%)',
+                data: new Array(timeLabels.length).fill(70),
+                borderColor: 'rgba(255, 0, 0, 0.7)',
+                borderDash: [5, 5],
+                pointRadius: 0,
+                fill: false,
+            },
+            {
+                label: 'Nivel Preocupante (50%)',
+                data: new Array(timeLabels.length).fill(50),
+                borderColor: 'orange',
+                borderDash: [5, 5],
+                pointRadius: 0,
+                fill: false,
+            }
+        ]
     },
     options: {
         scales: {
@@ -78,8 +94,8 @@ const monthlyHumidityChart = new Chart(ctxBar, {
         responsive: true,
         plugins: {
             legend: {
-                display: false
-            },
+                display: true
+            }
         },
         scales: {
             y: {
@@ -98,3 +114,112 @@ const monthlyHumidityChart = new Chart(ctxBar, {
         }
     }
 });
+
+document.getElementById('toggleButton').addEventListener('click', function () {
+    const limitDataset = {
+        label: 'Limite Máximo (70%)',
+        data: new Array(monthlyHumidityData.labels.length).fill(70),
+        backgroundColor: 'rgb(255, 0, 0)'
+    };
+
+    const existingDatasetIndex = monthlyHumidityChart.data.datasets.findIndex(
+        dataset => dataset.label === 'Limite Máximo (70%)'
+    );
+
+
+
+    if (existingDatasetIndex === -1) {
+        monthlyHumidityChart.data.datasets.push(limitDataset);
+        this.textContent = 'Remover Linha Limite';
+    } else {
+        monthlyHumidityChart.data.datasets.splice(existingDatasetIndex, 1);
+        this.textContent = 'Mostrar Linha Limite';
+    }
+
+    monthlyHumidityChart.update();
+});
+
+document.getElementById("toggleButton").addEventListener("click", function () {
+    const button = this;
+    if (button.classList.contains("mostrar")) {
+        button.classList.remove("mostrar");
+        button.classList.add("remover");
+        button.textContent = "Mostrar Linha Limite";
+    } else {
+        button.classList.remove("remover");
+        button.classList.add("mostrar");
+        button.textContent = "Remover Linha Limite";
+    }
+});
+
+document.getElementById('tela2').style.display = 'none'
+document.getElementById('home').style.display = 'none'
+
+
+function ver() {
+    document.getElementById('tela1').style.display = 'none';
+    document.getElementById('tela2').style.display = 'flex';
+    document.getElementById('dash-alert').style.display = 'none';
+    document.getElementById('home').style.display = 'block';
+
+    const alertData = {
+        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'],
+        datasets: [
+            {
+                label: 'Alertas Criticos > 70% Umidade',
+                data: [0, 0, 0, 0, 1, 1, 0],
+                backgroundColor: 'red',
+                borderColor: 'rgba(0, 128, 0, 1)',
+                borderWidth: 1,
+            },
+            {
+                label: 'Alertas Moderados > 60% Umidade',
+                data: [0, 1, 0, 1, 2, 1, 1],
+                backgroundColor: 'orange',
+                borderColor: 'rgba(0, 128, 0, 1)',
+                borderWidth: 1,
+            }
+        ]
+    };
+
+    const ctxBar = document.getElementById('alertChart').getContext('2d');
+    const alertChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: alertData,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        color: 'black',
+                        boxWidth: 15,
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Quantidade de Alertas'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Intervalo/Hora'
+                    }
+                }
+            }
+        }
+    });
+}
+
+function voltar() {
+    document.getElementById('tela1').style.display = 'flex';
+    document.getElementById('tela2').style.display = 'none';
+    document.getElementById('home').style.display = 'none';
+    document.getElementById('dash-alert').style.display = 'block';
+}
