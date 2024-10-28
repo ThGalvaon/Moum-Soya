@@ -20,13 +20,13 @@ CREATE TABLE Endereco (
 	bairro varchar(45) not null,
 	logradouro varchar(45) not null,
 	numero varchar(5) not null,
-	cep char(9) not null
+	cep char(8) not null
 );
 
 CREATE TABLE Fazenda (
 	idfazenda int primary key auto_increment,
     nome varchar(40) not null,
-    cnpj varchar(20) not null,
+    cnpj char(14) not null,
     qtd_sensores int,
     hectares int, 
     dtInicio date not null,
@@ -98,33 +98,33 @@ INSERT INTO Usuario (nome, email, senha, status_usuario, telefone, fkAdmin) VALU
 ('Samuel Almeida', 'samuel@gmail.com', 'senha123', 'Inativo', '11987654350', 1);
 
 INSERT INTO Endereco (cidade, bairro, logradouro, numero, cep) VALUES
-('Curitiba', 'Centro', 'Rua XV de Novembro', '400', '80060-000'),
-('Porto Alegre', 'Cidade Baixa', 'Rua dos Andradas', '500', '90010-000'),
-('Goiânia', 'Setor Oeste', 'Avenida Anhanguera', '600', '74110-000'),
-('Campinas', 'Centro', 'Rua do Mercado', '700', '13010-000'),
-('Florianópolis', 'Centro', 'Rua Felipe Schmidt', '800', '88010-000'),
-('Belo Horizonte', 'Pampulha', 'Rua da Pampulha', '900', '31270-000'),
-('São Paulo', 'Mooca', 'Rua do Tatuapé', '1000', '03010-000'),
-('Rio de Janeiro', 'Ipanema', 'Rua Visconde de Pirajá', '1100', '22410-000'),
-('Curitiba', 'Batel', 'Rua Brigadeiro Faria Lima', '1200', '80430-000'),
-('Porto Alegre', 'Moinhos de Vento', 'Rua Ramiro Barcelos', '1300', '90030-000'),
-('Goiânia', 'Setor Sul', 'Avenida República do Líbano', '1400', '74010-000'),
-('Campinas', 'Barão Geraldo', 'Rua do Café', '1500', '13080-000'),
-('Florianópolis', 'Trindade', 'Rua Deputado Antônio Edu Vieira', '1600', '88050-000'),
-('Belo Horizonte', 'Savassi', 'Rua da Bahia', '1700', '30160-000'),
-('São Paulo', 'Vila Madalena', 'Rua Girassol', '1800', '05010-000'),
-('Rio de Janeiro', 'Leblon', 'Rua Ataulfo de Paiva', '1900', '22440-000'),
-('Curitiba', 'Centro', 'Rua XV de Novembro', '2000', '80060-000'),
-('Porto Alegre', 'Cidade Baixa', 'Rua dos Andradas', '2100', '90010-000'),
-('Goiânia', 'Setor Oeste', 'Avenida Anhanguera', '2200', '74110-000'),
-('Campinas', 'Centro', 'Rua do Mercado', '2300', '13010-000'),
-('Florianópolis', 'Centro', 'Rua Felipe Schmidt', '2400', '88010-000'),
-('Belo Horizonte', 'Pampulha', 'Rua da Pampulha', '2500', '31270-000'),
-('São Paulo', 'Mooca', 'Rua do Tatuapé', '2600', '03010-000'),
-('Rio de Janeiro', 'Ipanema', 'Rua Visconde de Pirajá', '2700', '22410-000'),
-('Curitiba', 'Batel', 'Rua Brigadeiro Faria Lima', '2800', '80430-000'),
-('Porto Alegre', 'Moinhos de Vento', 'Rua Ramiro Barcelos', '2900', '90030-000'),
-('Goiânia', 'Setor Sul', 'Avenida República do Líbano', '3000', '74010-000');
+('Curitiba', 'Centro', 'Rua XV de Novembro', '400', '80060000'),
+('Porto Alegre', 'Cidade Baixa', 'Rua dos Andradas', '500', '90010000'),
+('Goiânia', 'Setor Oeste', 'Avenida Anhanguera', '600', '74110000'),
+('Campinas', 'Centro', 'Rua do Mercado', '700', '13010000'),
+('Florianópolis', 'Centro', 'Rua Felipe Schmidt', '800', '88010000'),
+('Belo Horizonte', 'Pampulha', 'Rua da Pampulha', '900', '31270000'),
+('São Paulo', 'Mooca', 'Rua do Tatuapé', '1000', '03010000'),
+('Rio de Janeiro', 'Ipanema', 'Rua Visconde de Pirajá', '1100', '22410000'),
+('Curitiba', 'Batel', 'Rua Brigadeiro Faria Lima', '1200', '80430000'),
+('Porto Alegre', 'Moinhos de Vento', 'Rua Ramiro Barcelos', '1300', '90030000'),
+('Goiânia', 'Setor Sul', 'Avenida República do Líbano', '1400', '74010000'),
+('Campinas', 'Barão Geraldo', 'Rua do Café', '1500', '13080000'),
+('Florianópolis', 'Trindade', 'Rua Deputado Antônio Edu Vieira', '1600', '88050000'),
+('Belo Horizonte', 'Savassi', 'Rua da Bahia', '1700', '30160000'),
+('São Paulo', 'Vila Madalena', 'Rua Girassol', '1800', '05010000'),
+('Rio de Janeiro', 'Leblon', 'Rua Ataulfo de Paiva', '1900', '22440000'),
+('Curitiba', 'Centro', 'Rua XV de Novembro', '2000', '80060000'),
+('Porto Alegre', 'Cidade Baixa', 'Rua dos Andradas', '2100', '90010000'),
+('Goiânia', 'Setor Oeste', 'Avenida Anhanguera', '2200', '74110000'),
+('Campinas', 'Centro', 'Rua do Mercado', '2300', '13010000'),
+('Florianópolis', 'Centro', 'Rua Felipe Schmidt', '2400', '88010000'),
+('Belo Horizonte', 'Pampulha', 'Rua da Pampulha', '2500', '31270000'),
+('São Paulo', 'Mooca', 'Rua do Tatuapé', '2600', '03010000'),
+('Rio de Janeiro', 'Ipanema', 'Rua Visconde de Pirajá', '2700', '22410000'),
+('Curitiba', 'Batel', 'Rua Brigadeiro Faria Lima', '2800', '80430000'),
+('Porto Alegre', 'Moinhos de Vento', 'Rua Ramiro Barcelos', '2900', '90030000'),
+('Goiânia', 'Setor Sul', 'Avenida República do Líbano', '3000', '74010000');
 
 INSERT INTO Fazenda (nome, cnpj, qtd_sensores, hectares, dtInicio, dtCancelamento, fkUsuario, fkEndereco) VALUES
 ('Fazenda Porto Alegre', '33333333333333', 6, 120, '2020-05-01', NULL, 5, 5),
@@ -150,8 +150,8 @@ INSERT INTO Fazenda (nome, cnpj, qtd_sensores, hectares, dtInicio, dtCancelament
 ('Fazenda Belo Horizonte', '23232323232323', 6, 120, '2022-01-01', NULL, 25, 25),
 ('Fazenda São Paulo', '24242424242424', 5, 100, '2022-02-01', NULL, 26, 26),
 ('Fazenda Rio de Janeiro', '25252525252525', 4, 80, '2022-03-01', NULL, 27, 27),
-('Fazenda Curitiba', '26262626262626', 3, 60, '2022-04-01', NULL, 28, 28),
-('Fazenda Porto Alegre', '27272727272727', 6, 120, '2022-05-01', NULL, 29, 29),
+('Fazenda Curitiba', '26262626262626', 3, 60, '2022-04-01', NULL, 28, 1),
+('Fazenda Porto Alegre', '27272727272727', 6, 120, '2022-05-01', NULL, 29, 2),
 ('Fazenda Goiânia', '28282828282828', 5, 100, '2022-06-01', NULL, 30, 4);
 
 INSERT INTO sensor (localSensor, statusSensor, fkFazenda) VALUES
@@ -295,28 +295,35 @@ WHERE qtd_sensores > 5 and status_usuario = 'Ativo';
 SELECT * FROM sensor;
 
 -- SELECIONAR OS DADOS DOS SENSORES QUE ESTÃO MONITORANDO UMIDADES ACIMA DE 40
-SELECT * FROM sensor
+SELECT * FROM dadosSensor
 WHERE umidade > 40;
 
+INSERT INTO sensor (localSensor, statusSensor, fkFazenda) VALUES
+('Local 31', null, 16);
+
+UPDATE sensor SET statusSensor = null
+  WHERE idSensor = 17;
 
 -- SELECIONAR O NOME DAS FAZENDAS E VERIFICAR OS SENSORES EM FUNCIONAMENTO
 SELECT f.nome as 'Nome fazenda',
-ifnull(umidade, 'Verificar sensor') as 'Status do sensor'
+ifnull(statusSensor, 'Verificar sensor') as 'Status do sensor'
 FROM fazenda as f JOIN sensor
 ON fkFazenda = idFazenda;
 
 
 -- SELECIONAR O NOME DAS FAZENDAS, O IDENTIFICADOS DOS SENSORES E SE A UMIDADE ESTÁ DENTRO DA NORMALIDADE
 SELECT f.nome as 'Nome da fazenda', idSensor, CASE 
-  WHEN umidade > 50 THEN 'Verificar local, umidade elevada!'
+  WHEN umidade > 50 THEN 'Verificar local do sensor, umidade elevada!'
   ELSE 'Umidade dentro da normalidade'
   END as Umidade
   FROM fazenda as f JOIN sensor
   ON fkFazenda = idFazenda
-  ORDER BY umidade;
+  LEFT JOIN dadosSensor
+  ON fkSensor = idSensor
+  ORDER BY nome;
 
 -- SELECIONAR OS DADOS DO SENSOR E CALCULAR AS TEMPERATURAS MÁXIMAS, MÍNIMAS E MÉDIAS  
 SELECT * FROM sensor;
-SELECT avg(umidade)FROM sensor;
-SELECT min(umidade)FROM sensor;
-SELECT max(umidade)FROM sensor;
+SELECT avg(umidade)FROM dadosSensor;
+SELECT min(umidade)FROM dadosSensor;
+SELECT max(umidade)FROM dadosSensor;
