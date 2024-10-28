@@ -1,167 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Financeiro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="menu.js">
-</head>
-<body>
-    <div class="div_fundo">
-        <!-- <img src="imagens/logoteste.png" alt="" id="img_fundo"> -->
-        <div class="div_menu">
-            <div class="div_logo">
-                <img src="imagens/Logo.png" alt="logo do projeto" id="img_logo">
-                <b id="txt_simulador">Simulador Financeiro</b>
-            </div>
-
-            <div class="div_questionario">
-                <div class="div_linha1">
-                    <div class="div_hectare">
-                        <p id="lbl_hectare">Hectares:</p>
-                        <input type="number" id="txt_hectare" placeholder="Digite um valor">
-                    </div>
-                    <div class="div_custo">
-                        <p id="lbl_custo">Custo por hectare:</p>
-                        <div class="div_cifrao">
-                            <p id="lbl_cifrao">R$</p>
-                            <input type="number" id="txt_custo" placeholder="Digite um valor">
-                        </div>
-                    </div>
-                    <div class="div_faturamento">
-                        <p id="lbl_faturamento">Faturamento mensal:</p>
-                        <div class="div_cifrao2">
-                            <p id="lbl_cifrao2">R$</p>
-                            <input type="number" id="txt_faturamento" placeholder="Digite um valor">
-                        </div>
-                    </div>
-                </div>
-                <div class="div_linha2">
-                    <div class="div_fungicida">
-                        <p id="lbl_fungicida">Custo com fungicidas <a id="lbl_mensal">/mês</a>:</p>
-                        <div class="div_cifrao3">
-                            <p id="lbl_cifrao3">R$</p>
-                            <input type="number" id="txt_fungicida" placeholder="Digite um valor">
-                        </div>
-                    </div>
-                    <!-- pesquisamos um ranking dos Estados com mais historico de ferrugem asiatica -->
-                    <div class="div_estado">
-                        <p id="lbl_estado">Sigla do Estado:</p>
-                        <select id="txt_estado">
-                            <option selected>Selecione um item</option>
-                            <option>AC</option>
-                            <option>AL</option>
-                            <option>AP</option>
-                            <option>AM</option>
-                            <option>BA</option>
-                            <option>CE</option>
-                            <option>DF</option>
-                            <option>ES</option>
-                            <option>GO</option>
-                            <option>MA</option>
-                            <option>MT</option>
-                            <option>MS</option>
-                            <option>MG</option>
-                            <option>PA</option>
-                            <option>PB</option>
-                            <option>PR</option>
-                            <option>PE</option>
-                            <option>PI</option>
-                            <option>RJ</option>
-                            <option>RN</option>
-                            <option>RS</option>
-                            <option>RO</option>
-                            <option>RR</option>
-                            <option>SC</option>
-                            <option>SP</option>
-                            <option>SE</option>
-                            <option>TO</option>
-                        </select>
-                    </div>
-                   <!-- quanto mais para cima no ranking mais aumenta o risco de proliferação do fungo -->
-                    <div class="div_chuva">
-                        <p id="lbl_chuva">Volume de chuva:</p>
-                        <select id="txt_chuva">
-                            <option selected>Selecione um item</option>
-                            <option>Pouco</option>
-                            <option>Moderado</option>
-                            <option>Muito</option>
-                        </select>
-                        <!-- dependendo do volume de chuva o fungo tende a se desenvolver mais rapido -->
-                    </div>
-                </div>
-                <div class="div_linha3">
-                    <div class="div_historico">
-                        <p id="lbl_historico">Sua produção já foi contaminada?</p>
-                        <select id="txt_historico">
-                            <option selected>Selecione um item</option>
-                            <option>Sim</option>
-                            <option>Não</option>
-                        </select>
-                        <!-- se a produção já foi contaminada é mais facil a nova aporição do fundo e portanto aumenta o risco -->
-                    </div>
-                    <div class="div_temperatura">
-                        <p id="lbl_temperatura">Temperatura da região:</p>
-                        <select id="txt_temperatura">
-                            <option selected>Selecione um item</option>
-                            <option>Muito frio</option>
-                            <option>Frio</option>
-                            <option>Moderado</option>
-                            <option>Quente</option>
-                            <option>Muito Quente</option>
-                        </select>
-                        <!-- a temperatura é junto com a umidade o principal fator para a proliferação do fungo
-                         quanto mais alta ou baixa (sempre extremos) maior a chance dela aparecer -->
-                    </div>
-                </div>
-                <div class="div_calcular">
-                    <div class="div_sacas">
-                        <p id="lbl_sacas">Sacas coletadas por hectare:</p>
-                        <input type="number" id="txt_sacas" placeholder="Digite um valor">
-                    </div>
-                    <button onclick="Calcular()" id="btn_calcular">Calcular</button>
-                </div>
-
-                <div class="div_resultado1" style="display: none;">
-                    <p id="lbl_resultado_risco"></p>
-                    <p id="lbl_alerta"></p>
-                    <p id="lbl_resultado_probabilidade"></p>
-                    <p id="lbl_alerta2"></p>
-                </div>
-
-                <div class="div_resultado2" style="display: none;">
-                    <p id="lbl_ganhos"></p>
-                </div>
-
-                <div class="div_resultado3" style="display: none;">
-                    <p id="lbl_resultado_fungicida"></p>
-                    <p id="lbl_resultado_produtividade"></p>
-                    <p id="lbl_resultado_faturamento"></p>
-                </div>
-
-                <div class="div_resultado4" style="display: none;">
-                    <p id="lbl_resultado_ganhos_fungicida"></p>
-                    <p id="lbl_resultado_ganhos_produtividade"></p>
-                    <p id="lbl_resultado_ganhos_faturamento"></p>
-                </div>
-
-                <div class="div_resultado5" style="display: none;">
-                    <p id="lbl_lucro"></p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</body>
-</html>
-<script>
-    function Calcular() {
+function Calcular() {
     var hectare = Number(txt_hectare.value)
     var custo = Number(txt_custo.value)
     var estado = (txt_estado.value)
@@ -239,11 +76,11 @@
     }
     // os extremos da temperatura aumentam o risco em 3 
 
-    if (chuva == 'Muito') {
+    if (chuva == 'Muita') {
         risco += 3
-    } else if (chuva == 'Moderado') {
+    } else if (chuva == 'Moderada') {
         risco += 2
-    } else if (chuva == 'Pouco') {
+    } else if (chuva == 'Pouca') {
         risco += 1
     } else if (txt_chuva.value = (`Selecione um item`)) {
         alert(`Resposta inválida! para o nivel de chuva`)
@@ -493,4 +330,3 @@
         lbl_lucro.innerHTML = (`LUCRO: R$${lucro_sensor.toFixed(2)}`)
     }
 }
-</script>
