@@ -2,7 +2,7 @@ const humidityData = [45, 50, 55, 65, 60, 69, 67, 75, 78, 74,68];
 const timeLabels = ['12:00', '12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45', '12:50'];
 
 const sensorStatusData = {
-    labels: ['Quantidade de Ativos', 'Quantidade de Inativos', 'Quantidade capitando umidade alta'],
+    labels: ['Quantidade de Ativos', 'Quantidade de Inativos', 'Quantidade captando umidade alta'],
     datasets: [{
         data: [14, 2, 4],
         backgroundColor: [
@@ -12,7 +12,6 @@ const sensorStatusData = {
         ],
     }]
 };
-
 
 const monthlyHumidityData = {
     labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
@@ -115,7 +114,6 @@ document.getElementById('toggleButton').addEventListener('click', function () {
         backgroundColor: 'rgb(255, 0, 0)'
     };
 
- 
     const existingDatasetIndex = monthlyHumidityChart.data.datasets.findIndex(
         dataset => dataset.label === 'Limite Máximo (70%)'
     );
