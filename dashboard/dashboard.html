@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -12,18 +13,24 @@
 <body>
 
     <div class="sidebar">
-        <img src="assets\perfil-de-usuario.png" alt="Perfil" class="profile-pic">
+        <div class="images">
+            <!-- <button class="button-img" onclick="institucional()"> -->
+                <a href="../index.html"><img src="https://www.imagensempng.com.br/wp-content/uploads/2020/12/006-4.png" alt="Site Institucional" class="institucional-pic"></a>
+            <img src="assets\perfil-de-usuario.png" alt="Perfil" class="profile-pic">
+        </div>
+        <div>
         <h2>Usuário</h2>
         <p>Nome: XPTO</p>
         <p>Email: xpto@sptech.school</p>
-        <a class="button" onclick="voltar()" id="home">Voltar para Home</a>
+        </div>
+        <a href="#" class="button" onclick="voltar()" id="home">Voltar para Home</a>
         <a href="#" class="button">Editar Perfil</a>
-        <a class="button" onclick="ver()" id="dash-alert">Ver Alertas</a>
-        <!-- <p><a href="#" class="link">Suporte e Ajuda</a></p>         -->
+        <a href="#" class="button" onclick="ver()" id="dash-alert">Ver Alertas</a>
+        <!-- <p><a href="#" class="link">Suporte e Ajuda</a></p>-->
     </div>
 
     <div id="tela1" class="content">
-        <h1><strong>Moum Soya</strong><br><span class="tech-title">TECHNOLOGY</span></h1><br><br>
+        <h1><strong>Moum Soya</strong><br><span class="tech-title">TECHNOLOGY</span></h1><br>
         <div class="kpi-container">
             <div class="kpi">
                 <h3>Total de Sensores</h3>
@@ -31,8 +38,8 @@
             </div>
 
             <div class="kpi">
-                <h3>Média de alertas diários </h3>
-                <p  class="txt-kpi">52%</p>
+                <h3>Média de Alertas Diários</h3>
+                <p  class="alerts">2</p>
             </div>
 
             <div class="kpi">
@@ -66,9 +73,9 @@
     </div>
 
     <div id="tela2" class="content">
-        <h1><strong>Moum Soya</strong><br><span class="tech-title">TECHNOLOGY</span></h1><br><br>
+        <h1><strong>Moum Soya</strong><br><span class="tech-title">TECHNOLOGY</span></h1><br>
         <div class="chart-box bar-alert">
-            <div id="alertTitle" class="chart-title">Total Alertas</div>
+            <div id="alertTitle" class="chart-title">Total Alertas da Fazenda</div>
             <canvas id="alertChart"></canvas>
         </div>
     </div>

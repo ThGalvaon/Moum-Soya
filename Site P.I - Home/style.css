@@ -83,6 +83,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: solid #7ed957;
 }
 
 .cabecalho {
