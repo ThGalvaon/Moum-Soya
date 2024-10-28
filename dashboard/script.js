@@ -42,6 +42,14 @@ const humidityLineChart = new Chart(ctxLine, {
                 borderDash: [5, 5],
                 pointRadius: 0,
                 fill: false,
+            },
+            {
+                label: 'Nivel Preocupante (50%)',
+                data: new Array(timeLabels.length).fill(50),
+                borderColor: 'orange',
+                borderDash: [5, 5],
+                pointRadius: 0,
+                fill: false,
             }
         ]
     },
@@ -118,6 +126,8 @@ document.getElementById('toggleButton').addEventListener('click', function () {
         dataset => dataset.label === 'Limite Máximo (70%)'
     );
 
+
+
     if (existingDatasetIndex === -1) {
         monthlyHumidityChart.data.datasets.push(limitDataset);
         this.textContent = 'Remover Linha Limite';
@@ -148,7 +158,7 @@ document.getElementById('home').style.display = 'none'
 
 function ver() {
     document.getElementById('tela1').style.display = 'none';
-    document.getElementById('tela2').style.display = 'block';
+    document.getElementById('tela2').style.display = 'flex';
     document.getElementById('dash-alert').style.display = 'none';
     document.getElementById('home').style.display = 'block';
 
