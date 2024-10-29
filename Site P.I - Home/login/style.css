@@ -98,14 +98,9 @@ a{
     gap: 20px;
 }
 
-#email::placeholder{
-    color:var(--color-green);
-    font-family: Popins;
-}
-
-#password::placeholder{
-    color: var(--color-green);
-    font-family: Popins;
+::placeholder{
+    font-family: Poppins;
+    font-size: small;
 }
 
 

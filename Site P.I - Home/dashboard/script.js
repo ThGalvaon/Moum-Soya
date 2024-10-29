@@ -174,7 +174,7 @@ function ver() {
             },
             {
                 label: 'Alertas Moderados: maior que 50% de Umidade',
-                data: [5, 2, 4, 3, 4, 4, 3],
+                data: [2, 2, 4, 3, 4, 4, 3],
                 backgroundColor: 'orange',
                 borderColor: 'rgba(0, 128, 0, 1)',
                 borderWidth: 1,

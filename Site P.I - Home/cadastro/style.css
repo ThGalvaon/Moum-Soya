@@ -106,39 +106,9 @@
     gap: 15px; /* Espaço entre os inputs */
 }
 
-#razao_social::placeholder{
-    color: var(--color-green);
-    font-family: Popins;
-}
-
-#nome_fantasia::placeholder{
-    color: var(--color-green);
-    font-family: Popins;
-}
-
-#cnpj::placeholder{
-    color: var(--color-green);
-    font-family: Popins;
-}
-
-#Representante::placeholder{
-    color: var(--color-green);
-    font-family: Popins;
-}
-
-#email::placeholder{
-    color: var(--color-green);
-    font-family: Popins;
-}
-
-#password::placeholder{
-    color: var(--color-green);
-    font-family: Popins;
-}
-
-#confirm_password::placeholder{
-    color: var(--color-green);
-    font-family: Popins;
+::placeholder{
+    font-family: Poppins;
+    font-size: small;
 }
 
 
