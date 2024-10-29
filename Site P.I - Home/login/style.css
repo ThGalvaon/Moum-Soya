@@ -104,7 +104,8 @@ a{
 }
 
 #password::placeholder{
-    color: var(--color-gradient);
+    color: var(--color-green);
+    font-family: Popins;
 }
 
 
