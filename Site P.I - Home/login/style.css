@@ -2,7 +2,7 @@
 
 :root {
     --color-light-50: #f8fafc;
-
+    --color-green: #16a34a;
     --color-dark-50: #797984; 
     --color-dark-100: #311d37; 
     --color-dark-900: #000; 
@@ -97,6 +97,16 @@ a{
     justify-content: center;
     gap: 20px;
 }
+
+#email::placeholder{
+    color:var(--color-green);
+    font-family: Popins;
+}
+
+#password::placeholder{
+    color: var(--color-gradient);
+}
+
 
 .input-box label {
     font-size: 14px;
