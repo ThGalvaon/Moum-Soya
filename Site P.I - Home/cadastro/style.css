@@ -4,6 +4,7 @@
 /* Declaração de variáveis CSS para cores e gradientes */
 :root {
     --color-light-50: #f8fafc; /* Cor clara (usada como fundo principal) */
+    --color-green: #16a34a;
 
     --color-dark-50: #797984; /* Cor escura média (texto) */
     --color-dark-100: #311d37; /* Cor escura (fundo do modo escuro) */
@@ -104,6 +105,35 @@
     justify-content: center; /* Centraliza verticalmente os elementos */
     gap: 15px; /* Espaço entre os inputs */
 }
+
+#razao_social::placeholder{
+    color: var(--color-green);
+}
+
+#nome_fantasia::placeholder{
+    color: var(--color-green);
+}
+
+#cnpj::placeholder{
+    color: var(--color-green);
+}
+
+#Representante::placeholder{
+    color: var(--color-green);
+}
+
+#email::placeholder{
+    color: var(--color-green);
+}
+
+#password::placeholder{
+    color: var(--color-green);
+}
+
+#confirm_password::placeholder{
+    color: var(--color-green);
+}
+
 
 /* Estilo dos rótulos dos campos de entrada */
 .input-box label {
