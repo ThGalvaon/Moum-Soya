@@ -184,6 +184,14 @@ body {
     font-size: 2em;
     margin-top: 10px;
 }
+
+.alerts-daily {
+    color: orange;
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 10px;
+}
+
 .alerts-moderate {
     color: orange;
     font-weight: bold;

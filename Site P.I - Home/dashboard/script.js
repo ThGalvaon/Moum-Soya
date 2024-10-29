@@ -2,9 +2,9 @@ const humidityData = [45, 50, 55, 65, 60, 69, 67, 75, 78, 74, 68];
 const timeLabels = ['12:00', '12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45', '12:50'];
 
 const sensorStatusData = {
-    labels: ['Quantidade de Ativos', 'Quantidade de Inativos', 'Quantidade captando umidade alta'],
+    labels: ['Quantidade Ativos', 'Quantidade que precisam de manutenção', 'Quantidade Inativos'],
     datasets: [{
-        data: [14, 2, 4],
+        data: [16, 3, 1],
         backgroundColor: [
             'rgba(0, 128, 0, 0.8)',
             'rgb(255, 165, 0)', 
@@ -163,18 +163,18 @@ function ver() {
     document.getElementById('home').style.display = 'block';
 
     const alertData = {
-        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00'],
+        labels: ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo'],
         datasets: [
             {
-                label: 'Alertas Criticos > 70% Umidade',
-                data: [0, 0, 0, 0, 1, 1, 0],
+                label: 'Alertas Criticos: maior que 70% de Umidade',
+                data: [4, 3, 2, 2, 0, 1, 1],
                 backgroundColor: 'red',
                 borderColor: 'rgba(0, 128, 0, 1)',
                 borderWidth: 1,
             },
             {
-                label: 'Alertas Moderados > 60% Umidade',
-                data: [0, 1, 0, 1, 2, 1, 1],
+                label: 'Alertas Moderados: maior que 50% de Umidade',
+                data: [5, 2, 4, 3, 4, 4, 3],
                 backgroundColor: 'orange',
                 borderColor: 'rgba(0, 128, 0, 1)',
                 borderWidth: 1,
@@ -201,6 +201,8 @@ function ver() {
             scales: {
                 y: {
                     beginAtZero: true,
+                    min: 1, 
+                    max: 10, 
                     title: {
                         display: true,
                         text: 'Quantidade de Alertas'
@@ -209,13 +211,13 @@ function ver() {
                 x: {
                     title: {
                         display: true,
-                        text: 'Intervalo/Hora'
+                        text: 'Dias da semana'
                     }
                 }
             }
         }
     });
-}
+}    
 
 function voltar() {
     document.getElementById('tela1').style.display = 'flex';
