@@ -178,6 +178,7 @@ body {
     width: fit-content;
     justify-content: space-evenly;
     height: fit-content;
+    font-size: 22px;
 }
 
 .txt-kpi{
@@ -185,6 +186,9 @@ body {
     justify-content: center;
     align-items: center;
     height: fit-content;
+    margin-top: 8px;
+    width: max-content;
+    margin-left: 90px;
 
 }
 
@@ -193,12 +197,14 @@ body {
     font-weight: bold;
     font-size: 2em;
     margin-bottom: 5px;
+    margin-top: 10px;
 }
 
 .alerts-daily {
     color: orange;
     font-weight: bold;
     margin-bottom: 5px;
+    margin-top: 7px;
     font-size: 2em;
 }
 
