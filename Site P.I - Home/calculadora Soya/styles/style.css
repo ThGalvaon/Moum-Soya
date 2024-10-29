@@ -4,6 +4,15 @@
     font-family: 'Poppins',sans-serif;
 }
 
+.div_logo {
+    transition: transform 0.3s ease; 
+}
+
+.div_logo:hover {
+    transform: scale(0.9); 
+}
+
+
 .body {
     display: flex;
     align-items: center;
