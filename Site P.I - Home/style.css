@@ -48,11 +48,13 @@ body {
 
 .main-container {
   overflow: hidden;
+  width: 100vw;
 }
 
 .main-container,
 .main-container * {
   box-sizing: border-box;
+  
 }
 
 input,
