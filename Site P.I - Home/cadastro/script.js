@@ -108,6 +108,7 @@ function validarEmail() {
     }
 }
 
+div_mensagem.style.display = 'none'
 // Função para validar a senha
 function validarSenha() {
     var senha = ipt_senha.value; // Obtém o valor do campo senha
@@ -125,10 +126,12 @@ function validarSenha() {
 
     // Verifica se a senha tem pelo menos 8 caracteres e contém os requisitos
     if (senha.length >= 8 && possui_numero && possui_letra_maiuscula && possui_letra_minuscula && possui_caracter_especial) {
-        ipt_senha.style.border = "2px solid #08a708"; // Define a borda como verde
+        ipt_senha.style.border = "2px solid #08a708"; // Define a borda como verde]
+        div_mensagem.style.display = 'none'
         return true; // Retorna verdadeiro para indicar que a validação foi bem-sucedida
     } else {
-        ipt_senha.style.border = "2px solid #f70000"; // Define a borda como vermelha
+        ipt_senha.style.border = "2px solid #f70000"; // Define a borda como vermelha]
+        div_mensagem.style.display = 'block'
         return false; // Retorna falso se a validação falhar
     }
 }

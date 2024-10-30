@@ -77,7 +77,6 @@
               <i class="fa-solid fa-id-card"></i>
               <!-- Ícone relacionado ao CNPJ -->
               <input type="text" id="cnpj" name="cnpj" required onblur="validarCNPJ()"placeholder="EX: 11122233344455">
-              <div class="div_mensagem">A senha deve incluir 8 caracteres 1 maisculo e 1 minusculo 1 numero e 1 caractere especial</div>
               <!-- Campo de entrada para o CNPJ, com validação ao perder o foco -->
             </div>
           </label>
@@ -114,11 +113,12 @@
             <div class="input-field">
               <i class="fa-solid fa-key"></i>
               <!-- Ícone relacionado à senha -->
-              <input type="password" id="password" name="password" required onblur="validarSenha()"placeholder="EX: Xpto@123">
+              <input type="password" id="password" name="password" required onblur="validarSenha()" oninput="validarSenha()" placeholder="EX: Xpto@123">
               <!-- Campo de entrada para a senha, com validação ao perder o foco -->
             </div>
           </label>
         </div>
+        <div id="div_mensagem">A senha deve incluir 8 caracteres 1 maisculo e 1 minusculo 1 numero e 1 caractere especial</div>
 
         <!-- Campo de confirmar senha -->
         <div class="input-box">

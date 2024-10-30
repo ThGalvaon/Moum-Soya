@@ -48,6 +48,7 @@
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.336); /* Sombra do formulário */
     height: fit-content; /* Altura ajustada ao conteúdo */
     animation: dark-to-light 0.3s ease-in-out; /* Animação ao aparecer */
+    max-width: 30%;
 }
 
 /* Estilo do cabeçalho do formulário */
@@ -220,4 +221,11 @@ do formulário do modo claro para o modo escuro */
         background-color:var(--color-dark-100);/* Cor de fundo final 
         (modo escuro) */
     }
+}
+
+#div_mensagem{
+    opacity: 0.70;
+    font-size: 14px;
+    width: 100%;
+    color: red;
 }
