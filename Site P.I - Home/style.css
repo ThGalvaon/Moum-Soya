@@ -65,11 +65,7 @@ button {
 .main-container {
   position: relative;
   width: 100%;
-<<<<<<< HEAD
   height: 314.53vw; /* Certifique-se de que esta altura é necessária */
-=======
-  height: 100%; /* Certifique-se de que esta altura é necessária */
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   margin: 0 auto;
   background: #ffffff;
   padding-top: 10.47vw; /* Adiciona espaço para o header */
@@ -78,64 +74,30 @@ button {
 .header {
   position: fixed;
   top: 0; /* Garante que o header fique no topo */
-<<<<<<< HEAD
   left: 0; /*Garante que o header fique alinhado à esquerda*/
   width: 100%; /* Alinha o header à largura da página */
   height: 10.47vw; /* Altura do header */
   background: rgb(38, 71, 84);
-=======
-  left: 0; /* Garante que o header fique alinhado à esquerda */
-  width: 100vw; /* Alinha o header à largura da página */
-  height: 201px; /* Altura do header */
-  background: rgb(39, 71, 84);
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   z-index: 1000;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: solid #7ed957;
-}
-
-.cabecalho {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 50%;
 }
 
 .logo {
-<<<<<<< HEAD
   position: absolute;
   width: 16.2vw;
   height: 19.58vw;
   top: -4.53vw;
   left: 2.08vw;
-=======
-  /* position: absolute; */
-  width: 311px;
-  height: 375.917px;
-  /* top: -87px; */
-  /* left: 40px; */
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   background: url(./assets/images/3d009e0ac61d5e2a881203fbe8e25e4700095af5.png)
     no-repeat center;
   background-size: cover;
   z-index: 2;
-  margin: 0 20px 0 0;
 }
-
-.botoes {
-  width: 28%;
-  display: flex;  
-}
-
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-<<<<<<< HEAD
   gap: 0.42vw;
   position: absolute;
   width: 9.74vw;
@@ -143,15 +105,6 @@ button {
   top: 3.28vw;
   left: 79.01vw;
   padding: 0.62vw 0.62vw 0.62vw 0.62vw;
-=======
-  gap: 8px;
-  /* position: absolute; */
-  width: 157px;
-  height: 63px;
-  /* top: 63px; */
-  /* left: 1517px; */
-  padding: 12px 12px 12px 12px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   background: #ffffff;
   border: 0.05vw solid #264653;
   z-index: 8;
@@ -161,13 +114,8 @@ button {
 .button-login {
   flex-shrink: 0;
   flex-basis: auto;
-<<<<<<< HEAD
   position: relative;
   height: 1.15vw;
-=======
-  /* position: relative; */
-  height: 22px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   color: #264653;
   font-family: Inter, var(--default-font-family);
   font-size: 0.83vw;
@@ -182,7 +130,6 @@ button {
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-<<<<<<< HEAD
   gap: 0.42vw;
   position: absolute;
   width: 9.74vw;
@@ -190,15 +137,6 @@ button {
   top: 3.28vw;
   left: 88.12vw;
   padding: 0.62vw 0.62vw 0.62vw 0.62vw;
-=======
-  gap: 8px;
-  /* position: absolute; */
-  width: 157px;
-  height: 63px;
-  /* top: 63px; */
-  /* left: 1692px; */
-  padding: 12px 12px 12px 12px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   background: #7ed957;
   border: 0.05vw solid #264653;
   z-index: 10;
@@ -208,13 +146,8 @@ button {
 .button-register {
   flex-shrink: 0;
   flex-basis: auto;
-<<<<<<< HEAD
   position: relative;
   height: 1.15vw;
-=======
-  /* position: relative; */
-  height: 22px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   color: #264653;
   font-family: Inter, var(--default-font-family);
   font-size: 0.83vw;
@@ -228,7 +161,6 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-<<<<<<< HEAD
   position: absolute;
   height: 2.03vw;
   top: 3.91vw;
@@ -236,15 +168,6 @@ button {
   color: #ffffff;
   font-family: Poppins, var(--default-font-family);
   font-size: 1.35vw;
-=======
-  /* position: absolute; */
-  height: 39px;
-  /* top: 75px; */
-  /* left: 682px; */
-  color: #ffffff;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 22px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   font-weight: 400;
   line-height: 2.03vw;
   text-align: left;
@@ -255,7 +178,6 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-<<<<<<< HEAD
   position: absolute;
   height: 2.03vw;
   top: 3.96vw;
@@ -263,15 +185,6 @@ button {
   color: #ffffff;
   font-family: Poppins, var(--default-font-family);
   font-size: 1.35vw;
-=======
-  /* position: absolute; */
-  height: 39px;
-  /* top: 76px; */
-  /* left: 889px; */
-  color: #ffffff;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 22px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   font-weight: 400;
   line-height: 2.03vw;
   text-align: left;
@@ -282,7 +195,6 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-<<<<<<< HEAD
   position: absolute;
   height: 2.03vw;
   top: 3.96vw;
@@ -290,15 +202,6 @@ button {
   color: #ffffff;
   font-family: Poppins, var(--default-font-family);
   font-size: 1.35vw;
-=======
-  /* position: absolute; */
-  height: 39px;
-  /* top: 76px; */
-  /* left: 1338px; */
-  color: #ffffff;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 22px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   font-weight: 400;
   line-height: 2.03vw;
   text-align: left;
@@ -309,7 +212,6 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-<<<<<<< HEAD
   position: absolute;
   height: 2.03vw;
   top: 3.96vw;
@@ -317,15 +219,6 @@ button {
   color: #ffffff;
   font-family: Poppins, var(--default-font-family);
   font-size: 1.35vw;
-=======
-  /* position: absolute; */
-  height: 39px;
-  /* top: 76px; */
-  /* left: 1037px; */
-  color: #ffffff;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 22px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   font-weight: 400;
   line-height: 2.03vw;
   text-align: left;
@@ -336,7 +229,6 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-<<<<<<< HEAD
   position: absolute;
   height: 2.03vw;
   top: 3.96vw;
@@ -344,39 +236,20 @@ button {
   color: #ffffff;
   font-family: Poppins, var(--default-font-family);
   font-size: 1.35vw;
-=======
-  /* position: absolute; */
-  height: 39px;
-  /* top: 76px; */
-  /* left: 1188px; */
-  color: #ffffff;
-  font-family: Poppins, var(--default-font-family);
-  font-size: 22px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   font-weight: 400;
   line-height: 2.03vw;
   text-align: left;
   white-space: nowrap;
   z-index: 7;
-  margin: 0 60px 0 0;
 }
 .background {
-<<<<<<< HEAD
   position: relative;
   width: 100.0vw;
   height: 31.25vw;
-=======
-  /* position: relative; */
-  width: 100%;
-  height: 600px;
->>>>>>> 54375fa202a1b39e0b13312cec6613afef586342
   margin: 0 0 0 0;
   font-size: 0.0vw;
   background: rgba(9, 104, 10, 0.67);
   overflow: visible auto;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 .seja-bem-vindo {
   display: flex;
