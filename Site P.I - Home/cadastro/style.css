@@ -4,6 +4,7 @@
 /* Declaração de variáveis CSS para cores e gradientes */
 :root {
     --color-light-50: #f8fafc; /* Cor clara (usada como fundo principal) */
+    --color-green: #16a34a;
 
     --color-dark-50: #797984; /* Cor escura média (texto) */
     --color-dark-100: #311d37; /* Cor escura (fundo do modo escuro) */
@@ -47,6 +48,7 @@
     box-shadow: 5px 5px 8px rgb(0, 0, 0, 0.336); /* Sombra do formulário */
     height: fit-content; /* Altura ajustada ao conteúdo */
     animation: dark-to-light 0.3s ease-in-out; /* Animação ao aparecer */
+    max-width: 30%;
 }
 
 /* Estilo do cabeçalho do formulário */
@@ -76,7 +78,7 @@
 /* Estilo do ícone que muda o modo (dia/noite) */
 #mode_icon{
     cursor: pointer; /* Indica que o ícone é clicável */
-    font-size: 20px; /* Tamanho da fonte do ícone */
+    font-size: 25px; /* Tamanho da fonte do ícone */
 }
 
 /* Estilo para a logo */
@@ -104,6 +106,12 @@
     justify-content: center; /* Centraliza verticalmente os elementos */
     gap: 15px; /* Espaço entre os inputs */
 }
+
+::placeholder{
+    font-family: Poppins;
+    font-size: small;
+}
+
 
 /* Estilo dos rótulos dos campos de entrada */
 .input-box label {
@@ -213,4 +221,11 @@ do formulário do modo claro para o modo escuro */
         background-color:var(--color-dark-100);/* Cor de fundo final 
         (modo escuro) */
     }
+}
+
+#div_mensagem{
+    opacity: 0.70;
+    font-size: 14px;
+    width: 100%;
+    color: red;
 }

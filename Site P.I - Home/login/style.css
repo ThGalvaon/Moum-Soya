@@ -2,7 +2,7 @@
 
 :root {
     --color-light-50: #f8fafc;
-
+    --color-green: #16a34a;
     --color-dark-50: #797984; 
     --color-dark-100: #311d37; 
     --color-dark-900: #000; 
@@ -71,7 +71,7 @@ a{
 
 #mode_icon{
     cursor: pointer;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 
@@ -97,6 +97,12 @@ a{
     justify-content: center;
     gap: 20px;
 }
+
+::placeholder{
+    font-family: Poppins;
+    font-size: small;
+}
+
 
 .input-box label {
     font-size: 14px;
