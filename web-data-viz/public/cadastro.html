@@ -1,219 +1,162 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<!-- Declara que o documento é HTML5 e define o idioma como português do Brasil -->
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <!-- Define a codificação de caracteres como UTF-8 -->
 
-  <title>AquaTech | Cadastro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Configura a visualização em dispositivos móveis para uma escala adequada -->
 
-  <script src="./js/sessao.js"></script>
+  <!-- Link para o Font Awesome, uma biblioteca de ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="style.css">
+  <!-- Link para o arquivo CSS local que contém os estilos da página -->
+
+  <title>Cadastro</title>
+  <!-- Título da página que aparece na aba do navegador -->
 </head>
 
-<body onload="listar()">
-  <!--header inicio-->
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!--header fim-->
+<body>
+  <main id="container">
+    <!-- Contêiner principal do formulário de cadastro -->
 
-  <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
+    <form id="cadastro_form">
+      <!-- Formulário de cadastro -->
+
+      <div id="form_header">
+        <h1>Cadastro</h1>
+        <!-- Cabeçalho do formulário com o título -->
+        <i id="mode_icon" class="fa-solid fa-moon"></i>
+        <!-- Ícone para mudar entre modos claro e escuro -->
       </div>
-    </div>
-    <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-          <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>Cpf:</span>
-            <input id="cpf_input" type="text" placeholder="Seu cpf" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+
+      <div id="social_media">
+        <a href="../index.html">
+          <img src="logo-removebg-preview (2).png" alt="Moun Soya logo">
+          <!-- Logo do site, que é clicável -->
+        </a>
+      </div>
+
+      <div id="inputs">
+        <!-- Contêiner para os campos de entrada -->
+
+        <div class="input-box">
+          <label for="razao_social">
+            Razão social
+            <div class="input-field">
+              <i class="fa-solid fa-file-contract"></i>
+              <!-- Ícone relacionado à razão social -->
+              <input type="text" id="razao_social" name="razao_social" required onblur="validarRazao()"placeholder="EX: Xpto">
+              <!-- Campo de entrada para a razão social, com validação ao perder o foco -->
+            </div>
+          </label>
         </div>
 
-        <div id="div_erros_login"></div>
-      </div>
-    </div>
-  </div>
+        <div class="input-box">
+          <label for="nome_fantasia">
+            Nome fantasia
+            <div class="input-field">
+              <i class="fa-solid fa-tag"></i>
+              <!-- Ícone relacionado ao nome fantasia -->
+              <input type="text" id="nome_fantasia" name="nome_fantasia" required onblur="validarFantasia()"placeholder="EX: Xpto corporation">
+              <!-- Campo de entrada para o nome fantasia, com validação ao perder o foco -->
+            </div>
+          </label>
+        </div>
 
-  <!--footer inicio-->
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
-    </div>
-  </div>
-  <!--footer fim-->
+        <!-- Campo CNPJ -->
+        <div class="input-box">
+          <label for="cnpj">
+            CNPJ
+            <div class="input-field">
+              <i class="fa-solid fa-id-card"></i>
+              <!-- Ícone relacionado ao CNPJ -->
+              <input type="text" id="cnpj" name="cnpj" required onblur="validarCNPJ()"placeholder="EX: 11122233344455">
+              <!-- Campo de entrada para o CNPJ, com validação ao perder o foco -->
+            </div>
+          </label>
+        </div>
+
+        <!-- Campo Representante legal -->
+        <div class="input-box">
+          <label for="Representante">
+            Representante legal
+            <div class="input-field">
+              <i class="fa-solid fa-user-tie"></i>
+              <!-- Ícone relacionado ao representante legal -->
+              <input type="tel" id="Representante" name="Representante" required onblur="validarRepresentante()"placeholder="EX: Eduardo Oliveira">
+              <!-- Campo de entrada para o representante legal, com validação ao perder o foco -->
+            </div>
+          </label>
+        </div>
+
+        <div class="input-box">
+          <label for="email">
+            Email
+            <div class="input-field">
+              <i class="fa-solid fa-envelope"></i>
+              <!-- Ícone relacionado ao email -->
+              <input type="email" id="email" name="email" required onblur="validarEmail()"placeholder="EX: xpto@gmail.com">
+              <!-- Campo de entrada para o email, com validação ao perder o foco -->
+            </div>
+          </label>
+        </div>
+
+        <div class="input-box">
+          <label for="password">
+            Senha
+            <div class="input-field">
+              <i class="fa-solid fa-key"></i>
+              <!-- Ícone relacionado à senha -->
+              <input type="password" id="password" name="password" required onblur="validarSenha()" oninput="validarSenha()" placeholder="EX: Xpto@123">
+              <!-- Campo de entrada para a senha, com validação ao perder o foco -->
+            </div>
+          </label>
+        </div>
+        <div id="div_mensagem">A senha deve incluir 8 caracteres 1 maisculo e 1 minusculo 1 numero e 1 caractere especial</div>
+
+        <!-- Campo de confirmar senha -->
+        <div class="input-box">
+          <label for="confirm_password">
+            Confirmar Senha
+            <div class="input-field">
+              <i class="fa-solid fa-key"></i>
+              <!-- Ícone relacionado à confirmação de senha -->
+              <input type="password" id="confirm_password" name="confirm_password" required
+                onblur="validarConfirmacao()" placeholder="EX: Xpto@123">
+              <!-- Campo de entrada para confirmar a senha, com validação ao perder o foco -->
+            </div>
+          </label>
+        </div>
+
+        <div id="ir_login">
+          <a href="../login/login.html">
+            Já possuo Login
+            <!-- Link para a página de login, caso o usuário já tenha uma conta -->
+          </a>
+        </div>
+      </div>
+
+      <button type="submit" id="cadastro_button" onclick="validarCadastro()">
+        Cadastro
+        <!-- Botão para enviar o formulário de cadastro -->
+      </button>
+    </form>
+
+    <div id="validado" style="color: red;"></div>
+    <!-- Elemento para mostrar mensagens de erro, onde mensagens de validação serão exibidas -->
+
+    <div id="div_erro"></div>
+    <!-- Outro elemento, que parece não estar em uso no momento -->
+  </main>
+
+  <script type="text/javascript" src="script.js"></script>
+  <!-- Link para o arquivo JavaScript que contém a lógica do formulário -->
 </body>
 
 </html>
-
-<script>
-
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
-
-  function cadastrar() {
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var cpfVar = cpf_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
-
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      cpfVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        cpfServer: cpfVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
-
-    return false;
-  }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
-</script>
