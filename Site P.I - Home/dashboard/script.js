@@ -2,13 +2,12 @@ const humidityData = [45, 50, 55, 65, 60, 69, 67, 75, 78, 74, 68];
 const timeLabels = ['12:00', '12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45', '12:50'];
 
 const sensorStatusData = {
-    labels: ['Quantidade Ativos', 'Quantidade que precisam de manutenção', 'Quantidade Inativos'],
+    labels: ['Quantidade Ativos', 'Quantidade em manutenção'],
     datasets: [{
-        data: [16, 3, 1],
+        data: [16, 4],
         backgroundColor: [
             'rgba(0, 128, 0, 0.8)',
-            'rgb(255, 165, 0)', 
-            'rgb(255, 0, 0)' 
+            'rgb(255, 0, 0)',  
         ],
     }]
 };
