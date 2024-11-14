@@ -49,3 +49,14 @@ document.getElementById('login_form').addEventListener('submit', (event) => {
         event.preventDefault(); // Impede o envio do formulário se a validação falhar
     }
 });
+
+fetch("/usuarios/autenticar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+    })
+ })
