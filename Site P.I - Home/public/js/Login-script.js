@@ -48,20 +48,13 @@ document.getElementById('login_form').addEventListener('submit', (event) => {
     }
 });
 
-function entrar() {
-    var email = document.getElementById('email').value;
-    var senha = document.getElementById('password').value;
-
-    // Verificando se as credenciais passaram nas validações
-    if (validateForm()) {
-        // Lógica para verificar se é o administrador
-        if (email === 'adm01@gmail.com' && senha === 'Moumsoy@09') {
-            window.location.href = "../bobia/public/index.html";  // Redireciona para a página do administrador (Bobia)
-            alert('Administrador logado com sucesso!');
-        } else {
-            // Para qualquer outro usuário, redireciona para a dashboard
-            window.location.href = "./dashboard/dashboard.html";  // Redireciona para a dashboard
-            alert('Usuário logado com sucesso!');
-        }
-    }
-}
+fetch("/usuarios/autenticar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+    })
+ })

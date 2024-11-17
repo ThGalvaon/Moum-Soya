@@ -5,78 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moum Soya - Simulador Financeiro</title>
-    <style>
-        
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #e9e9e9;
-            margin: 0;
-        }
-
-        .container{
-            width: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 20px;
-        }
-
-        .cabecalho{
-            display: flex;
-            align-items: center;
-
-        }
-
-        img{
-            width: 100px;
-            height: 100px;
-        }
-
-        h1{
-            margin-left: 30px;
-            text-align: center;
-        }
-
-        input{
-            margin-top: 5px;
-        }
-
-        .btnVerificar{
-            display: flex;
-            justify-content: center;
-        }
-
-        button{
-            width: 100px;
-        }
-
-        #div_mensagem{
-            text-align: justify;
-            font-size: 20px;
-            margin-top: 20px;
-        }
-
-        .perda{
-            color: #ff0000;
-        }
-
-        .ganho{
-            color: #00b900;
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body style="background-image: url('img/fundo.png'); background-size: cover; background-repeat: no-repeat;">
     <div class="container">
-    <div class="cabecalho"><h1>Simulador Financeiro Moum Soya</h1></div>
+    <div class="cabecalho"><h1>Simulador Financeiro <br> Moum Soya</h1></div>
     Quantidade de sacas produzidas por hectare: <input id="input_qtdSacas" type="number" placeholder="Digite a quantidade de sacas"><br>
     Numeros de hectare: <input type="number" id="input_num" placeholder=" Digite o número de hectares"><br>
 
@@ -105,7 +39,7 @@
         if (qtdSacas == '' || qtdSacas <= 0) {
             alert('Por favor, insira uma quantidade válida de sacas')
         }
-        else if (NumHec <= 10) {
+        else if (NumHec < 10) {
             div_mensagem.innerHTML = '';
             alert("O numero minimo de Hectares é 10")
         }
