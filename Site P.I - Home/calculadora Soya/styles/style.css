@@ -37,7 +37,15 @@ h1{
 
 input{
     margin-top: 5px;
+    padding: 10px 20px;
+    color: #000000;
+    background: transparent;
+    border: 2px solid #7ed957 ;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.5s;
 }
+
 
 .btnVerificar{
     display: flex;
@@ -48,10 +56,15 @@ button{
     cursor: pointer;
     width: 100px;
     padding: 0.62vw 0.62vw 0.62vw 0.62vw;
-    color: #ffffff;
-    background: #264653;
-    border: 0.05vw solid #264653;
+    color: #7ed957;
+    background: #100d28;
+    border: 0.05vw solid #7ed957;
     border-radius: 0.5vw;
+}
+
+button:hover {
+    background-color: #7ed957;
+    color: #fff;
 }
 
 #div_mensagem{
@@ -61,9 +74,9 @@ button{
 }
 
 .perda{
-    color: #ff0000;
+    color: crimson;
 }
 
 .ganho{
-    color: #00b900;
+    color: #7ed957;
 }
