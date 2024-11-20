@@ -15,7 +15,7 @@
     Numeros de hectare: <input type="number" id="input_num" placeholder=" Digite o número de hectares"><br>
 
     <div class="btnVerificar">
-        <button onclick="calcular()">Verificar</button><br>
+        <button onclick="calcular()" id="btn_Calcular">Verificar</button><br>
     </div>
 
     <div id="div_mensagem"></div>
@@ -53,6 +53,16 @@
             <br><br>
             * Para o cálculo nós utilizamos o R$${valorSem}, que é o valor aproximado do faturamento por hectare caso não desenvolva a ferrugem asiática, menos R$${valorCom}, que é o valor aproximado por hectare caso desenvolva o fungo, multiplicado por ${NumHec}`
         }
+
+        const inputResposta = document.getElementById('input_qtdSacas');
+        const btnCalcular = document.getElementById('btn_Calcular');
+
+        inputResposta.addEventListener('keypress', (event) => {
+           if (event.key === 'Enter') {
+             btnCalcular.click(); 
+             event.preventDefault(); 
+    }
+});
 
 
     }
