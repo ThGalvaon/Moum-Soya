@@ -23,7 +23,6 @@
 </body>
 </html>
 <script>
-
     function calcular() {
         var NumHec = Number(input_num.value);
         var qtdSacas = Number(input_qtdSacas.value);
@@ -45,9 +44,9 @@
             div_mensagem.innerHTML = `
 
             Com base nas informações fornecidas, sem o nosso monitoramento você perderia R$<span class="perda">${diferenca * NumHec}</span> reais por colheita,
-            usando o valor médio da saca de soja como R$${valorSaca} multiplicado pela quantidade de sacas que é ${qtdSacas} e multiplicado por ${NumHec}. <br>
+            usando o valor médio da saca de soja como R$${valorSaca} multiplicado pela quantidade de sacas que é <span class="ganho">${qtdSacas}</span> e multiplicado por <span class="ganho">${NumHec}</span>, que é o número de hectares de soja na sua fazenda. <br>
 
-            Com o nosso monitoramento, seus lucros totais podem ir de R$<span class="perda">${totalCom}*</span>, para R$<span class="ganho">${totalSem}</span> reais que é o valor total previsto caso o fungo não se desenvolva
+            Com o nosso monitoramento, seus lucros totais podem ir de R$<span class="perda">${totalCom}</span>, para R$<span class="ganho">${totalSem}</span> reais, que é o valor total previsto caso o fungo não se desenvolva
             <br><br>
             * Para o cálculo nós utilizamos o R$${valorSem}, que é o valor aproximado do faturamento por hectare caso não desenvolva a ferrugem asiática, menos R$${valorCom}, que é o valor aproximado por hectare caso desenvolva o fungo, multiplicado por ${NumHec}`
         }
