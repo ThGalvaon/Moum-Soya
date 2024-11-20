@@ -21,7 +21,6 @@
     <div id="div_mensagem"></div>
 </div>
 </body>
-
 </html>
 <script>
 
@@ -29,7 +28,6 @@
         var NumHec = Number(input_num.value);
         var qtdSacas = Number(input_qtdSacas.value);
         var valorSaca = 150
-        
         var valorSem = qtdSacas * valorSaca
         var valorCom = (qtdSacas * 0.8) * valorSaca
         var diferenca = valorSem - valorCom
@@ -56,15 +54,12 @@
 
         const inputResposta = document.getElementById('input_qtdSacas');
         const btnCalcular = document.getElementById('btn_Calcular');
-
         inputResposta.addEventListener('keypress', (event) => {
            if (event.key === 'Enter') {
              btnCalcular.click(); 
              event.preventDefault(); 
     }
 });
-
-
-    }
+}
 
 </script> 
