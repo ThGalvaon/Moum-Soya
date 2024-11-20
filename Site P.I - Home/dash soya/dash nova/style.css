@@ -24,7 +24,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Saira", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-optical-sizing: auto;
     transition: all 0.3s ease; /* Para animações suaves em elementos */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -48,32 +48,57 @@ header{
     align-items: center;
     z-index: 2
 }
-.logo{
-    width: 15vw;
-    height: 100%;
-    margin-left: 2vw;
-    cursor: pointer;  
-    margin-top: 0.6vw;  
-}
-.icon-header{
-    width: 6vw;
-    cursor: pointer;
-}
 
-.box_nav{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  
+
+.sidebar {
+  position: auto;
+  width: 250px;
+  height: 100%;
+  background-color: #d3d3d3;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-nav{
-    width: 40vw;
-    margin-right: 5vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
+.profile-pic {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.institucional-pic{
+  width: 6vh;
+  height: 6vh;
+  position: fixed;
+  left: 1%;
+}
+.user-bar{
+  margin-bottom: 20%;
+}
+.link{
+  position: absolute;
+  bottom: 5px;
+  left: 4%;
+  color: blue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.images{
+  display: flex;
+  flex-direction: row;
+}
+.button {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
 }
 a{
   font-style: normal;
@@ -324,59 +349,7 @@ border-radius: 0.6vw;
     font-size: 1.5vw;
     margin-bottom: 1vw;
   }
-  footer{
-    width: 100%;
-    height: 35vw;
-    background-color:#092B43;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  .box_footer_cabecalho{
-    width: 80vw;
-    height: 8vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2.5vw;
-  }
-  footer hr{
-    width: 10vw;
-    color: white;
-  }
-  .img_footer1{
-width: 5vw;
-height: 5vw;
-border-radius: 50%;
-background-color: #ffffff49;
-background-image: url(./assets/insta_icon.png);
-background-repeat: no-repeat;
-background-size: 2.8vw;
-background-position: center;
-cursor: pointer;
-  }
-  .img_footer2{
-    width: 5vw;
-height: 5vw;
-border-radius: 50%;
-background-color: #ffffff49;
-background-image: url(./assets/face_icon.png);
-background-repeat: no-repeat;
-background-size: 2.8vw;
-background-position: center;
-cursor: pointer;
-  }
-  .img_footer3{
-    width: 5vw;
-height: 5vw;
-border-radius: 50%;
-background-color: #ffffff49;
-background-image: url(./assets/twitter_icon.png);
-background-repeat: no-repeat;
-background-size: 2.8vw;
-background-position: center;
-cursor: pointer;
-  }
+
   .box_footer_cabecalho img{
     width: 13vw;
     height: 6.5vw;
@@ -574,24 +547,6 @@ background-color: #eeeeee;
   flex-direction: column;
   margin-top: 1.5vw;
 }
-
-/*header da dashboard*/
-.header_dash{
-  display: flex;
-  justify-content: space-between;
-  background-color:#FFFFFF;
-  height: 8vw;
-  width: 94.5vw;
-  color: #092B43;
-  font-family: "Poppins", sans-serif;
-  border-bottom: 1px solid #D9D9D9;
-}
-.box_usuario_header_dash{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 2vw;
-}
 .box_texto_usuario{
   display: flex;
   flex-direction: column;
@@ -624,8 +579,8 @@ background-color: #eeeeee;
 
 /*estrutura da dashboard*/
 .container_sessoes{
-  margin-top: 1vw;
-  margin-left: 8vw;
+  margin-top: 2vw;
+  margin-left: 1vw;
   width: 80vw;
   height: 75vh;
   color:#092B43;
@@ -690,14 +645,14 @@ background-color: #eeeeee;
     display: flex;
     justify-content: center;
     align-items: center;
-  flex-direction: column;
+    flex-direction: column;
   }
   .box_sessao:hover{
     width: 25.5vw;
     height: 13.5vw;
   }
   .imagem_sessao{
-    width: 14vw;
+    width: 12vw;
     height: 12vw;
     border-radius: 0.5vw;
   }
@@ -787,9 +742,9 @@ padding-top: 1vw;
 overflow-y: auto;
 flex-shrink: 0;
   }
-  .box_dashboards{
+  /* .box_dashboards{
 width: 69%;
-  }
+  } */
   .cozinhas{
     width: 85%;
     height: 10vw;
@@ -871,7 +826,7 @@ padding-left: 2vw;
   align-self: flex-start;
 }
 .box_dashboards{
-  width: 55vw;
+  width: 65vw;
   height: 100%;
   display: flex;
   
@@ -879,7 +834,7 @@ padding-left: 2vw;
   justify-content: space-around;
 }
 .kpi_dash{
-  width: 18vw;
+  width: 20vw;
   height: 10vw;
   background-color: #ffffff;
   border-radius: 0.4vw;
@@ -901,52 +856,20 @@ padding-left: 2vw;
   height: 12vw;
 }
 .dashboard{
-  width: 96%;
+  width: 85%;
   height: 22vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #FFFFFF;
-  margin-left: 1vw;
+  /* margin-left: 1vw; */
 border-radius: 0.4vw;
 }
 .grafico{
   width: 100vw;
   height: 100%;
 }
-.header_servicos{
-    position: relative;
-  background-image: url('./assets/servicos.png');
-  background-size:cover; 
-  background-position: center;
-  width: 100%;
-  height: 43vw;
-  border-radius: 0 0 0 15vw;
-  overflow: hidden;
-  }
-  .header_servicos::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com opacidade de 50% */
-    border-radius: 0 0 0 15vw; /* Aplica o mesmo border-radius da imagem */
-    z-index: 1; /* Fica acima do fundo */
-  }
-  .header_servicos h2{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 5vw;
-    font-family: "Saira", sans-serif;
-    position: absolute;
-    z-index: 2
-  }
+
 .status_mensagem{
   width: 10vw;
   font-size: 1.4vw;
@@ -960,7 +883,7 @@ border-radius: 0.4vw;
   margin-top: -9.5vw;
   right: 7.5vw;
 }
-  .leak_azul{
+  /* .leak_azul{
     width: 5vw;
     height: 5vw;
 
@@ -974,7 +897,7 @@ border-radius: 0.4vw;
     width: 5vw;
     height: 5vw;
 
-  }
+  } */
   /*ESTILIZAÇÃO DA ABA SERVIÇOS*/
 
   .container_servicos{
