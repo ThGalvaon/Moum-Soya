@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body style="background-image: url('img/fundo.png'); background-size: cover; background-repeat: no-repeat;">
+<body style="background-image: url('img/imagem.jpg'); background-size: cover; background-repeat: no-repeat;">
     <div class="container">
     <div class="cabecalho"><h1>Simulador Financeiro <br> Moum Soya</h1></div>
     Quantidade de sacas produzidas por hectare: <input id="input_qtdSacas" type="number" placeholder="Digite a quantidade de sacas"><br>
@@ -54,7 +54,7 @@
 
         const inputResposta = document.getElementById('input_qtdSacas');
         const btnCalcular = document.getElementById('btn_Calcular');
-        inputResposta.addEventListener('keypress', (event) => {
+        inputResposta.addEventListener('keydown', (event) => {
            if (event.key === 'Enter') {
              btnCalcular.click(); 
              event.preventDefault(); 
