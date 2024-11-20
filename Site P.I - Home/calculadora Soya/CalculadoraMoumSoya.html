@@ -48,7 +48,8 @@
 
             Com o nosso monitoramento, seus lucros totais podem ir de R$<span class="perda">${totalCom}</span>, para R$<span class="ganho">${totalSem}</span> reais, que é o valor total previsto caso o fungo não se desenvolva
             <br><br>
-            * Para o cálculo nós utilizamos o R$${valorSem}, que é o valor aproximado do faturamento por hectare caso não desenvolva a ferrugem asiática, menos R$${valorCom}, que é o valor aproximado por hectare caso desenvolva o fungo, multiplicado por ${NumHec}`
+            <span class="ganho">*</span> Para o cálculo nós utilizamos o R$<span class="ganho">${valorSem}</span>, que é o valor aproximado do faturamento por hectare caso não desenvolva a ferrugem asiática, menos R$<span class="perda">${valorCom}</span>, 
+            que é o valor aproximado por hectare caso a plantação desenvolva o fungo, multiplicado por <span class="ganho">${NumHec}</span>, que é o número de hectares <span class="ganho">*</span>`
         }
 
         const inputResposta = document.getElementById('input_qtdSacas');
