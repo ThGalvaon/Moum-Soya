@@ -14,9 +14,9 @@ mode.addEventListener('click', () => {
     form.classList.remove('dark');
 });
 
-function validateForm() {
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
+function entrar() {
+    var email = document.getElementById('email');
+    var password = document.getElementById('password');
     
     // Verifique se os elementos existem
     if (!email || !password) {
@@ -24,19 +24,19 @@ function validateForm() {
         return false;
     }
 
-    // Validação do email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.(com|br)$/;
-    if (!emailRegex.test(email.value)) {
-        alert('O email deve conter "@" e terminar com ".com" ou ".br".');
-        return false;
-    }
+    // // Validação do email
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.(com|br)$/;
+    // if (!emailRegex.test(email.value)) {
+    //     alert('O email deve conter "@" e terminar com ".com" ou ".br".');
+    //     return false;
+    // }
 
-    // Validação da senha
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)/;
-    if (!passwordRegex.test(password.value)) {
-        alert('A senha deve conter pelo menos uma letra maiúscula e um número.');
-        return false;
-    }
+    // // Validação da senha
+    // const passwordRegex = /^(?=.*[A-Z])(?=.*\d)/;
+    // if (!passwordRegex.test(password.value)) {
+    //     alert('A senha deve conter pelo menos uma letra maiúscula e um número.');
+    //     return false;
+    // }
     
     fetch("/usuario/autenticar", {
         method: "POST",
@@ -44,8 +44,8 @@ function validateForm() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            emailServer: email,
-            senhaServer: senha
+            emailServer: email.value,
+            senhaServer: password.value
         }),
     })
         .then(function (resposta) {
@@ -55,7 +55,7 @@ function validateForm() {
                 alert('Login autenticado com sucesso! Redirecionando para tela da dashboard...');
 
                 setTimeout(() => {
-                    window.location = "./.html";
+                    window.location = "public\dash soya\dashboard.html";
                 }, "2000");
             }
             else {
@@ -71,14 +71,11 @@ function validateForm() {
 }
 
 // Adicionando o evento de submit ao formulário
-document.getElementById('login_form').addEventListener('submit', (event) => {
-    if (!validateForm()) {
-        event.preventDefault(); // Impede o envio do formulário se a validação falhar
-        setTimeout(function (){
-            window.location = "../dashboard/dashboard.html"
-        })
-    }
-});
+// document.getElementById('login_form').addEventListener('submit', (event) => {
+//     if (!validateForm()) {
+//         event.preventDefault(); // Impede o envio do formulário se a validação falhar
+//     }
+// });
 
 // fetch("/usuarios/autenticar", {
 //     method: "POST",
