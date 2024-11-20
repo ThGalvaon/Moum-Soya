@@ -1,73 +1,3 @@
-
-    function calcular(){
-        // 'Resetar' o conteúdo da div caso a gente queira fazer cálculos em sequência
-        div_resultado.innerHTML = ''
-    
-        // Recebendo os valores dos inputs para cálculo de vazamento
-        var consumo_queimador = Number(input_queimador.value);
-        var tempo_uso = Number(input_minutos.value);
-        var capacidade_botijao = Number(input_capacidade.value);
-        var preco_botijao = Number(input_preco.value);
-    
-        // Recebendo os valores dos inputs para cálculo de multas e prejuízos
-        var m2 = Number(inp_m2.value);
-        var multaM2 = (5 * 1,1 * m2 * 35.36)
-    
-        // multa por metro²: 5 (Infração Grave) * 1,1 (Carga de Incêndio Fator de Risco Grave)* 
-        // àrea da edificação (m2) * R$35,36 (UFESP 2024) = R$ Valor da Multa
-        
-        var qtd_funcionarios = Number(input_funcionarios.value);
-        var media_salarial = Number(input_media_salarial.value);
-    
-        // Fazendo as contas para calcular prejuízos e multas em caso de acidentes
-        var salario_total = qtd_funcionarios * media_salarial;
-        var multa = (salario_total * 2) / 3;
-        var gastos_totais = multa + multaM2 + salario_total + preco_botijao;
-        var patrimonial = gastos_totais.toFixed(2);
-    
-    
-        // (((T/60) x Kg/h)/B) x PB -> fórmula para calcular o gasto por dia
-        // Contas relacionadas ao vazamento
-        var gasto_dia = (((tempo_uso/60) * consumo_queimador) / capacidade_botijao) * preco_botijao;
-        var gasto_mes = gasto_dia * 30;
-        var gasto_ano = gasto_mes * 12;
-    
-        // Considerando que o gás esteja vazando e que o vazamento cause um aumento de 25%
-        var consumo_queimador_25 = consumo_queimador + (consumo_queimador * 0.25);
-        var gasto_dia_25 = (((tempo_uso/60) * consumo_queimador_25) / capacidade_botijao) * preco_botijao;
-        var gasto_mes_25 = gasto_dia_25 * 30;
-        var gasto_ano_25 = gasto_mes_25 * 12;
-
-        var multa_dobrada = patrimonial * 2
-
-
-        
-    
-        div_resultado.style.display =  'block'
-        // Exibindo o resultado dos gastos adicionais esperados
-        div_resultado.innerHTML += `
-                                  <h3> Gastos adicionais relacionados à vazamento: </h3>
-                                  Com um consumo de queimador de <span>${consumo_queimador} Kg/h</span> , utilizando-o por <span>${tempo_uso}</span>  minutos,
-                                  usando um botijão de <span>${capacidade_botijao}  kg</span> e pagando em média <span>R$${preco_botijao}</span> 
-                                  
-                                <br>A sua economia será de <span>R$${(gasto_ano_25) - (gasto_ano)}</span> com a <span>redução de 25% do vazamento por ano</span>`
-                                  
-        // Exibindo o resultado de multas e prejuízos em caso de acidente
-        div_resultado.innerHTML += `
-        <br><br>
-                                   <h3> Gastos com multas e em caso de acidentes: </h3>
-                                    Em caso de fiscalização em seu estabelecimento e for constatado que não há nenhum tipo de monitoramento de prevenção de incêndios, as <span>multas</span> aplicadas podem atingir o valor estimado de <span>R$${patrimonial}.</span><br> Além disso, caso o estabelecimento não se regularizar em uma nova inspeção, o valor da multa poderá dobrar, chegando à <span>R$${multa_dobrada}!</span><br> Na terceira inspeção, há ainda o risco de <span>suspensão temporária das atividades da sua empresa</span> até que as exigências de segurança sejam cumpridas, gerando um prejuízo diário .<br>
-                                  O prejuízo em relação à infraestrutura e investimentos relacionados à equipamentos será de <span>100% de todo dinheiro investido! </span><br>
-                                  
-                                  
-                                  </span>`
-    
-        div_resultado.innerHTML += `<br>
-                                    Com a LeakGas, em caso de vazamento avisaremos à você <span>em até 5 minutos</span>, evitando prejuízos e dores de cabeça!`
-                                
-      }
-
-      
 const linha = document.getElementById('chart_linha');
 
 new Chart(linha, {
@@ -112,31 +42,20 @@ new Chart(linha, {
       }
     }
   });
-
-
-
- // PARA NAVEGAR ENTRE A DASHBOARD
-
   function cozinhaB(){
     todas_dash.style.display = 'none';
     dash_cozinhas.style.display = 'flex';
-    cozinha_selecionada.innerHTML = ` B`
+    cozinha_selecionada.innerHTML = ` 2`
     inicio_vazamento.innerHTML = `10:00`
     dashboard_a.style.display = 'none';
     inicio_vazamento.style.color = 'red'
-
-    termino_vazamento.innerHTML = `<img class='leak_vermelho' src="./assets/leak_vermelho.png">`
-   status_mensagem.innerHTML = `Vazamento crítico ativo, risco de explosões!`
-   status_mensagem.style.backgroundColor = 'rgba(150, 24, 24, 0.63)'
+  //  status_mensagem.innerHTML = `Vazamento crítico ativo, risco de explosões!`
+  //  status_mensagem.style.backgroundColor = 'rgba(150, 24, 24, 0.63)'
     
     dashboardB.style.display = 'flex';
     dashboard_safe.style.display = 'none';
     dashboard_warning.style.display = 'none';
   }
-
-
-// ADICIONAR A DASHBOARD DINÂNMINCA (calace)
-
   function cozinhaA(){
     todas_dash.style.display = 'none';
     dash_cozinhas.style.display = 'flex';
@@ -146,18 +65,14 @@ new Chart(linha, {
     dashboard_warning.style.display = 'none';
 
     inicio_vazamento.style.color = 'green'
-    cozinha_selecionada.innerHTML = ` A`
+    cozinha_selecionada.innerHTML = ` 1`
     inicio_vazamento.innerHTML = `Sem vazamentos ativos`
     termino_vazamento.innerHTML = `Sem vazamentos ativos`
-    
-    termino_vazamento.innerHTML = `<img class='leak_azul' src="./assets/leak_azul.png">`
-    
-    status_mensagem.style.backgroundColor = 'rgba(30, 105, 30, 0.479)'
-   status_mensagem.style.fontSize = `1.3vw`
-   status_mensagem.innerHTML = `Nenhum vazamento ativo, ambiente seguro!`
-   
+        
+    // status_mensagem.style.backgroundColor = 'rgba(30, 105, 30, 0.479)'
+  //  status_mensagem.style.fontSize = `1.3vw`
+  //  status_mensagem.innerHTML = `Nenhum vazamento ativo, ambiente seguro!`
   }
-
   function cozinhaC(){
     todas_dash.style.display = 'none';
     dash_cozinhas.style.display = 'flex';
@@ -167,15 +82,13 @@ new Chart(linha, {
     dashboard_warning.style.display = 'none';
 
     inicio_vazamento.style.color = 'green'
-    cozinha_selecionada.innerHTML = ` C`
+    cozinha_selecionada.innerHTML = ` 3`
     inicio_vazamento.innerHTML = `Sem vazamentos ativos`
     termino_vazamento.innerHTML = `Sem vazamentos ativos`
-    
-    termino_vazamento.innerHTML = `<img class='leak_azul' src="./assets/leak_azul.png">`
-    
+      
     stativosus_mensagem.style.backgroundColor = 'rgba(30, 105, 30, 0.479)'
-   status_mensagem.style.fontSize = `1.3vw`
-   status_mensagem.innerHTML = `Nenhum vazamento ativo, ambiente seguro!`
+  //  status_mensagem.style.fontSize = `1.3vw`
+  //  status_mensagem.innerHTML = `Nenhum vazamento ativo, ambiente seguro!`
   }
   function cozinhaD(){
 
@@ -187,13 +100,12 @@ new Chart(linha, {
     dashboard_warning.style.display = 'flex';
 
     inicio_vazamento.style.color = 'rgb(145, 145, 28)'
-    cozinha_selecionada.innerHTML = ` D`
+    cozinha_selecionada.innerHTML = ` 4`
     inicio_vazamento.innerHTML = `07:00`
-    termino_vazamento.innerHTML = `<img class='leak_amarelo' src="./assets/leak_amarelo.png">`
     
-    status_mensagem.style.backgroundColor = 'rgba(145, 145, 28, 0.623)'
-   status_mensagem.style.fontSize = `1.3vw`
-   status_mensagem.innerHTML = `Vazamento médio ativo, podendo se agravar!`
+    // status_mensagem.style.backgroundColor = 'rgba(145, 145, 28, 0.623)'
+  //  status_mensagem.style.fontSize = `1.3vw`
+  //  status_mensagem.innerHTML = `Vazamento médio ativo, podendo se agravar!`
   }
   function cozinhaE(){
     todas_dash.style.display = 'none';
@@ -204,15 +116,14 @@ new Chart(linha, {
     dashboard_warning.style.display = 'none';
 
     inicio_vazamento.style.color = 'green'
-    cozinha_selecionada.innerHTML = ` E`
+    cozinha_selecionada.innerHTML = ` 5`
     inicio_vazamento.innerHTML = `Sem vazamentos ativos`
     termino_vazamento.innerHTML = `Sem vazamentos ativos`
     
-    termino_vazamento.innerHTML = `<img class='leak_azul' src="./assets/leak_azul.png">`
     
-    status_mensagem.style.backgroundColor = 'rgba(30, 105, 30, 0.479)'
-   status_mensagem.style.fontSize = `1.3vw`
-   status_mensagem.innerHTML = `Nenhum vazamento ativo, ambiente seguro!`
+    // status_mensagem.style.backgroundColor = 'rgba(30, 105, 30, 0.479)'
+  //  status_mensagem.style.fontSize = `1.3vw`
+  //  status_mensagem.innerHTML = `Nenhum vazamento ativo, ambiente seguro!`
   }
 
   const linha_safe = document.getElementById('chart_linha_safe');
@@ -260,7 +171,7 @@ new Chart(linha, {
       }
     });
 
-    // grafico pra deixar dinamico (calace)
+    // grafico pra deixar dinamico
 
     const linha_a = document.getElementById('chart_linha_a');
 

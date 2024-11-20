@@ -13,29 +13,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;700&display=swap" rel="stylesheet">
-    <title>LeakGas - Dashboard</title>
+    <title>Moum Soya - Dashboard</title>
 </head>
 <body>
   <div class="container_dashboard">
-    <div class="nav_dash">
-      <div class="box_icons">
-        <a href="dashleak.html" style="margin-bottom: 5vw; margin-top: -2vw;"><img class="icons_nav" src="assets/back_icon.png" alt=""></a>
-        <a href="../home.html"><img class="icons_nav" src="assets/icon_home.png" alt=""></a>
-        <a onclick="barras()" style="cursor: pointer;"><img class="icons_nav" src="assets/barra_icon.png" alt=""></a>
-        <a href=""><img class="icons_nav" src="assets/configurar_icon.png" alt=""></a>
+    <div class="sidebar">
+      <div class="images">
+          <a href="../index.html"><img src="https://www.imagensempng.com.br/wp-content/uploads/2020/12/006-4.png" alt="Site Institucional" class="institucional-pic"></a>
+          <img src="assets\perfil-de-usuario.png" alt="Perfil" class="profile-pic">
       </div>
-    </div>
+      <div class="user-bar">
+      <h2>Olá! XPTO</h2>
+      <p>xpto@gmail.school</p>
+      </div>
+      <a href="#" class="button" onclick="voltar()" id="home">Voltar para Home</a>
+      <a href="#" class="button">Editar Perfil</a>
+      <a href="#" class="button" onclick="ver()" id="dash-alert">Ver Alertas</a>
+      <p><a href="#" class="link">Suporte e Ajuda</a></p>
+  </div>
 
     <div class="main_content">
-      <div class="header_dash">
-        <div class="box_usuario_header_dash">
-          <img class="imagem_guest" src="./assets/guest_icon.png">
-          <div class="box_texto_usuario">
-            <h2>XPTO</h2>
-            <p>Bem vindo, Guest da Silva</p>
-          </div>
-        </div> 
-      </div>
+
 
 
       <div class="container_sessoes">
@@ -46,13 +44,13 @@
          <div class="box_kpi"><h4>Alertas Ativos:</h4> <div class="imagem_danger_header"><span>2 !</span> </div></div>
         </div>
     <div class="linha">
-        <div class="box_sessao" onclick="cozinhaA()"><img class="imagem_sessao" src="./assets/safe.png" alt=""> <div class="title_sec"><h4>Talhão A</h4></div></div>
-        <div class="box_sessao" onclick="cozinhaB()"><img class="imagem_sessao" src="./assets/danger.png" alt=""> <div class="title_sec"><h4>Talhão B</h4></div></div> 
-        <div class="box_sessao" onclick="cozinhaC()"><img class="imagem_sessao" src="./assets/safe.png" alt=""> <div class="title_sec"><h4>Talhão C</h4></div></div>
+        <div class="box_sessao" onclick="cozinhaA()"><img class="imagem_sessao" src="./assets/safe.png" alt=""> <div class="title_sec"><h4>Talhão 1</h4></div></div>
+        <div class="box_sessao" onclick="cozinhaB()"><img class="imagem_sessao" src="./assets/danger.png" alt=""> <div class="title_sec"><h4>Talhão 2</h4></div></div> 
+        <div class="box_sessao" onclick="cozinhaC()"><img class="imagem_sessao" src="./assets/safe.png" alt=""> <div class="title_sec"><h4>Talhão 3</h4></div></div>
     </div>
     <div class="linha">
-        <div class="box_sessao" onclick="cozinhaD()"><img class="imagem_sessao" src="./assets/warning.png" alt=""> <div class="title_sec"><h4>Talhão D</h4></div></div>
-        <div class="box_sessao" onclick="cozinhaE()"><img class="imagem_sessao" src="./assets/safe.png" alt=""> <div class="title_sec"><h4>Talhão E</h4></div></div>
+        <div class="box_sessao" onclick="cozinhaD()"><img class="imagem_sessao" src="./assets/warning.png" alt=""> <div class="title_sec"><h4>Talhão 4</h4></div></div>
+        <div class="box_sessao" onclick="cozinhaE()"><img class="imagem_sessao" src="./assets/safe.png" alt=""> <div class="title_sec"><h4>Talhão 5</h4></div></div>
         <!-- <div class="box_more"><img class="imagem_mais" src="./assets/more.png" alt=""> </div> -->
     </div>
       </div>
@@ -60,11 +58,11 @@
 <div id="dash_cozinhas" class="container_cozinhas">
 
     <div class="box_cozinhas">
-        <div class="cozinhas" onclick="cozinhaA()"><div class="imagem_cozinha_safe"></div><p>Talhão A</p></div>
-        <div class="cozinhas" onclick="cozinhaB()"><div class="imagem_cozinha_danger"></div><p>Talhão B</p></div>
-        <div class="cozinhas" onclick="cozinhaC()"><div class="imagem_cozinha_safe "></div><p>Talhão C</p></div>
-        <div class="cozinhas" onclick="cozinhaD()"><div class="imagem_cozinha_warning"></div><p>Talhão D</p></div>
-        <div class="cozinhas" onclick="cozinhaE()"><div class="imagem_cozinha_safe"></div><p>Talhão E</p></div>
+        <div class="cozinhas" onclick="cozinhaA()"><div class="imagem_cozinha_safe"></div><p>Talhão 1</p></div>
+        <div class="cozinhas" onclick="cozinhaB()"><div class="imagem_cozinha_danger"></div><p>Talhão 2</p></div>
+        <div class="cozinhas" onclick="cozinhaC()"><div class="imagem_cozinha_safe "></div><p>Talhão 3</p></div>
+        <div class="cozinhas" onclick="cozinhaD()"><div class="imagem_cozinha_warning"></div><p>Talhão 4</p></div>
+        <div class="cozinhas" onclick="cozinhaE()"><div class="imagem_cozinha_safe"></div><p>Talhão 5</p></div>
     </div> 
     <div class="box_dashboards">
         <div class="box_kpi_dash">
@@ -85,17 +83,10 @@
   <div id="dashboard_warning" class="dashboard">
     <canvas class="grafico" id="chart_linha_warning"></canvas>
   </div>
-
-
-  <!-- DASHBOARD PARA DEIXAR DINAMICO (CALACE) -->
   <div id="dashboard_a" class="dashboard">
     <canvas id="sensorAnalogico"></canvas>
   </div>
-  
     </div>
-
-    
-
 </div>
 
 <div class="container_barras" id="cont_barras">
