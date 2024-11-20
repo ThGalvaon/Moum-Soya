@@ -165,11 +165,73 @@ function validarCadastro(event) {
     var confirmacaoValida = validarConfirmacao();
 
     // Se todos os campos forem válidos, redireciona para a página de login
-    if (razaoValida && fantasiaValida && cnpjValido && representanteValido && emailValido && senhaValida && confirmacaoValida) {
-        window.location.replace("../login/login.html"); // Redireciona para a página de login
-    } else {
+    if (!razaoValida || !fantasiaValida || !cnpjValido || !representanteValido || !emailValido || !senhaValida || !confirmacaoValida) {
         alert("Informações Inválidas, revise os campos em vermelho."); // Exibe uma mensagem de erro se houver campos inválidos
+    } else {
+        fetch("/usuario/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                razao_socialServer: ipt_razao.value,
+                nome_fantasiaServer: ipt_nomeFant.value,
+                cnpjServer: ipt_CNPJ.value,
+                repreServer: ipt_rep.value,
+                emailServer: ipt_email.value,
+                senhaServer: ipt_senha.value
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+    
+                if (resposta.ok) {
+                    alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...');
+    
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+                }
+                else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
     }
+
+    // fetch("/usuario/cadastrar", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //         razao_socialServer: ipt_razao.value,
+    //         nome_fantasiaServer: ipt_nomeFant.value,
+    //         cnpjServer: ipt_CNPJ.value,
+    //         repreServer: ipt_rep.value,
+    //         emailServer: ipt_email.value,
+    //         senhaServer: ipt_senha.value
+    //     }),
+    // })
+    //     .then(function (resposta) {
+    //         console.log("resposta: ", resposta);
+
+    //         if (resposta.ok) {
+    //             alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...');
+
+    //             setTimeout(() => {
+    //                 window.location = "login.html";
+    //             }, "2000");
+    //         }
+    //         else {
+    //             throw "Houve um erro ao tentar realizar o cadastro!";
+    //         }
+    //     })
+    //     .catch(function (resposta) {
+    //         console.log(`#ERRO: ${resposta}`);
+    //     });
 }
 
 // Adiciona o evento de submissão ao formulário para executar a função de validação

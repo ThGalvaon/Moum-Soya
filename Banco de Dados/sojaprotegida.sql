@@ -7,8 +7,9 @@ CREATE TABLE Usuario (
     nome varchar(50) not null,
     email varchar(70) not null,
     senha varchar(30) not null,
-    status_usuario varchar(10),
-    telefone varchar(11),
+    -- status_usuario varchar(10),
+    -- telefone varchar(11),
+    cnpj
     fkAdmin int,
     constraint fkAdminUsu foreign key (fkAdmin) references usuario (idUsuario),
     constraint chk_status CHECK (status_usuario IN ('Ativo', 'Inativo'))

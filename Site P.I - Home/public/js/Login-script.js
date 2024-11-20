@@ -37,6 +37,35 @@ function validateForm() {
         alert('A senha deve conter pelo menos uma letra maiúscula e um número.');
         return false;
     }
+    
+    fetch("/usuario/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            emailServer: email,
+            senhaServer: senha
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                alert('Login autenticado com sucesso! Redirecionando para tela da dashboard...');
+
+                setTimeout(() => {
+                    window.location = "./.html";
+                }, "2000");
+            }
+            else {
+                throw "Houve um erro ao tentar realizar o login!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
 
     return true; // Se todas as validações passarem
 }
@@ -48,13 +77,13 @@ document.getElementById('login_form').addEventListener('submit', (event) => {
     }
 });
 
-fetch("/usuarios/autenticar", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        emailServer: emailVar,
-        senhaServer: senhaVar
-    })
- })
+// fetch("/usuarios/autenticar", {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//         emailServer: emailVar,
+//         senhaServer: senhaVar
+//     })
+//  })

@@ -4,20 +4,17 @@ USE sojaprotegidaVM;
 
 CREATE TABLE usuario (
 	idUsuario int primary key auto_increment,
-    nome varchar(50) not null,
+    razao_social varchar(50) not null,
+    nome_fantasia varchar(45) not null,
+    cnpj char(14) not null,
+    repre varchar(45),
     email varchar(70) not null,
-    senha varchar(30) not null,
-    status_usuario varchar(10),
-    telefone varchar(11),
-    fkAdmin int,
-    constraint fkAdminUsu foreign key (fkAdmin) references usuario (idUsuario),
-    constraint chk_status CHECK (status_usuario IN ('Ativo', 'Inativo'))
+    senha varchar(30) not null
 );
 
 CREATE TABLE endereco (
 	idEndereco int primary key auto_increment,
 	cidade varchar(45) not null,
-	bairro varchar(45) not null,
 	logradouro varchar(45) not null,
 	numero varchar(5) not null,
 	cep char(9) not null
@@ -196,3 +193,9 @@ SELECT f.nome as 'Nome da fazenda', idSensor, CASE
 SELECT avg(umidade)FROM sensor;
 SELECT min(umidade)FROM sensor;
 SELECT max(umidade)FROM sensor;
+
+select s.idSensor as 'ID', s.localSensor as 'Local do sensor', d.umidade, d.dtCaptura as 'Data e hora'
+	from sensor as s join dadosSensor as d on d.fkSensor = s.idSensor;
+    
+select f.nome as 'Nome da fazenda', s.idSensor as 'ID sensor', s.statusSensor as 'Status' from fazenda as f join sensor as s on s.fkFazenda = f.idFazenda;
+select * from usuario;
