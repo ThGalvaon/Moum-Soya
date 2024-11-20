@@ -45,6 +45,9 @@ function validateForm() {
 document.getElementById('login_form').addEventListener('submit', (event) => {
     if (!validateForm()) {
         event.preventDefault(); // Impede o envio do formulário se a validação falhar
+        setTimeout(function (){
+            window.location = "../dashboard/dashboard.html"
+        })
     }
 });
 

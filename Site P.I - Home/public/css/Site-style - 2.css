@@ -118,7 +118,7 @@ button {
   height: 1.15vw;
   color: #264653;
   font-family: Inter, var(--default-font-family);
-  font-size: 1.20vw;
+  font-size: 0.83vw;
   font-weight: 400;
   line-height: 0.83vw;
   text-align: left;
@@ -150,7 +150,7 @@ button {
   height: 1.15vw;
   color: #264653;
   font-family: Inter, var(--default-font-family);
-  font-size: 1.vw;
+  font-size: 0.83vw;
   font-weight: 400;
   line-height: 0.83vw;
   text-align: left;
