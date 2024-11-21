@@ -1,4 +1,4 @@
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     display: flex;
@@ -7,59 +7,71 @@ body{
     align-items: center;
     background-color: #e9e9e9;
     margin: 0;
+    padding: 10px;
 }
 
-.container{
-    width: 500px;
+.container {
+    width: 90%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: #ffffff;
     padding: 25px;
     border-radius: 20px;
+    margin-top: 20px;
+    transition: all 0.5s ease; /* Suaviza as mudanças de estilo */
+    border: 2px solid transparent; /* Define uma borda inicial transparente */
 }
 
-.cabecalho{
+.container.active {
+    margin-top: 50px; /* Aumenta a margem superior após a ação */
+    border-color: #7ed957; /* Aplica a borda verde */
+}
+
+.cabecalho {
     display: flex;
     align-items: center;
-
 }
 
-img{
+img {
     width: 100px;
     height: 100px;
 }
 
-h1{
+h1 {
     margin-left: 90px;
     text-align: center;
 }
 
-input{
+input {
     margin-top: 5px;
     padding: 10px 20px;
     color: #000000;
     background: transparent;
-    border: 2px solid #7ed957 ;
+    border: 2px solid #7ed957;
     border-radius: 30px;
     cursor: pointer;
     transition: 0.5s;
+    width: 100%; /* Para responsividade */
+    box-sizing: border-box; /* Inclui padding na largura total */
 }
 
-
-.btnVerificar{
+.btnVerificar {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 }
 
-button{
+button {
     cursor: pointer;
     width: 100px;
-    padding: 0.62vw 0.62vw 0.62vw 0.62vw;
+    padding: 10px;
     color: #7ed957;
     background: #100d28;
-    border: 0.05vw solid #7ed957;
-    border-radius: 0.5vw;
+    border: 2px solid #7ed957;
+    border-radius: 30px;
+    transition: all 0.3s ease;
 }
 
 button:hover {
@@ -67,16 +79,39 @@ button:hover {
     color: #fff;
 }
 
-#div_mensagem{
+#div_mensagem {
     text-align: justify;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 20px;
 }
 
-.perda{
+.perda {
     color: crimson;
 }
 
-.ganho{
+.ganho {
     color: #7ed957;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    h1 {
+        margin-left: 0;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 80px;
+        font-size: 14px;
+    }
+
+    #div_mensagem {
+        font-size: 16px;
+    }
 }
