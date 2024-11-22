@@ -1,226 +1,442 @@
-const humidityData = [45, 50, 55, 65, 60, 69, 67, 75, 78, 74, 68];
-const timeLabels = ['12:00', '12:05', '12:10', '12:15', '12:20', '12:25', '12:30', '12:35', '12:40', '12:45', '12:50'];
+const linha = document.getElementById('chart_linha');
 
-const sensorStatusData = {
-    labels: ['Quantidade Ativos', 'Quantidade em manutenção'],
-    datasets: [{
-        data: [16, 4],
-        backgroundColor: [
-            'rgba(0, 128, 0, 0.8)',
-            'rgb(255, 0, 0)',  
-        ],
-    }]
-};
-
-const monthlyHumidityData = {
-    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-    datasets: [{
-        label: 'Umidade Média (%)',
-        data: [60, 64, 68, 69, 70, 72, 70, 76, 78, 74, 80, 82],
-        backgroundColor: 'rgba(0, 128, 0, 0.8)' ,
-        borderColor: 'rgba(60, 179, 113, 0.6)',
-        borderWidth: 1,
-    }]
-};
-
-const ctxLine = document.getElementById('humidityLineChart').getContext('2d');
-const humidityLineChart = new Chart(ctxLine, {
+new Chart(linha, {
     type: 'line',
     data: {
-        labels: timeLabels,
-        datasets: [
-            {   label: 'Umidade Relativa (%)',
-                data: humidityData,
-                borderColor: 'rgba(60, 179, 113, 1)',
-                fill: false,
-            },
-            {
-                label: 'Limite Máximo (70%)',
-                data: new Array(timeLabels.length).fill(70),
-                borderColor: 'rgba(255, 0, 0, 0.7)',
-                borderDash: [5, 5],
-                pointRadius: 0,
-                fill: false,
-            },
-            {
-                label: 'Nivel Preocupante (50%)',
-                data: new Array(timeLabels.length).fill(50),
-                borderColor: 'orange',
-                borderDash: [5, 5],
-                pointRadius: 0,
-                fill: false,
-            }
-        ]
+      labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
+      datasets: [
+        {
+          label: 'Presença de Gás',
+          data: [0, 0, 0, 0, 10, 15, 15],
+          borderColor: '#E5446D',
+          backgroundColor: 'red',
+          borderWidth: 1
+        },
+        {
+          label: 'Limite de Segurança (2%)',
+          data: [2, 2, 2, 2, 2, 2, 2],
+          borderColor: 'blue',
+          backgroundColor: 'rgba(0, 0, 255, 0.1)',
+          borderWidth: 2,
+          borderDash: [5, 5],
+          pointRadius: 0
+        }
+      ]
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Umidade (%)'
-                }
-            },
-            x: {
-                title: {
-                    display: true,
-                    text: 'Tempo'
-                }
-            }
-        }
-    }
-});
-
-const ctxPie = document.getElementById('sensorStatusChart').getContext('2d');
-const sensorStatusChart = new Chart(ctxPie, {
-    type: 'pie',
-    data: sensorStatusData,
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-        }
-    }
-});
-
-const ctxBar = document.getElementById('monthlyHumidityChart').getContext('2d');
-const monthlyHumidityChart = new Chart(ctxBar, {
-    type: 'bar',
-    data: monthlyHumidityData,
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: true
-            }
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 16,
+          title: {
+            display: true,
+            text: 'Quantidade de Gás'
+          }
         },
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Umidade Média (%)'
-                }
-            },
-            x: {
-                title: {
-                    display: true,
-                    text: 'Meses'
-                }
-            }
+        x: {
+          title: {
+            display: true,
+            text: 'Horário'
+          }
         }
+      }
     }
-});
+  });
+  function cozinhaB(){
+    todas_dash.style.display = 'none';
+    dash_cozinhas.style.display = 'flex';
+    cozinha_selecionada.innerHTML = ` 2`
+    inicio_vazamento.innerHTML = `10:00`
+    dashboard_a.style.display = 'none';
+    inicio_vazamento.style.color = 'red'
+  //  status_mensagem.innerHTML = `Vazamento crítico ativo, risco de explosões!`
+  //  status_mensagem.style.backgroundColor = 'rgba(150, 24, 24, 0.63)'
+    
+    dashboardB.style.display = 'flex';
+    dashboard_safe.style.display = 'none';
+    dashboard_warning.style.display = 'none';
+  }
+  function cozinhaA(){
+    todas_dash.style.display = 'none';
+    dash_cozinhas.style.display = 'flex';
+    dashboardB.style.display = 'none';
+    dashboard_safe.style.display = 'none';
+    dashboard_a.style.display = 'flex';
+    dashboard_warning.style.display = 'none';
 
-document.getElementById('toggleButton').addEventListener('click', function () {
-    const limitDataset = {
-        label: 'Limite Máximo (70%)',
-        data: new Array(monthlyHumidityData.labels.length).fill(70),
-        backgroundColor: 'rgb(255, 0, 0)'
-    };
+    inicio_vazamento.style.color = 'green'
+    cozinha_selecionada.innerHTML = ` 1`
+    inicio_vazamento.innerHTML = `Sem vazamentos ativos`
+    termino_vazamento.innerHTML = `Sem vazamentos ativos`
+        
+    // status_mensagem.style.backgroundColor = 'rgba(30, 105, 30, 0.479)'
+  //  status_mensagem.style.fontSize = `1.3vw`
+ 
+  }
+  function cozinhaC(){
+    todas_dash.style.display = 'none';
+    dash_cozinhas.style.display = 'flex';
+    dashboardB.style.display = 'none';
+    dashboard_a.style.display = 'none';
+    dashboard_safe.style.display = 'flex';
+    dashboard_warning.style.display = 'none';
 
-    const existingDatasetIndex = monthlyHumidityChart.data.datasets.findIndex(
-        dataset => dataset.label === 'Limite Máximo (70%)'
-    );
+    inicio_vazamento.style.color = 'green'
+    cozinha_selecionada.innerHTML = ` 3`
+    inicio_vazamento.innerHTML = `Sem vazamentos ativos`
+    termino_vazamento.innerHTML = `Sem vazamentos ativos`
+      
+    stativosus_mensagem.style.backgroundColor = 'rgba(30, 105, 30, 0.479)'
+ 
+  }
+  function cozinhaD(){
 
+    todas_dash.style.display = 'none';
+    dash_cozinhas.style.display = 'flex';
+    dashboard_a.style.display = 'none';
+    dashboardB.style.display = 'none';
+    dashboard_safe.style.display = 'none';
+    dashboard_warning.style.display = 'flex';
 
+    inicio_vazamento.style.color = 'rgb(145, 145, 28)'
+    cozinha_selecionada.innerHTML = ` 4`
+    inicio_vazamento.innerHTML = `07:00`
+    
+    // status_mensagem.style.backgroundColor = 'rgba(145, 145, 28, 0.623)'
+  //  status_mensagem.style.fontSize = `1.3vw`
 
-    if (existingDatasetIndex === -1) {
-        monthlyHumidityChart.data.datasets.push(limitDataset);
-        this.textContent = 'Remover Linha Limite';
-    } else {
-        monthlyHumidityChart.data.datasets.splice(existingDatasetIndex, 1);
-        this.textContent = 'Mostrar Linha Limite';
-    }
+  
+  }
+  function cozinhaE(){
+    todas_dash.style.display = 'none';
+    dash_cozinhas.style.display = 'flex';
+    dashboardB.style.display = 'none';
+    dashboard_a.style.display = 'none';
+    dashboard_safe.style.display = 'flex';
+    dashboard_warning.style.display = 'none';
 
-    monthlyHumidityChart.update();
-});
+    inicio_vazamento.style.color = 'green'
+    cozinha_selecionada.innerHTML = ` 5`
+    inicio_vazamento.innerHTML = `Sem vazamentos ativos`
+    termino_vazamento.innerHTML = `Sem vazamentos ativos`
+    
+    
+    // status_mensagem.style.backgroundColor = 'rgba(30, 105, 30, 0.479)'
+  //  status_mensagem.style.fontSize = `1.3vw`
+  //  status_mensagem.innerHTML = `Nenhum vazamento ativo, ambiente seguro!`
+  }
 
-document.getElementById("toggleButton").addEventListener("click", function () {
-    const button = this;
-    if (button.classList.contains("mostrar")) {
-        button.classList.remove("mostrar");
-        button.classList.add("remover");
-        button.textContent = "Mostrar Linha Limite";
-    } else {
-        button.classList.remove("remover");
-        button.classList.add("mostrar");
-        button.textContent = "Remover Linha Limite";
-    }
-});
+  const linha_safe = document.getElementById('chart_linha_safe');
 
-document.getElementById('tela2').style.display = 'none'
-document.getElementById('home').style.display = 'none'
-
-
-function ver() {
-    document.getElementById('tela1').style.display = 'none';
-    document.getElementById('tela2').style.display = 'flex';
-    document.getElementById('dash-alert').style.display = 'none';
-    document.getElementById('home').style.display = 'block';
-
-    const alertData = {
-        labels: ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo'],
+  new Chart(linha_safe, {
+      type: 'line',
+      data: {
+        labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
         datasets: [
-            {
-                label: 'Alertas Criticos: maior que 70% de Umidade',
-                data: [4, 3, 2, 2, 0, 1, 1],
-                backgroundColor: 'red',
-                borderColor: 'rgba(0, 128, 0, 1)',
-                borderWidth: 1,
-            },
-            {
-                label: 'Alertas Moderados: maior que 50% de Umidade',
-                data: [2, 2, 4, 3, 4, 4, 3],
-                backgroundColor: 'orange',
-                borderColor: 'rgba(0, 128, 0, 1)',
-                borderWidth: 1,
-            }
+          {
+            label: 'Presença de Gás',
+            data: [0, 0, 0, 0, 0, 0, 0],
+            borderColor: 'green',
+            backgroundColor: 'green',
+            borderWidth: 1
+          },
+          {
+            label: 'Limite de Segurança (2%)',
+            data: [2, 2, 2, 2, 2, 2, 2],
+            borderColor: 'blue',
+            backgroundColor: 'rgba(0, 0, 255, 0.1)',
+            borderWidth: 1,
+            borderDash: [5, 5],
+            pointRadius: 0
+          }
         ]
-    };
-
-    const ctxBar = document.getElementById('alertChart').getContext('2d');
-    const alertChart = new Chart(ctxBar, {
-        type: 'bar',
-        data: alertData,
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'top',
-                    labels: {
-                        color: 'black',
-                        boxWidth: 15,
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    min: 1, 
-                    max: 10, 
-                    title: {
-                        display: true,
-                        text: 'Quantidade de Alertas'
-                    }
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Dias da semana'
-                    }
-                }
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 3,
+            title: {
+              display: true,
+              text: 'Quantidade de Gás'
             }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Horário'
+            }
+          }
         }
+      }
     });
-}    
 
-function voltar() {
-    document.getElementById('tela1').style.display = 'flex';
-    document.getElementById('tela2').style.display = 'none';
-    document.getElementById('home').style.display = 'none';
-    document.getElementById('dash-alert').style.display = 'block';
+    // grafico pra deixar dinamico
+
+    const linha_a = document.getElementById('chart_linha_a');
+
+  new Chart(linha_a, {
+      type: 'line',
+      data: {
+        labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
+        datasets: [
+          {
+            label: 'Presença de Gás',
+            data: [0, 0, 0, 0, 0, 0, 0],
+            borderColor: 'green',
+            backgroundColor: 'green',
+            borderWidth: 1
+          },
+          {
+            label: 'Limite de Segurança (2%)',
+            data: [2, 2, 2, 2, 2, 2, 2],
+            borderColor: 'blue',
+            backgroundColor: 'rgba(0, 0, 255, 0.1)',
+            borderWidth: 1,
+            borderDash: [5, 5],
+            pointRadius: 0
+          }
+        ]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 3,
+            title: {
+              display: true,
+              text: 'Quantidade de Gás'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Horário'
+            }
+          }
+        }
+      }
+    });
+    
+    
+const linha_warning = document.getElementById('chart_linha_warning');
+
+new Chart(linha_warning, {
+    type: 'line',
+    data: {
+      labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
+      datasets: [
+        {
+          label: 'Presença de Gás',
+          data: [0, 0.5, 1, 1.2, 1, 2, 2],
+          borderColor: 'yellow',
+          backgroundColor: 'yellow',
+          borderWidth: 1
+        },
+        {
+          label: 'Limite de Segurança (2%)',
+          data: [2, 2, 2, 2, 2, 2, 2],
+          borderColor: 'blue',
+          backgroundColor: 'rgba(0, 0, 255, 0.1)',
+          borderWidth: 1,
+          borderDash: [5, 5],
+          pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 3,
+          title: {
+            display: true,
+            text: 'Quantidade de Gás'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Horário'
+          }
+        }
+      }
+    }
+  });
+
+function barras(){
+  todas_dash.style.display = 'none';
+  cont_barras.style.display = 'flex';
+  dash_cozinhas.style.display = 'none';
+}
+
+const barra = document.getElementById('chart_barra_mes').getContext('2d');
+
+new Chart(barra, {
+  type: 'bar',
+  data: {
+    labels: ['Cozinha A', 'Cozinha B', 'Cozinha C', 'Cozinha D', 'Cozinha E'],
+    datasets: [{
+      label: '', // Deixe vazio para não mostrar no gráfico
+      data: [5, 3, 2, 4, 1], // Exemplo de dados para cada cozinha
+      backgroundColor: [
+        'rgba(75, 192, 192, 1)', // Cores sólidas
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 99, 132, 1)'
+      ],
+      borderColor: [
+        'rgba(75, 192, 192, 1)', // Cores sólidas
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 99, 132, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    indexAxis: 'y', // Define o gráfico como horizontal
+    scales: {
+      x: {
+        beginAtZero: true,
+        stepSize: 1, // Define o incremento para números inteiros
+        title: {
+          display: true,
+          text: 'Vazamento em Litros'
+        },
+        ticks: {
+          precision: 0 // Garante que exibe apenas números inteiros
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Cozinhas'
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false // Remove a legenda do gráfico
+      },
+      title: {
+        display: true,
+        text: 'Comparação de Vazamento nas Cozinhas - Outubro'
+      }
+    }
+  }
+});
+
+
+const linha_ano = document.getElementById('chart_linha_ano');
+
+new Chart(linha_ano, {
+    type: 'line',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro'],
+      datasets: [
+        {
+          label: 'Quantidade de Vazamentos',
+          data: [10, 9, 8, 12, 7, 13, 10, 5, 8, 14],
+          borderColor: '#092B43',
+          backgroundColor: '#092B43',
+          borderWidth: 3
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 15,
+          title: {
+            display: true,
+            text: 'Quantidade de Vazamentos'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Ano de 2024'
+          }
+        }
+      }
+    }
+  });
+
+
+
+
+
+  // lógica para o login
+
+  var logado = false;
+  
+
+
+
+  function logar(){
+
+    var email_login = ipt_email_login.value 
+    var senha_login = ipt_senha_login.value
+
+    if(email_login == 'admin@admin' && senha_login == 'admin'){
+      localStorage.setItem("logado", "true"); // Armazena o valor "true" no localStorage
+      window.location.href = 'dashboard.html'
+
+      p_mensagem_login.innerHTML = ''
+    }else{
+      p_mensagem_login.innerHTML = `&times; Usuário ou senha incorretos, tente novamente!<br><br>`
+    }
+  }
+// Função que verifica algo quando a página é carregada
+function verificarLogin() {
+  
+  if (localStorage.getItem("logado") !== "true") {
+    box_loginCadastro.style.display = 'none';
+  } 
+
+
+  if (localStorage.getItem("logado") !== "true") {
+    alert("Você precisa estar logado para acessar essa página.");
+    window.location.href = 'login.html'; // Redireciona para a página de login, se não estiver logado
+}
+}
+
+
+
+
+// Adiciona um listener para o evento 'DOMContentLoaded'
+document.addEventListener('DOMContentLoaded', verificarLogin);
+
+
+
+/*LÓGICA DO GUEST*/
+// Obtendo elementos do DOM
+const modal = document.getElementById('modal');
+const guestCircle = document.getElementById('guestCircle');
+const spanClose = document.getElementsByClassName('close')[0];
+
+// Quando o mouse entra no círculo do guest, o modal é aberto
+guestCircle.addEventListener('mouseover', function() {
+    modal.style.display = 'block';
+});
+
+// Quando o mouse sai do círculo do guest, o modal é fechado
+guestCircle.addEventListener('mouseout', function() {
+    modal.style.display = 'none';
+});
+
+// Também fecha o modal ao clicar no "X"
+spanClose.onclick = function() {
+    modal.style.display = 'none';
+};
+
+// Quando o usuário clica fora do modal, ele também é fechado
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
 }
