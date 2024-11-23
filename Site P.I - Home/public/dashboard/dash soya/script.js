@@ -6,14 +6,14 @@ new Chart(linha, {
       labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
       datasets: [
         {
-          label: 'Presença de Gás',
+          label: 'Umidade do ar',
           data: [0, 0, 0, 0, 10, 15, 15],
           borderColor: '#E5446D',
           backgroundColor: 'red',
           borderWidth: 1
         },
         {
-          label: 'Limite de Segurança (2%)',
+          label: 'Limite de umidade desejável (2%)',
           data: [2, 2, 2, 2, 2, 2, 2],
           borderColor: 'blue',
           backgroundColor: 'rgba(0, 0, 255, 0.1)',
@@ -30,7 +30,7 @@ new Chart(linha, {
           max: 16,
           title: {
             display: true,
-            text: 'Quantidade de Gás'
+            text: 'Umidade do ar'
           }
         },
         x: {
@@ -141,7 +141,7 @@ new Chart(linha, {
             borderWidth: 1
           },
           {
-            label: 'Limite de Segurança (2%)',
+            label: 'Limite de umidade desejável (2%)',
             data: [2, 2, 2, 2, 2, 2, 2],
             borderColor: 'blue',
             backgroundColor: 'rgba(0, 0, 255, 0.1)',
@@ -158,7 +158,7 @@ new Chart(linha, {
             max: 3,
             title: {
               display: true,
-              text: 'Quantidade de Gás'
+              text: 'Umidade do ar'
             }
           },
           x: {
@@ -181,14 +181,14 @@ new Chart(linha, {
         labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
         datasets: [
           {
-            label: 'Presença de Gás',
+            label: 'Umidade',
             data: [0, 0, 0, 0, 0, 0, 0],
             borderColor: 'green',
             backgroundColor: 'green',
             borderWidth: 1
           },
           {
-            label: 'Limite de Segurança (2%)',
+            label: 'Limite de umidade desejável (2%)',
             data: [2, 2, 2, 2, 2, 2, 2],
             borderColor: 'blue',
             backgroundColor: 'rgba(0, 0, 255, 0.1)',
@@ -205,7 +205,7 @@ new Chart(linha, {
             max: 3,
             title: {
               display: true,
-              text: 'Quantidade de Gás'
+              text: 'Umidade do ar'
             }
           },
           x: {
@@ -227,14 +227,14 @@ new Chart(linha_warning, {
       labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
       datasets: [
         {
-          label: 'Presença de Gás',
+          label: 'Umidade',
           data: [0, 0.5, 1, 1.2, 1, 2, 2],
           borderColor: 'yellow',
           backgroundColor: 'yellow',
           borderWidth: 1
         },
         {
-          label: 'Limite de Segurança (2%)',
+          label: 'Limite de umidade desejável (2%)',
           data: [2, 2, 2, 2, 2, 2, 2],
           borderColor: 'blue',
           backgroundColor: 'rgba(0, 0, 255, 0.1)',
@@ -251,7 +251,7 @@ new Chart(linha_warning, {
           max: 3,
           title: {
             display: true,
-            text: 'Quantidade de Gás'
+            text: 'Umidade do ar'
           }
         },
         x: {
