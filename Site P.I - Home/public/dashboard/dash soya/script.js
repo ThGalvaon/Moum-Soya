@@ -1,21 +1,21 @@
 const linha = document.getElementById('chart_linha');
 
 new Chart(linha, {
-    type: 'line',
+  type: 'line',
     data: {
       labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
       datasets: [
         {
           label: 'Umidade do ar',
-          data: [0, 0, 0, 0, 10, 15, 15],
-          borderColor: '#E5446D',
+          data: [40, 59, 60, 79, 90, 84, 78],
+          borderColor: 'red',
           backgroundColor: 'red',
           borderWidth: 1
         },
         {
-          label: 'Limite de umidade desejável (2%)',
-          data: [2, 2, 2, 2, 2, 2, 2],
-          borderColor: 'blue',
+          label: 'Limite de umidade desejável (60%)',
+          data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+          borderColor: 'red',
           backgroundColor: 'rgba(0, 0, 255, 0.1)',
           borderWidth: 2,
           borderDash: [5, 5],
@@ -27,7 +27,7 @@ new Chart(linha, {
       scales: {
         y: {
           beginAtZero: true,
-          max: 16,
+          max: 100,
           title: {
             display: true,
             text: 'Umidade do ar'
@@ -42,6 +42,7 @@ new Chart(linha, {
       }
     }
   });
+
   function cozinhaB(){
     todas_dash.style.display = 'none';
     dash_cozinhas.style.display = 'flex';
@@ -129,116 +130,23 @@ new Chart(linha, {
   const linha_safe = document.getElementById('chart_linha_safe');
 
   new Chart(linha_safe, {
-      type: 'line',
-      data: {
-        labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
-        datasets: [
-          {
-            label: 'Presença de Gás',
-            data: [0, 0, 0, 0, 0, 0, 0],
-            borderColor: 'green',
-            backgroundColor: 'green',
-            borderWidth: 1
-          },
-          {
-            label: 'Limite de umidade desejável (2%)',
-            data: [2, 2, 2, 2, 2, 2, 2],
-            borderColor: 'blue',
-            backgroundColor: 'rgba(0, 0, 255, 0.1)',
-            borderWidth: 1,
-            borderDash: [5, 5],
-            pointRadius: 0
-          }
-        ]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-            max: 3,
-            title: {
-              display: true,
-              text: 'Umidade do ar'
-            }
-          },
-          x: {
-            title: {
-              display: true,
-              text: 'Horário'
-            }
-          }
-        }
-      }
-    });
-
-    // grafico pra deixar dinamico
-
-    const linha_a = document.getElementById('chart_linha_a');
-
-  new Chart(linha_a, {
-      type: 'line',
-      data: {
-        labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
-        datasets: [
-          {
-            label: 'Umidade',
-            data: [0, 0, 0, 0, 0, 0, 0],
-            borderColor: 'green',
-            backgroundColor: 'green',
-            borderWidth: 1
-          },
-          {
-            label: 'Limite de umidade desejável (2%)',
-            data: [2, 2, 2, 2, 2, 2, 2],
-            borderColor: 'blue',
-            backgroundColor: 'rgba(0, 0, 255, 0.1)',
-            borderWidth: 1,
-            borderDash: [5, 5],
-            pointRadius: 0
-          }
-        ]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-            max: 3,
-            title: {
-              display: true,
-              text: 'Umidade do ar'
-            }
-          },
-          x: {
-            title: {
-              display: true,
-              text: 'Horário'
-            }
-          }
-        }
-      }
-    });
-    
-    
-const linha_warning = document.getElementById('chart_linha_warning');
-
-new Chart(linha_warning, {
     type: 'line',
     data: {
       labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
       datasets: [
         {
-          label: 'Umidade',
-          data: [0, 0.5, 1, 1.2, 1, 2, 2],
-          borderColor: 'yellow',
-          backgroundColor: 'yellow',
+          label: 'Umidade do ar',
+          data: [40, 59, 60, 78, 70, 74, 88],
+          borderColor: 'green',
+          backgroundColor: 'green',
           borderWidth: 1
         },
         {
-          label: 'Limite de umidade desejável (2%)',
-          data: [2, 2, 2, 2, 2, 2, 2],
-          borderColor: 'blue',
+          label: 'Limite de umidade desejável (60%)',
+          data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+          borderColor: 'red',
           backgroundColor: 'rgba(0, 0, 255, 0.1)',
-          borderWidth: 1,
+          borderWidth: 2,
           borderDash: [5, 5],
           pointRadius: 0
         }
@@ -248,7 +156,99 @@ new Chart(linha_warning, {
       scales: {
         y: {
           beginAtZero: true,
-          max: 3,
+          max: 100,
+          title: {
+            display: true,
+            text: 'Umidade do ar'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Horário'
+          }
+        }
+      }
+    }
+  });
+
+    // grafico pra deixar dinamico
+
+    const linha_a = document.getElementById('chart_linha_a');
+
+  new Chart(linha_a, {
+    type: 'line',
+    data: {
+      labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
+      datasets: [
+        {
+          label: 'Umidade do ar',
+          data: [50, 69, 57, 59, 67, 74, 78],
+          borderColor: 'yellow',
+          backgroundColor: 'yellow',
+          borderWidth: 1
+        },
+        {
+          label: 'Limite de umidade desejável (60%)',
+          data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+          borderColor: 'red',
+          backgroundColor: 'rgba(0, 0, 255, 0.1)',
+          borderWidth: 2,
+          borderDash: [5, 5],
+          pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          title: {
+            display: true,
+            text: 'Umidade do ar'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Horário'
+          }
+        }
+      }
+    }
+  });
+
+const linha_warning = document.getElementById('chart_linha_warning');
+
+new Chart(linha_warning, {
+  type: 'line',
+    data: {
+      labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
+      datasets: [
+        {
+          label: 'Umidade do ar',
+          data: [20, 39, 40, 59, 70, 74, 68],
+          borderColor: 'green',
+          backgroundColor: 'green',
+          borderWidth: 1
+        },
+        {
+          label: 'Limite de umidade desejável (60%)',
+          data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+          borderColor: 'red',
+          backgroundColor: 'rgba(0, 0, 255, 0.1)',
+          borderWidth: 2,
+          borderDash: [5, 5],
+          pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
           title: {
             display: true,
             text: 'Umidade do ar'
@@ -333,16 +333,25 @@ new Chart(barra, {
 const linha_ano = document.getElementById('chart_linha_ano');
 
 new Chart(linha_ano, {
-    type: 'line',
+  type: 'line',
     data: {
-      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro'],
+      labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
       datasets: [
         {
-          label: 'Quantidade de Vazamentos',
-          data: [10, 9, 8, 12, 7, 13, 10, 5, 8, 14],
-          borderColor: '#092B43',
-          backgroundColor: '#092B43',
-          borderWidth: 3
+          label: 'Umidade do ar',
+          data: [20, 39, 40, 59, 70, 74, 68],
+          borderColor: 'green',
+          backgroundColor: 'green',
+          borderWidth: 1
+        },
+        {
+          label: 'Limite de umidade desejável (60%)',
+          data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+          borderColor: 'red',
+          backgroundColor: 'rgba(0, 0, 255, 0.1)',
+          borderWidth: 2,
+          borderDash: [5, 5],
+          pointRadius: 0
         }
       ]
     },
@@ -350,25 +359,21 @@ new Chart(linha_ano, {
       scales: {
         y: {
           beginAtZero: true,
-          max: 15,
+          max: 100,
           title: {
             display: true,
-            text: 'Quantidade de Vazamentos'
+            text: 'Umidade do ar'
           }
         },
         x: {
           title: {
             display: true,
-            text: 'Ano de 2024'
+            text: 'Horário'
           }
         }
       }
     }
   });
-
-
-
-
 
   // lógica para o login
 

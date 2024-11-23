@@ -113,37 +113,46 @@
 <script>
           var sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
             type: 'line',
-            data: {
-                datasets: [{
-                    label: 'Quantidade de Gás',
-                    borderColor: '#63B1BC',
-                    backgroundColor: '#ED145B'
-                },
-                {
-                    label: 'Limite de Segurança (2%)',
-                    data: [2, 2, 2, 2, 2],
-                    borderColor: 'blue',
-                    backgroundColor: 'rgba(0, 0, 255, 0.1)',
-                    borderWidth: 1,
-                    borderDash: [5, 5],
-                    pointRadius: 0
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        beginAtZero: true
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: '(%)'
-                        },
-                        beginAtZero: true,
-                    },
-                },
-            }
-        });
+    data: {
+      labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
+      datasets: [
+        {
+          label: 'Umidade do ar',
+          data: [20, 39, 40, 59, 70, 74, 68],
+          borderColor: 'green',
+          backgroundColor: 'green',
+          borderWidth: 1
+        },
+        {
+          label: 'Limite de umidade desejável (60%)',
+          data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+          borderColor: 'red',
+          backgroundColor: 'rgba(0, 0, 255, 0.1)',
+          borderWidth: 2,
+          borderDash: [5, 5],
+          pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          title: {
+            display: true,
+            text: 'Umidade do ar'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Horário'
+          }
+        }
+      }
+    }
+  });
 
         var paginacao = {};
         var tempo = {};
