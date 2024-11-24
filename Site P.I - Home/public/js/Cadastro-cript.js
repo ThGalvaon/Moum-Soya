@@ -166,7 +166,7 @@ function validarCadastro(event) {
 
     // Se todos os campos forem válidos, redireciona para a página de login
     if (!razaoValida || !fantasiaValida || !cnpjValido || !representanteValido || !emailValido || !senhaValida || !confirmacaoValida) {
-        alert("Informações Inválidas, revise os campos em vermelho."); // Exibe uma mensagem de erro se houver campos inválidos
+        alert("Informações Inválidas, revise os campos em vermelho.");
     } else {
         fetch("/usuario/cadastrar", {
             method: "POST",

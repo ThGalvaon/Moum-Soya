@@ -1,9 +1,8 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+// var aquarioModel = require("../models/aquarioModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
-    // var cpf = req.body.cpfServer;
     var senha = req.body.senhaServer;
 
     if (email == undefined) {
