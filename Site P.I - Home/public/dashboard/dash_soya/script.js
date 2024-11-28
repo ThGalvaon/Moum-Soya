@@ -14,12 +14,18 @@ new Chart(linha, {
       },
       {
         label: 'Limite de umidade desejável (60%)',
+<<<<<<< HEAD
         data: [60, 60, 60, 60, 60, 60, 60, 60, 60],
         borderColor: 'orange',
+=======
+        data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+        borderColor: 'red',
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
         backgroundColor: 'rgba(0, 0, 255, 0.1)',
         borderWidth: 2,
         borderDash: [5, 5],
         pointRadius: 0
+<<<<<<< HEAD
       },
       {
         label: 'Limite Mínimo (30%)',
@@ -29,6 +35,9 @@ new Chart(linha, {
         borderWidth: 2,
         fill: false,
     },
+=======
+      }
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
     ]
   },
   options: {
@@ -50,34 +59,57 @@ new Chart(linha, {
     }
   }
 });
+<<<<<<< HEAD
 home.style.display = 'none'
 
 function talhaoB() {
   todas_dash.style.display = 'none';
   dash_talhao.style.display = 'flex';
   talhao_selecionada.innerHTML = ` 2`
+=======
+
+function cozinhaB() {
+  todas_dash.style.display = 'none';
+  dash_cozinhas.style.display = 'flex';
+  cozinha_selecionada.innerHTML = ` 2`
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
   inicio_vazamento.innerHTML = `10:00`
   dashboard_a.style.display = 'none';
   inicio_vazamento.style.color = 'red'
   //  status_mensagem.innerHTML = `Vazamento crítico ativo, risco de explosões!`
   //  status_mensagem.style.backgroundColor = 'rgba(150, 24, 24, 0.63)'
+<<<<<<< HEAD
   home.style.display = 'flex'
+=======
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
 
   dashboardB.style.display = 'flex';
   dashboard_safe.style.display = 'none';
   dashboard_warning.style.display = 'none';
 }
+<<<<<<< HEAD
 function talhaoA() {
   todas_dash.style.display = 'none';
   dash_talhao.style.display = 'flex';
+=======
+function cozinhaA() {
+  todas_dash.style.display = 'none';
+  dash_cozinhas.style.display = 'flex';
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
   dashboardB.style.display = 'none';
   dashboard_safe.style.display = 'none';
   dashboard_a.style.display = 'flex';
   dashboard_warning.style.display = 'none';
+<<<<<<< HEAD
   home.style.display = 'flex'
 
   inicio_vazamento.style.color = 'green'
   talhao_selecionada.innerHTML = ` 1`
+=======
+
+  inicio_vazamento.style.color = 'green'
+  cozinha_selecionada.innerHTML = ` 1`
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
   inicio_vazamento.innerHTML = `Sem vazamentos ativos`
   termino_vazamento.innerHTML = `Sem vazamentos ativos`
 
@@ -85,17 +117,29 @@ function talhaoA() {
   //  status_mensagem.style.fontSize = `1.3vw`
   //  status_mensagem.innerHTML = `Nenhum vazamento ativo, ambiente seguro!`
 }
+<<<<<<< HEAD
 function talhaoC() {
   todas_dash.style.display = 'none';
   dash_talhao.style.display = 'flex';
+=======
+function cozinhaC() {
+  todas_dash.style.display = 'none';
+  dash_cozinhas.style.display = 'flex';
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
   dashboardB.style.display = 'none';
   dashboard_a.style.display = 'none';
   dashboard_safe.style.display = 'flex';
   dashboard_warning.style.display = 'none';
+<<<<<<< HEAD
   home.style.display = 'flex'
 
   inicio_vazamento.style.color = 'green'
   talhao_selecionada.innerHTML = ` 3`
+=======
+
+  inicio_vazamento.style.color = 'green'
+  cozinha_selecionada.innerHTML = ` 3`
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
   inicio_vazamento.innerHTML = `Sem vazamentos ativos`
   termino_vazamento.innerHTML = `Sem vazamentos ativos`
 
@@ -103,35 +147,60 @@ function talhaoC() {
   //  status_mensagem.style.fontSize = `1.3vw`
   //  status_mensagem.innerHTML = `Nenhum vazamento ativo, ambiente seguro!`
 }
+<<<<<<< HEAD
 function talhaoD() {
 
   todas_dash.style.display = 'none';
   dash_talhao.style.display = 'flex';
+=======
+function cozinhaD() {
+
+  todas_dash.style.display = 'none';
+  dash_cozinhas.style.display = 'flex';
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
   dashboard_a.style.display = 'none';
   dashboardB.style.display = 'none';
   dashboard_safe.style.display = 'none';
   dashboard_warning.style.display = 'flex';
+<<<<<<< HEAD
   home.style.display = 'flex'
 
   inicio_vazamento.style.color = 'rgb(145, 145, 28)'
   talhao_selecionada.innerHTML = ` 4`
+=======
+
+  inicio_vazamento.style.color = 'rgb(145, 145, 28)'
+  cozinha_selecionada.innerHTML = ` 4`
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
   inicio_vazamento.innerHTML = `07:00`
 
   // status_mensagem.style.backgroundColor = 'rgba(145, 145, 28, 0.623)'
   //  status_mensagem.style.fontSize = `1.3vw`
   //  status_mensagem.innerHTML = `Vazamento médio ativo, podendo se agravar!`
 }
+<<<<<<< HEAD
 function talhaoE() {
   todas_dash.style.display = 'none';
   dash_talhao.style.display = 'flex';
+=======
+function cozinhaE() {
+  todas_dash.style.display = 'none';
+  dash_cozinhas.style.display = 'flex';
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
   dashboardB.style.display = 'none';
   dashboard_a.style.display = 'none';
   dashboard_safe.style.display = 'flex';
   dashboard_warning.style.display = 'none';
+<<<<<<< HEAD
   home.style.display = 'flex'
 
   inicio_vazamento.style.color = 'green'
   talhao_selecionada.innerHTML = ` 5`
+=======
+
+  inicio_vazamento.style.color = 'green'
+  cozinha_selecionada.innerHTML = ` 5`
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
   inicio_vazamento.innerHTML = `Sem vazamentos ativos`
   termino_vazamento.innerHTML = `Sem vazamentos ativos`
 
@@ -157,12 +226,18 @@ new Chart(linha_safe, {
       },
       {
         label: 'Limite de umidade desejável (60%)',
+<<<<<<< HEAD
         data: [60, 60, 60, 60, 60, 60, 60, 60, 60],
         borderColor: 'orange',
+=======
+        data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+        borderColor: 'red',
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
         backgroundColor: 'rgba(0, 0, 255, 0.1)',
         borderWidth: 2,
         borderDash: [5, 5],
         pointRadius: 0
+<<<<<<< HEAD
       },
       {
         label: 'Limite Mínimo (30%)',
@@ -172,6 +247,9 @@ new Chart(linha_safe, {
         borderWidth: 2,
         fill: false,
     },
+=======
+      }
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
     ]
   },
   options: {
@@ -212,12 +290,18 @@ new Chart(linha_a, {
       },
       {
         label: 'Limite de umidade desejável (60%)',
+<<<<<<< HEAD
         data: [60, 60, 60, 60, 60, 60, 60, 60, 60],
         borderColor: 'orange',
+=======
+        data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+        borderColor: 'red',
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
         backgroundColor: 'rgba(0, 0, 255, 0.1)',
         borderWidth: 2,
         borderDash: [5, 5],
         pointRadius: 0
+<<<<<<< HEAD
       },
       {
         label: 'Limite Mínimo (30%)',
@@ -227,6 +311,9 @@ new Chart(linha_a, {
         borderWidth: 2,
         fill: false,
     },
+=======
+      }
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
     ]
   },
   options: {
@@ -265,12 +352,18 @@ new Chart(linha_warning, {
       },
       {
         label: 'Limite de umidade desejável (60%)',
+<<<<<<< HEAD
         data: [60, 60, 60, 60, 60, 60, 60, 60, 60],
         borderColor: 'orange',
+=======
+        data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+        borderColor: 'red',
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
         backgroundColor: 'rgba(0, 0, 255, 0.1)',
         borderWidth: 2,
         borderDash: [5, 5],
         pointRadius: 0
+<<<<<<< HEAD
       },
       {
         label: 'Limite Mínimo (30%)',
@@ -280,6 +373,8 @@ new Chart(linha_warning, {
         borderWidth: 2,
         fill: false,
     },
+=======
+      }
     ]
   },
   options: {
@@ -302,12 +397,128 @@ new Chart(linha_warning, {
   }
 });
 
-// function verificarLogin() {
-//   alert('vericando login')
-// }
+function barras() {
+  todas_dash.style.display = 'none';
+  cont_barras.style.display = 'flex';
+  dash_cozinhas.style.display = 'none';
+}
+
+const barra = document.getElementById('chart_barra_mes').getContext('2d');
+
+new Chart(barra, {
+  type: 'bar',
+  data: {
+    labels: ['Cozinha A', 'Cozinha B', 'Cozinha C', 'Cozinha D', 'Cozinha E'],
+    datasets: [{
+      label: '', // Deixe vazio para não mostrar no gráfico
+      data: [5, 3, 2, 4, 1], // Exemplo de dados para cada cozinha
+      backgroundColor: [
+        'rgba(75, 192, 192, 1)', // Cores sólidas
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 99, 132, 1)'
+      ],
+      borderColor: [
+        'rgba(75, 192, 192, 1)', // Cores sólidas
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 99, 132, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    indexAxis: 'y', // Define o gráfico como horizontal
+    scales: {
+      x: {
+        beginAtZero: true,
+        stepSize: 1, // Define o incremento para números inteiros
+        title: {
+          display: true,
+          text: 'Vazamento em Litros'
+        },
+        ticks: {
+          precision: 0 // Garante que exibe apenas números inteiros
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Cozinhas'
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false // Remove a legenda do gráfico
+      },
+      title: {
+        display: true,
+        text: 'Comparação de Vazamento nas Cozinhas - Outubro'
+      }
+    }
+  }
+});
+
+
+const linha_ano = document.getElementById('chart_linha_ano');
+
+new Chart(linha_ano, {
+  type: 'line',
+  data: {
+    labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
+    datasets: [
+      {
+        label: 'Umidade do ar',
+        data: [20, 39, 40, 59, 70, 74, 68],
+        borderColor: 'green',
+        backgroundColor: 'green',
+        borderWidth: 1
+      },
+      {
+        label: 'Limite de umidade desejável (60%)',
+        data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+        borderColor: 'red',
+        backgroundColor: 'rgba(0, 0, 255, 0.1)',
+        borderWidth: 2,
+        borderDash: [5, 5],
+        pointRadius: 0
+      }
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
+    ]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 100,
+        title: {
+          display: true,
+          text: 'Umidade do ar'
+        }
+      },
+      x: {
+        title: {
+          display: true,
+          text: 'Horário'
+        }
+      }
+    }
+  }
+});
+
+function verificarLogin() {
+  alert('vericando login')
+}
 
 // Adiciona um listener para o evento 'DOMContentLoaded'
+<<<<<<< HEAD
 // document.addEventListener('DOMContentLoaded', verificarLogin);
+=======
+document.addEventListener('DOMContentLoaded', verificarLogin);
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
 
 /*LÓGICA DO GUEST*/
 // Obtendo elementos do DOM
@@ -329,6 +540,7 @@ guestCircle.addEventListener('mouseout', function () {
 spanClose.onclick = function () {
   modal.style.display = 'none';
 };
+<<<<<<< HEAD
 
 // Quando o usuário clica fora do modal, ele também é fechado
 window.onclick = function (event) {
@@ -409,3 +621,12 @@ function toggleAlertas() {
     }
 }
 
+=======
+
+// Quando o usuário clica fora do modal, ele também é fechado
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+}
+>>>>>>> f4ffd15b7fbc4b929305c56b13379cf05d5dfb71
