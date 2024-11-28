@@ -21,8 +21,6 @@
   <div class="container_dashboard">
     <div class="sidebar">
       <div class="images">
-        <a href="../index.html"><img src="https://www.imagensempng.com.br/wp-content/uploads/2020/12/006-4.png"
-            alt="Site Institucional" class="institucional-pic"></a>
         <img src="assets\perfil-de-usuario.png" alt="Perfil" class="profile-pic">
       </div>
       <div class="user-bar">
@@ -30,8 +28,8 @@
         <p>xpto@gmail.school</p>
       </div>
       <a href="#" class="button" onclick="voltar()" id="home">Voltar para Home</a>
-      <a href="#" class="button">Editar Perfil</a>
-      <a href="#" class="button" onclick="ver()" id="dash-alert">Ver Alertas</a>
+        <a href="#" id="verAlertas" onclick="toggleAlertas()">Ver Alertas</a>
+      <a href="index.html" class="button">Voltar para o Site Institucional</a>
       <p><a href="#" class="link">Suporte e Ajuda</a></p>
     </div>
 
@@ -54,29 +52,29 @@
             </div>
           </div>
           <div class="linha">
-            <div class="box_sessao" onclick="cozinhaA()"><img class="imagem_sessao" src="assets/safe.png" alt="">
+            <div class="box_sessao" onclick="talhaoA()"><img class="imagem_sessao" src="assets/safe.png" alt="">
               <div class="title_sec">
                 <h4>Talhão 1</h4>
               </div>
             </div>
-            <div class="box_sessao" onclick="cozinhaB()"><img class="imagem_sessao" src="assets/danger.png" alt="">
+            <div class="box_sessao" onclick="talhaoB()"><img class="imagem_sessao" src="assets/danger.png" alt="">
               <div class="title_sec">
                 <h4>Talhão 2</h4>
               </div>
             </div>
-            <div class="box_sessao" onclick="cozinhaC()"><img class="imagem_sessao" src="assets/safe.png" alt="">
+            <div class="box_sessao" onclick="talhaoC()"><img class="imagem_sessao" src="assets/safe.png" alt="">
               <div class="title_sec">
                 <h4>Talhão 3</h4>
               </div>
             </div>
           </div>
           <div class="linha">
-            <div class="box_sessao" onclick="cozinhaD()"><img class="imagem_sessao" src="assets/warning.png" alt="">
+            <div class="box_sessao" onclick="talhaoD()"><img class="imagem_sessao" src="assets/warning.png" alt="">
               <div class="title_sec">
                 <h4>Talhão 4</h4>
               </div>
             </div>
-            <div class="box_sessao" onclick="cozinhaE()"><img class="imagem_sessao" src="assets/safe.png" alt="">
+            <div class="box_sessao" onclick="talhaoE()"><img class="imagem_sessao" src="assets/safe.png" alt="">
               <div class="title_sec">
                 <h4>Talhão 5</h4>
               </div>
@@ -85,27 +83,30 @@
           </div>
         </div>
 
-        <div id="dash_cozinhas" class="container_cozinhas">
+        <div id="alertasTalhoes" style="display: none;">
+          <canvas id="graficoAlertas" class="grafico_semanal"></canvas>
+      </div>    
+        <div id="dash_talhao" class="container_talhao">
 
-          <div class="box_cozinhas">
-            <div class="cozinhas" onclick="cozinhaA()">
-              <div class="imagem_cozinha_safe"></div>
+          <div class="box_talhao">
+            <div class="talhao" onclick="talhaoA()">
+              <div class="imagem_talhao_safe"></div>
               <p>Talhão 1</p>
             </div>
-            <div class="cozinhas" onclick="cozinhaB()">
-              <div class="imagem_cozinha_danger"></div>
+            <div class="talhao" onclick="talhaoB()">
+              <div class="imagem_talhao_danger"></div>
               <p>Talhão 2</p>
             </div>
-            <div class="cozinhas" onclick="cozinhaC()">
-              <div class="imagem_cozinha_safe "></div>
+            <div class="talhao" onclick="talhaoC()">
+              <div class="imagem_talhao_safe "></div>
               <p>Talhão 3</p>
             </div>
-            <div class="cozinhas" onclick="cozinhaD()">
-              <div class="imagem_cozinha_warning"></div>
+            <div class="talhao" onclick="talhaoD()">
+              <div class="imagem_talhao_warning"></div>
               <p>Talhão 4</p>
             </div>
-            <div class="cozinhas" onclick="cozinhaE()">
-              <div class="imagem_cozinha_safe"></div>
+            <div class="talhao" onclick="talhaoE()">
+              <div class="imagem_talhao_safe"></div>
               <p>Talhão 5</p>
             </div>
           </div>
@@ -114,7 +115,7 @@
               <div class="kpi_dash">
                 <h4>Talhão Selelecionada:</h4>
                 <div style="display: flex;">
-                  <p style="margin-right: 1vw;">Talhão <b id="cozinha_selecionada"> </b></p>
+                  <p style="margin-right: 1vw;">Talhão <b id="talhao_selecionada"> </b></p>
                 </div>
               </div>
               <div class="kpi_dash">
@@ -145,7 +146,7 @@
           </div>
         </div>
 
-        <div class="container_barras" id="cont_barras">
+        <!-- <div class="container_barras" id="cont_barras">
           <div class="box_barras">
             <div class="texto_ano">
               <h3>Quantidade de vazametos ao longo do ano:</h3>
@@ -167,7 +168,7 @@
             </div>
             <canvas class="barras_grafico" id="chart_barra_mes"></canvas>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
