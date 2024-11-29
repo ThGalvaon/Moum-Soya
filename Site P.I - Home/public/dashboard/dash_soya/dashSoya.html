@@ -28,7 +28,7 @@
         <p>xpto@gmail.school</p>
       </div>
       <a href="#" class="button" onclick="voltar()" id="home">Voltar para Home</a>
-        <a href="#" id="verAlertas" onclick="toggleAlertas()">Ver Alertas</a>
+        <a href="#" id="verAlertas" onclick="toggleAlertas()" class="button">Ver Alertas</a>
       <a href="index.html" class="button">Voltar para o Site Institucional</a>
       <p><a href="#" class="link">Suporte e Ajuda</a></p>
     </div>
@@ -120,11 +120,11 @@
               </div>
               <div class="kpi_dash">
                 <h4>Tempo em Alerta:</h4>
-                <p id="inicio_vazamento"></p>
+                <p id="inicio_alerta"></p>
               </div>
               <div class="kpi_dash">
                 <h4>Status:</h4>
-                <p id="termino_vazamento"></p> <span id="status_mensagem" class="status_mensagem"></span>
+                <p id="termino_alerta"></p> <span id="status_mensagem" class="status_mensagem"></span>
               </div>
 
             </div>
@@ -150,9 +150,9 @@
           <div class="box_barras">
             <div class="texto_ano">
               <h3>Quantidade de vazametos ao longo do ano:</h3>
-              <p>Ao longo do ano de <span>2024</span>, você teve um total de <span>96</span> vazamentos, sendo o mês de
-                <span>Outubro</span> o de maior número de vazamentos e o mês de <span>Agosto</span> o de menor número de
-                vazamentos!
+              <p>Ao longo do ano de <span>2024</span>, você teve um total de <span>96</span> alertas, sendo o mês de
+                <span>Outubro</span> o de maior número de alertas e o mês de <span>Agosto</span> o de menor número de
+                alertas!
               </p>
             </div>
             <canvas class="barras_grafico" id="chart_linha_ano"></canvas>
@@ -161,9 +161,9 @@
           <div class="box_barras">
             <div class="texto_ano">
               <h3 style="font-size: 1.3vw;;">Quantidade de vazametos no mês de outubro:</h3>
-              <p>No mês de <span>outubro</span>, você teve um total de <span>15</span> vazamentos, sendo a <span>Talhão
-                  A</span> a de maior número de vazamentos, tendo um total de <span>14 vazamentos</span> e a
-                <span>Talhão E</span> a de menor número de vazamentos, registrando <span>1 vazamento</span>!
+              <p>No mês de <span>outubro</span>, você teve um total de <span>15</span> alertas, sendo a <span>Talhão
+                  A</span> a de maior número de alertas, tendo um total de <span>14 alertas</span> e a
+                <span>Talhão E</span> a de menor número de alertas, registrando <span>1 alerta</span>!
               </p>
             </div>
             <canvas class="barras_grafico" id="chart_barra_mes"></canvas>
