@@ -76,7 +76,7 @@ function validarCadastro(event) {
     var complementoValido = validarComplemento();
 
     if (cepValido && enderecoValido && numeroValido && complementoValido) {
-        window.location.replace("../dashborad/dashSoya.html");
+        window.location.replace("../dashboard/dashSoya.html");
     } else {
         alert("Revise os campos em vermelho!");
     }
