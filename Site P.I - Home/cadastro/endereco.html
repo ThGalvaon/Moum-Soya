@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="endereco.css">
+    <title>Endereço</title>
+</head>
+
+<body>
+    <main id="container">
+        <form id="cadastro_form">
+            <div id="form_header">
+                <h1>Endereço</h1>
+                <i id="mode_icon" class="fa-solid fa-moon"></i>
+            </div>
+
+            <div id="social_media">
+                <a href="../index.html">
+                    <img src="logo-removebg-preview (2).png" alt="Moun Soya logo">
+                </a>
+            </div>
+
+            <div id="inputs">
+                <div class="input-box">
+                    <label for="cidade">
+                        Cidade
+                        <div class="input-field">
+                            <i class="fa-solid fa-city"></i>
+                            <input type="text" id="cidade" name="cidade" required onblur="validarCidade()"
+                                placeholder="Ex: São Paulo">
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-box">
+                    <label for="logradouro">
+                        Logradouro
+                        <div class="input-field">
+                            <i class="fa-solid fa-map-pin"></i>
+                            <input type="text" id="logradouro" name="logradouro" required onblur="validarLogradouro()"
+                                placeholder="Ex: Rua X">
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-box">
+                    <label for="numero">
+                        Número
+                        <div class="input-field">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" id="numero" name="numero" required onblur="validarNumero()"
+                                placeholder="Ex: 123">
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-box">
+                    <label for="cep">
+                        CEP
+                        <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="text" id="cep" name="cep" required onblur="validarCEP()"
+                                placeholder="Ex: 07190033">
+                        </div>
+                    </label>
+                </div>
+
+                <div id="ir_login">
+                    <a href="../login/login.html">Já possuo Login</a>
+                </div>
+            </div>
+
+            <button type="submit" id="cadastro_button" onclick="validarCadastro()">Cadastro endereço</button>
+        </form>
+
+        <div id="validado" style="color: red;"></div>
+        <div id="div_erro"></div>
+    </main>
+
+    <script src="endereco.js"></script>
+</body>
+
+</html>
