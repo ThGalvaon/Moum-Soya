@@ -12,7 +12,7 @@ git clone https://github.com/BandTec/BobIA.git
 
 ### Instalar as dependências:
 
-*Navegue até o diretório clonado e execute o seguinte comando para instalar as dependências necessárias:*
+_Navegue até o diretório clonado e execute o seguinte comando para instalar as dependências necessárias:_
 
 ```bash
 npm install
@@ -33,7 +33,7 @@ _*Substitua 'sua_chave_do_Google_Generative_AI' pela sua chave de API do Google 
 
 ### Iniciar o servidor:
 
-*Para iniciar o servidor, execute o seguinte comando:*
+_Para iniciar o servidor, execute o seguinte comando:_
 
 ```bash
 npm start
@@ -41,7 +41,7 @@ npm start
 
 ### Acessar a interface web:
 
-*Acesse http://localhost:3000 em um navegador da web para acessar a interface de usuário. Você poderá digitar uma pergunta e clicar no botão "Gerar Resposta" para receber uma resposta da inteligência artificial.*
+_Acesse http://localhost:3000 em um navegador da web para acessar a interface de usuário. Você poderá digitar uma pergunta e clicar no botão "Gerar Resposta" para receber uma resposta da inteligência artificial._
 
 ## Estrutura do Projeto
 
@@ -65,10 +65,8 @@ npm start
 - [5] [Express](https://www.npmjs.com/package/express)
 - [6] [Get started with the Gemini API in Node.js applications](https://ai.google.dev/tutorials/get_started_node?hl=en)
 
-Licenças
----------
+## Licenças
 
 Este projeto é licenciado sob a licença Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Consulte o arquivo LICENSE-CC-BY-NC para obter detalhes.
 
 Partes específicas deste projeto estão licenciadas sob a Licença MIT. Consulte o arquivo LICENSE para obter detalhes.
-
