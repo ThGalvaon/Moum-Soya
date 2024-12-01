@@ -31,7 +31,7 @@
                         Cidade
                         <div class="input-field">
                             <i class="fa-solid fa-city"></i>
-                            <input type="text" id="cidade" name="cidade" required onblur="validarCidade()"
+                            <input type="text" id="input_cidade" name="cidade" required onblur="validarCidade()"
                                 placeholder="Ex: São Paulo">
                         </div>
                     </label>
@@ -42,7 +42,7 @@
                         Logradouro
                         <div class="input-field">
                             <i class="fa-solid fa-map-pin"></i>
-                            <input type="text" id="logradouro" name="logradouro" required onblur="validarLogradouro()"
+                            <input type="text" id="input_logradouro" name="logradouro" required onblur="validarLogradouro()"
                                 placeholder="Ex: Rua X">
                         </div>
                     </label>
@@ -53,8 +53,19 @@
                         Número
                         <div class="input-field">
                             <i class="fa-solid fa-location-dot"></i>
-                            <input type="text" id="numero" name="numero" required onblur="validarNumero()"
+                            <input type="text" id="input_numero" name="numero" required onblur="validarNumero()"
                                 placeholder="Ex: 123">
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-box">
+                    <label for="Talhâo">
+                        Quantidade de Talhoes
+                        <div class="input-field">
+                            <i class="fa-solid fa-map-pin"></i>
+                            <input type="number" id="input_talhoes" name="talhao" required onblur="validarNumero()"
+                                placeholder="Ex: 12">
                         </div>
                     </label>
                 </div>
@@ -64,14 +75,14 @@
                         CEP
                         <div class="input-field">
                             <i class="fa-solid fa-envelope"></i>
-                            <input type="text" id="cep" name="cep" required onblur="validarCEP()"
+                            <input type="text" id="input_cep" name="cep" required onblur="validarCEP()"
                                 placeholder="Ex: 07190033">
                         </div>
                     </label>
                 </div>
 
                 <div id="ir_login">
-                    <a href="../login/login.html">Já possuo Login</a>
+                    <a href="login.html">Já possuo Login</a>
                 </div>
             </div>
 

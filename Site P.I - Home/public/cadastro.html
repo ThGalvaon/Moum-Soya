@@ -51,7 +51,8 @@
             <div class="input-field">
               <i class="fa-solid fa-file-contract"></i>
               <!-- Ícone relacionado à razão social -->
-              <input type="text" id="razao_social" name="razao_social" required onblur="validarRazao()"placeholder="EX: Xpto">
+              <input type="text" id="razao_social" name="razao_social" required onblur="validarRazao()"
+                placeholder="EX: Xpto">
               <!-- Campo de entrada para a razão social, com validação ao perder o foco -->
             </div>
           </label>
@@ -63,7 +64,8 @@
             <div class="input-field">
               <i class="fa-solid fa-tag"></i>
               <!-- Ícone relacionado ao nome fantasia -->
-              <input type="text" id="nome_fantasia" name="nome_fantasia" required onblur="validarFantasia()"placeholder="EX: Xpto corporation">
+              <input type="text" id="nome_fantasia" name="nome_fantasia" required onblur="validarFantasia()"
+                placeholder="EX: Xpto corporation">
               <!-- Campo de entrada para o nome fantasia, com validação ao perder o foco -->
             </div>
           </label>
@@ -76,7 +78,7 @@
             <div class="input-field">
               <i class="fa-solid fa-id-card"></i>
               <!-- Ícone relacionado ao CNPJ -->
-              <input type="text" id="cnpj" name="cnpj" required onblur="validarCNPJ()"placeholder="EX: 11122233344455">
+              <input type="text" id="cnpj" name="cnpj" required onblur="validarCNPJ()" placeholder="EX: 11122233344455">
               <!-- Campo de entrada para o CNPJ, com validação ao perder o foco -->
             </div>
           </label>
@@ -89,7 +91,8 @@
             <div class="input-field">
               <i class="fa-solid fa-user-tie"></i>
               <!-- Ícone relacionado ao representante legal -->
-              <input type="tel" id="Representante" name="Representante" required onblur="validarRepresentante()"placeholder="EX: Eduardo Oliveira">
+              <input type="tel" id="Representante" name="Representante" required onblur="validarRepresentante()"
+                placeholder="EX: Eduardo Oliveira">
               <!-- Campo de entrada para o representante legal, com validação ao perder o foco -->
             </div>
           </label>
@@ -101,7 +104,8 @@
             <div class="input-field">
               <i class="fa-solid fa-envelope"></i>
               <!-- Ícone relacionado ao email -->
-              <input type="email" id="email" name="email" required onblur="validarEmail()"placeholder="EX: xpto@gmail.com">
+              <input type="email" id="email" name="email" required onblur="validarEmail()"
+                placeholder="EX: xpto@gmail.com">
               <!-- Campo de entrada para o email, com validação ao perder o foco -->
             </div>
           </label>
@@ -113,12 +117,14 @@
             <div class="input-field">
               <i class="fa-solid fa-key"></i>
               <!-- Ícone relacionado à senha -->
-              <input type="password" id="password" name="password" required onblur="validarSenha()" oninput="validarSenha()" placeholder="EX: Xpto@123">
+              <input type="password" id="password" name="password" required onblur="validarSenha()"
+                oninput="validarSenha()" placeholder="EX: Xpto@123">
               <!-- Campo de entrada para a senha, com validação ao perder o foco -->
             </div>
           </label>
         </div>
-        <div id="div_mensagem">A senha deve incluir 8 caracteres 1 maisculo e 1 minusculo 1 numero e 1 caractere especial</div>
+        <div id="div_mensagem">A senha deve incluir 8 caracteres 1 maisculo e 1 minusculo 1 numero e 1 caractere
+          especial</div>
 
         <!-- Campo de confirmar senha -->
         <div class="input-box">
@@ -135,28 +141,20 @@
         </div>
 
         <div id="ir_login">
-          <a href="../login/login.html">
+          <a href="/login.html">
             Já possuo Login
-            <!-- Link para a página de login, caso o usuário já tenha uma conta -->
           </a>
         </div>
       </div>
 
       <button type="submit" id="cadastro_button" onclick="validarCadastro()">
         Cadastro
-        <!-- Botão para enviar o formulário de cadastro -->
       </button>
     </form>
-
     <div id="validado" style="color: red;"></div>
-    <!-- Elemento para mostrar mensagens de erro, onde mensagens de validação serão exibidas -->
-
     <div id="div_erro"></div>
-    <!-- Outro elemento, que parece não estar em uso no momento -->
   </main>
-
   <script type="text/javascript" src="./js/Cadastro-cript.js"></script>
-  <!-- Link para o arquivo JavaScript que contém a lógica do formulário -->
 </body>
 
 </html>

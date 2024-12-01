@@ -1,8 +1,8 @@
 const mode = document.getElementById('mode_icon');
-const form = document.getElementById('cadastro_form');
 
-// Alternar entre modo claro e escuro
 mode.addEventListener('click', () => {
+    const form = document.getElementById('cadastro_form');
+
     if (mode.classList.contains('fa-moon')) {
         mode.classList.remove('fa-moon');
         mode.classList.add('fa-sun');
@@ -14,13 +14,12 @@ mode.addEventListener('click', () => {
     form.classList.remove('dark');
 });
 
-// Seleciona os campos do formulário
-var ipt_endereco = document.getElementById('cidade');
-var ipt_complemento = document.getElementById('logradouro');
-var ipt_numero = document.getElementById('numero');
-var ipt_cep = document.getElementById('cep');
+var ipt_cidade = document.getElementById('input_cidade');
+var ipt_logradouro = document.getElementById('input_logradouro');
+var ipt_numero = document.getElementById('input_numero');
+var ipt_cep = document.getElementById('input_cep');
+var ipt_talhoes = document.getElementById('input_talhoes');
 
-// Validação do CEP
 function validarCEP() {
     var cep = ipt_cep.value.trim();
     if (cep.length === 8 && !isNaN(cep)) { // CEP deve ter 8 dígitos numéricos
@@ -32,19 +31,28 @@ function validarCEP() {
     }
 }
 
-// Validação do Endereço
-function validarEndereco() {
-    var endereco = ipt_endereco.value.trim();
+function validarCidade() {
+    var endereco = ipt_cidade.value.trim();
     if (endereco.length >= 3) { // Endereço deve ter pelo menos 3 caracteres
-        ipt_endereco.style.border = "2px solid #08a708";
+        ipt_cidade.style.border = "2px solid #08a708";
         return true;
     } else {
-        ipt_endereco.style.border = "2px solid #f70000";
+        ipt_cidade.style.border = "2px solid #f70000";
         return false;
     }
 }
 
-// Validação do Número
+function validarLogradouro() {
+    var logradouro = ipt_logradouro.value.trim();
+    if (logradouro.length >= 3) { // Endereço deve ter pelo menos 3 caracteres
+        ipt_logradouro.style.border = "2px solid #08a708";
+        return true;
+    } else {
+        ipt_logradouro.style.border = "2px solid #f70000";
+        return false;
+    }
+}
+
 function validarNumero() {
     var numero = ipt_numero.value.trim();
     if (numero.length > 0 && !isNaN(numero)) { // Número deve ser preenchido e numérico
@@ -56,37 +64,69 @@ function validarNumero() {
     }
 }
 
-// Validação do Complemento (opcional)
-function validarComplemento() {
-    var complemento = ipt_complemento.value.trim();
-    // Complemento sempre válido, mas mantém borda verde se preenchido
-    if (complemento.length >= 0) {
-        ipt_complemento.style.border = "2px solid #08a708";
+function validarTalhoes() {
+    var talhoes = ipt_talhoes.value.trim();
+    if (talhoes.length >= 0) {
+        ipt_talhoes.style.border = "2px solid #08a708";
         return true;
     }
 }
 
-// Validação geral
 function validarCadastro(event) {
     event.preventDefault();
 
     var cepValido = validarCEP();
-    var enderecoValido = validarEndereco();
+    var enderecoValido = validarCidade();
     var numeroValido = validarNumero();
-    var complementoValido = validarComplemento();
+    var logradouroValido = validarLogradouro();
+    var talhoesValido = validarTalhoes()
 
-    if (cepValido && enderecoValido && numeroValido && complementoValido) {
-        window.location.replace("../dashboard/dashSoya.html");
-    } else {
+    if (!cepValido || !enderecoValido || !numeroValido || !logradouroValido || !talhoesValido) {
         alert("Revise os campos em vermelho!");
+    } else {
+        var idUsuario = sessionStorage.getItem('idUsuario')
+        var cep = validarCEP();
+        var logradouro = validarLogradouro();
+        var cidade = validarCidade();
+        var numero = validarNumero();
+        var talhoes = validarTalhoes()
+
+        if (!cep || !cidade || !numero || !talhoes || !logradouro) {
+            alert("Informações Inválidas, revise os campos em vermelho.");
+        } else {
+            fetch(`/usuario/cadastrar-endereco/${idUsuario}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    cidadeServer: ipt_cidade.value,
+                    logradouroServer: ipt_logradouro.value,
+                    numeroServer: ipt_numero.value,
+                    qtdTalhaoServer: ipt_talhoes.value,
+                    cepServer: ipt_cep.value,
+                }),
+            }).then(async function (resposta) {
+                if (resposta.ok) {
+                    const dados = await resposta.json();
+
+                    alert("deu certo o cadastro do endereco" + dados)
+
+                    setTimeout(() => {
+                        window.location = "dashboard/dash_soya/dashSoya.html";
+                    }, "1000");
+                }
+                else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
     }
 }
 
-// Eventos para validação instantânea
-ipt_cep.addEventListener('input', validarCEP);
-ipt_endereco.addEventListener('input', validarEndereco);
-ipt_numero.addEventListener('input', validarNumero);
-ipt_complemento.addEventListener('input', validarComplemento);
+cadastro_form.addEventListener('submit', validarCadastro);
 
-// Submissão do formulário
-form.addEventListener('submit', validarCadastro);
+ipt_cep.addEventListener('input', validarCEP);
+ipt_cidade.addEventListener('input', validarCidade);
+ipt_numero.addEventListener('input', validarNumero);
+ipt_logradouro.addEventListener('input', validarLogradouro);

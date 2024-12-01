@@ -1,14 +1,14 @@
 const mode = document.getElementById('mode_icon'); /* estou pegando
-o botao para adicionar os devidos eventos, peguei ele pelo id'mode_icon' */ 
+o botao para adicionar os devidos eventos, peguei ele pelo id'mode_icon' */
 
 
 /*agora irei adicionar um evento de clique nele, quando clicar nela vai acontecer algo */
-mode.addEventListener('click', () => { 
+mode.addEventListener('click', () => {
     const form = document.getElementById('cadastro_form'); // estou pegando formulario 
     if (mode.classList.contains('fa-moon')) { //estou pegando o icone e vendo se ele tem a classe 'fa-moon'
         mode.classList.remove('fa-moon'); // caso ele contenha o icone de lua, nos iremos remover o icone de lua
         mode.classList.add('fa-sun'); // e adicionar o igno de sol, por isso a classe mudou para 'fa-son'
-       
+
         form.classList.add('dark'); // quando o form estiver no 'fa-moon' entao ele terá que adicionar a classe dark
         return; // se chegar nessa validaçao vai parar nela 
     }
@@ -151,11 +151,9 @@ function validarConfirmacao() {
     }
 }
 
-// Função para validar todos os campos de cadastro
 function validarCadastro(event) {
-    event.preventDefault(); // Previne o envio do formulário padrão
+    event.preventDefault();
 
-    // Chama todas as funções de validação e armazena os resultados
     var razaoValida = validarRazao();
     var fantasiaValida = validarFantasia();
     var cnpjValido = validarCNPJ();
@@ -164,15 +162,12 @@ function validarCadastro(event) {
     var senhaValida = validarSenha();
     var confirmacaoValida = validarConfirmacao();
 
-    // Se todos os campos forem válidos, redireciona para a página de login
     if (!razaoValida || !fantasiaValida || !cnpjValido || !representanteValido || !emailValido || !senhaValida || !confirmacaoValida) {
         alert("Informações Inválidas, revise os campos em vermelho.");
     } else {
         fetch("/usuario/cadastrar", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 razao_socialServer: ipt_razao.value,
                 nome_fantasiaServer: ipt_nomeFant.value,
@@ -181,63 +176,28 @@ function validarCadastro(event) {
                 emailServer: ipt_email.value,
                 senhaServer: ipt_senha.value
             }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
-    
-                if (resposta.ok) {
-                    alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...');
-    
-                    setTimeout(() => {
-                        window.location = "login.html";
-                    }, "2000");
-                }
-                else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+        }).then(async function (resposta) {
+            if (resposta.ok) {
+                const dados = await resposta.json();
+                sessionStorage.setItem("idUsuario", dados.idUsuario);
+
+                alert("deu certo o cadastro do usuario")
+
+                setTimeout(() => {
+                    window.location = "endereco.html";
+                }, "1000");
+            }
+            else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
     }
-
-    // fetch("/usuario/cadastrar", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //         razao_socialServer: ipt_razao.value,
-    //         nome_fantasiaServer: ipt_nomeFant.value,
-    //         cnpjServer: ipt_CNPJ.value,
-    //         repreServer: ipt_rep.value,
-    //         emailServer: ipt_email.value,
-    //         senhaServer: ipt_senha.value
-    //     }),
-    // })
-    //     .then(function (resposta) {
-    //         console.log("resposta: ", resposta);
-
-    //         if (resposta.ok) {
-    //             alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...');
-
-    //             setTimeout(() => {
-    //                 window.location = "login.html";
-    //             }, "2000");
-    //         }
-    //         else {
-    //             throw "Houve um erro ao tentar realizar o cadastro!";
-    //         }
-    //     })
-    //     .catch(function (resposta) {
-    //         console.log(`#ERRO: ${resposta}`);
-    //     });
 }
 
-// Adiciona o evento de submissão ao formulário para executar a função de validação
 cadastro_form.addEventListener('submit', validarCadastro);
 
-// Adiciona eventos de input aos campos para validação instantânea
 ipt_razao.addEventListener('input', validarRazao);
 ipt_nomeFant.addEventListener('input', validarFantasia);
 ipt_CNPJ.addEventListener('input', validarCNPJ);
