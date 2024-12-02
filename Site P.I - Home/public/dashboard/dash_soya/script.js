@@ -14,7 +14,7 @@ new Chart(linha, {
       },
       {
         label: 'Limite de umidade desejável (60%)',
-        data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+        data: [70, 70, 70, 70, 70, 70, 70],
         borderColor: 'red',
         backgroundColor: 'rgba(0, 0, 255, 0.1)',
         borderWidth: 2,
@@ -23,12 +23,44 @@ new Chart(linha, {
       },
       {
         label: 'Limite Mínimo (30%)',
-        data: [30, 30, 30, 30, 30, 30, 30, 30, 30], // Linha constante
+        data: [30, 30, 30, 30, 30, 30, 30], // Linha constante
         borderColor: 'red',
         borderDash: [10, 5], // Linha pontilhada
         borderWidth: 2,
         fill: false,
-    },
+      },
+      {
+        label: 'Alerta Preocupante (50%)',
+        data: [50, 50, 50, 50, 50, 50, 50],
+        borderColor: 'orange',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Alerta Grave (70%)',
+        data: [70, 70, 70, 70, 70, 70, 70],
+        borderColor: 'darkred',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Alerta Preocupante Baixo (40%)',
+        data: [40, 40, 40, 40, 40, 40, 40],
+        borderColor: 'yellow',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Alerta Grave Baixo (30%)',
+        data: [30, 30, 30, 30, 30, 30, 30],
+        borderColor: 'purple',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      }
     ]
   },
   options: {
@@ -50,17 +82,16 @@ new Chart(linha, {
     }
   }
 });
+
 home.style.display = 'none'
 
 function talhaoB() {
   todas_dash.style.display = 'none';
   dash_talhao.style.display = 'flex';
   talhao_selecionada.innerHTML = ` 2`
-  inicio_alerta.innerHTML = `10:00`
+  tempo_alerta.innerHTML = `10:00`
   dashboard_a.style.display = 'none';
-  inicio_alerta.style.color = 'red'
-  //  status_mensagem.innerHTML = `alerta crítico ativo, risco de explosões!`
-  //  status_mensagem.style.backgroundColor = 'rgba(150, 24, 24, 0.63)'
+  tempo_alerta.style.color = 'red'
   home.style.display = 'flex'
 
   dashboardB.style.display = 'flex';
@@ -72,14 +103,14 @@ function talhaoA() {
   todas_dash.style.display = 'none';
   dash_talhao.style.display = 'flex';
   talhao_selecionada.innerHTML = `1`;
-  inicio_alerta.innerHTML = `10:00`
+  tempo_alerta.innerHTML = `10:00`
   dashboardB.style.display = 'none';
   dashboard_safe.style.display = 'none';
   dashboard_a.style.display = 'flex';
   dashboard_warning.style.display = 'none';
 
-  inicio_alerta.style.color = 'green'
-  inicio_alerta.innerHTML = `Sem alertas ativos`
+  tempo_alerta.style.color = 'green'
+  tempo_alerta.innerHTML = `Sem alertas ativos`
   termino_alerta.innerHTML = `Sem alertas ativos`
   home.style.display = 'flex'
 
@@ -94,14 +125,13 @@ function talhaoC() {
   dashboard_warning.style.display = 'none';
   home.style.display = 'flex'
 
-  inicio_alerta.style.color = 'green'
+  tempo_alerta.style.color = 'green'
   talhao_selecionada.innerHTML = ` 3`
-  inicio_alerta.innerHTML = `Sem alertas ativos`
+  tempo_alerta.innerHTML = `Sem alertas ativos`
   termino_alerta.innerHTML = `Sem alertas ativos`
 
   stativosus_mensagem.style.backgroundColor = 'rgba(30, 105, 30, 0.479)'
-  //  status_mensagem.style.fontSize = `1.3vw`
-  //  status_mensagem.innerHTML = `Nenhum alerta ativo, ambiente seguro!`
+
 }
 function talhaoD() {
 
@@ -113,13 +143,9 @@ function talhaoD() {
   dashboard_warning.style.display = 'flex';
   home.style.display = 'flex'
 
-  inicio_alerta.style.color = 'rgb(145, 145, 28)'
+  tempo_alerta.style.color = 'rgb(145, 145, 28)'
   talhao_selecionada.innerHTML = ` 4`
-  inicio_alerta.innerHTML = `07:00`
-
-  // status_mensagem.style.backgroundColor = 'rgba(145, 145, 28, 0.623)'
-  //  status_mensagem.style.fontSize = `1.3vw`
-  //  status_mensagem.innerHTML = `alerta médio ativo, podendo se agravar!`
+  tempo_alerta.innerHTML = `07:00`
 }
 function talhaoE() {
   todas_dash.style.display = 'none';
@@ -130,9 +156,9 @@ function talhaoE() {
   dashboard_warning.style.display = 'none';
   home.style.display = 'flex'
 
-  inicio_alerta.style.color = 'green'
+  tempo_alerta.style.color = 'green'
   talhao_selecionada.innerHTML = ` 5`
-  inicio_alerta.innerHTML = `Sem alertas ativos`
+  tempo_alerta.innerHTML = `Sem alertas ativos`
   termino_alerta.innerHTML = `Sem alertas ativos`
 
 
@@ -150,14 +176,14 @@ new Chart(linha_safe, {
     datasets: [
       {
         label: 'Umidade do ar',
-        data: [40, 59, 60, 78, 70, 74, 88],
-        borderColor: 'green',
-        backgroundColor: 'green',
+        data: [40, 59, 60, 79, 90, 84, 78],
+        borderColor: 'red',
+        backgroundColor: 'red',
         borderWidth: 1
       },
       {
         label: 'Limite de umidade desejável (60%)',
-        data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+        data: [70, 70, 70, 70, 70, 70, 70],
         borderColor: 'red',
         backgroundColor: 'rgba(0, 0, 255, 0.1)',
         borderWidth: 2,
@@ -166,12 +192,44 @@ new Chart(linha_safe, {
       },
       {
         label: 'Limite Mínimo (30%)',
-        data: [30, 30, 30, 30, 30, 30, 30, 30, 30], // Linha constante
+        data: [30, 30, 30, 30, 30, 30, 30], // Linha constante
         borderColor: 'red',
         borderDash: [10, 5], // Linha pontilhada
         borderWidth: 2,
         fill: false,
-    },
+      },
+      {
+        label: 'Alerta Preocupante (50%)',
+        data: [50, 50, 50, 50, 50, 50, 50],
+        borderColor: 'orange',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Alerta Grave (70%)',
+        data: [70, 70, 70, 70, 70, 70, 70],
+        borderColor: 'darkred',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Alerta Preocupante Baixo (40%)',
+        data: [40, 40, 40, 40, 40, 40, 40],
+        borderColor: 'yellow',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Alerta Grave Baixo (30%)',
+        data: [30, 30, 30, 30, 30, 30, 30],
+        borderColor: 'purple',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      }
     ]
   },
   options: {
@@ -191,8 +249,9 @@ new Chart(linha_safe, {
         }
       }
     }
-  }   
+  }
 });
+
 
 // grafico pra deixar dinamico
 
@@ -258,14 +317,14 @@ new Chart(linha_warning, {
     datasets: [
       {
         label: 'Umidade do ar',
-        data: [20, 39, 40, 59, 70, 74, 68],
-        borderColor: 'green',
-        backgroundColor: 'green',
+        data: [40, 59, 60, 79, 90, 84, 78],
+        borderColor: 'red',
+        backgroundColor: 'red',
         borderWidth: 1
       },
       {
         label: 'Limite de umidade desejável (60%)',
-        data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
+        data: [70, 70, 70, 70, 70, 70, 70],
         borderColor: 'red',
         backgroundColor: 'rgba(0, 0, 255, 0.1)',
         borderWidth: 2,
@@ -274,12 +333,44 @@ new Chart(linha_warning, {
       },
       {
         label: 'Limite Mínimo (30%)',
-        data: [30, 30, 30, 30, 30, 30, 30, 30, 30], // Linha constante
+        data: [30, 30, 30, 30, 30, 30, 30], // Linha constante
         borderColor: 'red',
         borderDash: [10, 5], // Linha pontilhada
         borderWidth: 2,
         fill: false,
-    },
+      },
+      {
+        label: 'Alerta Preocupante (50%)',
+        data: [50, 50, 50, 50, 50, 50, 50],
+        borderColor: 'orange',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Alerta Grave (70%)',
+        data: [70, 70, 70, 70, 70, 70, 70],
+        borderColor: 'darkred',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Alerta Preocupante Baixo (40%)',
+        data: [40, 40, 40, 40, 40, 40, 40],
+        borderColor: 'yellow',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      },
+      {
+        label: 'Alerta Grave Baixo (30%)',
+        data: [30, 30, 30, 30, 30, 30, 30],
+        borderColor: 'purple',
+        borderDash: [5, 5], // Linha pontilhada
+        borderWidth: 2,
+        fill: false
+      }
     ]
   },
   options: {
@@ -302,12 +393,15 @@ new Chart(linha_warning, {
   }
 });
 
+
 function voltar(){
     todas_dash.style.display = 'flex';
     dash_talhao.style.display = 'none';
     dashboardB.style.display = 'none';
     dashboard_a.style.display = 'none';
     home.style.display = 'none'
+    alertasTalhoes.style.display = 'none'
+    verAlertas.style.display = 'block'
 }
 // Dados fictícios para os talhões
 const talhoes = {
@@ -331,6 +425,7 @@ function toggleAlertas() {
         dashboardB.style.display = 'none';
         dashboard_a.style.display = 'none';
         home.style.display = 'flex'
+        verAlertas.style.display = 'none'
 
         if (!graficoAlerta) {
             const ctx = document.getElementById('graficoAlertas').getContext('2d');
@@ -369,8 +464,68 @@ function toggleAlertas() {
                 },
             });
         }
-    } else {
-        alertasTalhoes.style.display = "none";
     }
 }
+
+let tempoEmAlerta = 0; // em horas
+let alertaAtivo = false;
+let nivelAlerta = 'Sem alerta ativo'; // Pode ser: 'Sem alerta ativo', 'Alerta Preocupante', 'Alerta Grave'
+
+const tempoLimiteAlerta = {
+  preocupante: 2, // em horas
+  grave: 4, // em horas
+  critico: 5 // em horas
+};
+
+// Função que verifica a umidade e atualiza o status de alerta
+function verificarUmidade(umidade) {
+  if (umidade > 70) {
+    // Nível Grave
+    tempoEmAlerta++;
+    if (tempoEmAlerta >= tempoLimiteAlerta.critico) {
+      nivelAlerta = 'Alerta Crítico';
+      updateKPIs(nivelAlerta, tempoEmAlerta);
+    } else if (tempoEmAlerta >= tempoLimiteAlerta.grave) {
+      nivelAlerta = 'Alerta Grave';
+      updateKPIs(nivelAlerta, tempoEmAlerta);
+    } else if (tempoEmAlerta >= tempoLimiteAlerta.preocupante) {
+      nivelAlerta = 'Alerta Preocupante';
+      updateKPIs(nivelAlerta, tempoEmAlerta);
+    }
+  } else if (umidade < 30) {
+    // Nível Grave Baixo
+    tempoEmAlerta++;
+    if (tempoEmAlerta >= tempoLimiteAlerta.critico) {
+      nivelAlerta = 'Alerta Grave Baixo';
+      updateKPIs(nivelAlerta, tempoEmAlerta);
+    } else if (tempoEmAlerta >= tempoLimiteAlerta.grave) {
+      nivelAlerta = 'Alerta Grave Baixo';
+      updateKPIs(nivelAlerta, tempoEmAlerta);
+    } else if (tempoEmAlerta >= tempoLimiteAlerta.preocupante) {
+      nivelAlerta = 'Alerta Preocupante Baixo';
+      updateKPIs(nivelAlerta, tempoEmAlerta);
+    }
+  } else {
+    // Se estiver dentro dos limites
+    if (tempoEmAlerta > 0) {
+      tempoEmAlerta = 0;
+      nivelAlerta = 'Sem alerta ativo';
+      updateKPIs(nivelAlerta, tempoEmAlerta);
+    }
+  }
+}
+
+// Função que atualiza as KPIs na tela
+function updateKPIs(statusAlerta, tempo) {
+  // Atualiza o status do alerta na tela
+  document.getElementById('status_alerta').innerHTML = statusAlerta;
+  document.getElementById('tempo_alerta').innerHTML = `${tempo} horas`;
+}
+
+// Simulando a verificação de umidade a cada hora
+setInterval(function() {
+  // A umidade pode ser de uma variável ou de um gráfico, por enquanto vamos simular um valor
+  const umidadeAtual = Math.floor(Math.random() * 100); // Gera uma umidade aleatória
+  verificarUmidade(umidadeAtual);
+}, 3600000); // Verifica a cada 1 hora (3600000 ms)
 
