@@ -1,6 +1,16 @@
 # Moum Soya 🌿
 Projeto em grupo para conclusão do Primeiro semestre na SPTech:
 
+
+## Integrantes
+👑 <a href="https://github.com/eduardamori">Eduarda Mori</a> <br>
+⚓ <a href="https://github.com/KawanFGsptech">Kawan Fritoli</a><br>
+🏎️ <a href="https://github.com/LucasRodriguesCartaxo">Lucas Cartaxo</a><br>
+🤙🏾 <a href="https://github.com/PedroHCruzz">Pedro Cruz</a><br>
+🤣 <a href="https://github.com/SandroThi">Sandro Thimoteo</a><br>
+🏀 <a href="https://github.com/ThGalvaon">Thiago Galvão</a><br>
+
+
 # 🍃 Visão Geral do Projeto
 
 O site é composto por três seções principais:
