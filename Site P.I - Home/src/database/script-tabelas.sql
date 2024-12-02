@@ -1,64 +1,139 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+CREATE DATABASE sojaprotegidaVM;
 
-/*
-comandos para mysql server
-*/
-
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
-);
+USE sojaprotegidaVM;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	idUsuario int primary key auto_increment,
+    razao_social varchar(50) not null,
+    nome_fantasia varchar(45) not null,
+    cnpj char(14) not null,
+    repre varchar(45),
+    email varchar(70) not null,
+    senha varchar(30) not null
 );
 
-ALTER TABLE usuario ADD COLUMN cpf char(11);
-
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE endereco (
+	idEndereco int primary key auto_increment,
+	cidade varchar(45) not null,
+	logradouro varchar(45) not null,
+	numero varchar(5) not null,
+	cep char(9) not null,
+    qtdTalhao int,
+    fkUsuario int,
+    constraint fkEnderecoUsuario foreign key (fkUsuario) references usuario(idUsuario)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE sensor (
+	idSensor int primary key auto_increment,
+    localSensor varchar(45),
+    statusSensor varchar(45),
+    fkEndereco int,
+    constraint fkEnderecoSensor foreign key (fkEndereco) references endereco(idEndereco)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+CREATE TABLE alerta (
+idAlerta int auto_increment,
+statusAlerta varchar(45),
+umidadeAlerta varchar(5),
+dtAlerta datetime,
+fkSensor int,
+primary key (idAlerta, fkSensor),
+constraint fkSensorAlerta foreign key (fkSensor) references sensor (idSensor),
+constraint chkStatus check (statusAlerta in('Umidade elevada', 'Umidade alta', 'Umidade crítica'))
 );
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+CREATE TABLE dadosSensor (
+idDadosSensor int auto_increment,
+fkSensor int,
+primary key (idDadosSensor, fkSensor),
+umidade float,
+dtCaptura datetime default current_timestamp()
+);
+
+describe usuario;
+describe dadosSensor;
+select * From endereco;
+
+INSERT INTO usuario (razao_social, nome_fantasia, cnpj, repre, email, senha) VALUES
+('Xpto','Xpto corporation', '12365478965478', 'Maria', 'maria@gmail.com', '#Senha123');
+
+INSERT INTO endereco (cidade, logradouro, numero, cep, qtdTalhao, fkUsuario) VALUES
+('Curitiba', 'Rua XV de Novembro', '400', '80060-000', 5, 1);
+
+INSERT INTO dadosSensor (fkSensor, umidade, dtCaptura) VALUES 
+(1, 20.0, '2022-01-01 10:00:00'),
+(1, 32.0, '2022-01-01 10:00:00'),
+(1, 32.0, '2022-01-01 10:00:00'),
+(1, 13.0, '2022-01-01 10:00:00'),
+(1, 44.0, '2022-01-01 10:00:00'),
+(1, 12.0, '2022-01-01 10:00:00'),
+(1, 32.0, '2022-01-01 10:00:00'),
+(1, 34.0, '2022-01-01 10:00:00'),
+(1, 54.0, '2022-01-01 10:00:00'),
+(1, 12.0, '2022-01-01 10:00:00'),
+(1, 45.0, '2022-01-01 10:00:00'),
+(1, 65.0, '2022-01-01 10:00:00'),
+(1, 43.0, '2022-01-01 10:00:00'),
+(1, 11.0, '2022-01-01 10:00:00');
+
+select * from usuario;
+select * from endereco;
+select * from dadosSensor;
+
+INSERT INTO sensor (localSensor, statusSensor, fkEndereco) VALUES
+('Talhão 1', 'Ativo', 1),
+('Talhão 2', 'Inativo', 1),
+('Talhão 3', 'Inativo', 1),
+('Talhão 4', 'Inativo', 1),
+('Talhão 5', 'Ativo', 1);
+
+INSERT INTO alerta (statusAlerta, umidadeAlerta, dtAlerta, fkSensor) VALUES
+('Umidade elevada', '80%', '2022-01-01 10:00:00', 1);
+
+SELECT * FROM usuario;
+
+SELECT * FROM usuario ORDER BY nome;
+
+SELECT nome FROM usuario
+WHERE nome LIKE '%Maria%';
+
+SELECT * FROM fazenda;
+
+SELECT f.idfazenda, f.nome as 'Nome da Fazenda', u.nome as 'Nome do usuário', f.cnpj, f.dtCancelamento, status_usuario
+FROM usuario as u JOIN fazenda as f
+ON idusuario = fkUsuario
+WHERE status_usuario = 'Inativo';
+
+SELECT * FROM fazenda
+WHERE hectares > 10;
+
+SELECT * FROM fazenda JOIN usuario
+WHERE qtd_sensores > 5 and status_usuario = 'Ativo';
+
+SELECT * FROM sensor;
+
+SELECT * FROM sensor
+WHERE umidade > 40;
+
+SELECT f.nome as 'Nome fazenda',
+ifnull(umidade, 'Verificar sensor') as 'Status do sensor'
+FROM fazenda as f JOIN sensor
+ON fkFazenda = idFazenda;
+
+SELECT f.nome as 'Nome da fazenda', idSensor, CASE 
+  WHEN umidade > 50 THEN 'Verificar local, umidade elevada!'
+  ELSE 'Umidade dentro da normalidade'
+  END as Umidade
+  FROM fazenda as f JOIN sensor
+  ON fkFazenda = idFazenda
+  ORDER BY umidade;
+  
+  SELECT * FROM sensor;
+SELECT avg(umidade)FROM sensor;
+SELECT min(umidade)FROM sensor;
+SELECT max(umidade)FROM sensor;
+
+select s.idSensor as 'ID', s.localSensor as 'Local do sensor', d.umidade, d.dtCaptura as 'Data e hora'
+	from sensor as s join dadosSensor as d on d.fkSensor = s.idSensor;
+    
+select f.nome as 'Nome da fazenda', s.idSensor as 'ID sensor', s.statusSensor as 'Status' from fazenda as f join sensor as s on s.fkFazenda = f.idFazenda;

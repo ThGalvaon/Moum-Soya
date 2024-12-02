@@ -1,87 +1,70 @@
 const linha = document.getElementById('chart_linha');
 
-new Chart(linha, {
-  type: 'line',
-  data: {
-    labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
-    datasets: [
-      {
-        label: 'Umidade do ar',
-        data: [40, 59, 60, 79, 90, 84, 78],
-        borderColor: 'red',
-        backgroundColor: 'red',
-        borderWidth: 1
-      },
-      {
-        label: 'Limite de umidade desejável (60%)',
-        data: [70, 70, 70, 70, 70, 70, 70],
-        borderColor: 'red',
-        backgroundColor: 'rgba(0, 0, 255, 0.1)',
-        borderWidth: 2,
-        borderDash: [5, 5],
-        pointRadius: 0
-      },
-      {
-        label: 'Limite Mínimo (30%)',
-        data: [30, 30, 30, 30, 30, 30, 30], // Linha constante
-        borderColor: 'red',
-        borderDash: [10, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false,
-      },
-      {
-        label: 'Alerta Preocupante (50%)',
-        data: [50, 50, 50, 50, 50, 50, 50],
-        borderColor: 'orange',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Alerta Grave (70%)',
-        data: [70, 70, 70, 70, 70, 70, 70],
-        borderColor: 'darkred',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Alerta Preocupante Baixo (40%)',
-        data: [40, 40, 40, 40, 40, 40, 40],
-        borderColor: 'yellow',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Alerta Grave Baixo (30%)',
-        data: [30, 30, 30, 30, 30, 30, 30],
-        borderColor: 'purple',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      }
-    ]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 100,
-        title: {
-          display: true,
-          text: 'Umidade do ar'
-        }
-      },
-      x: {
-        title: {
-          display: true,
-          text: 'Horário'
-        }
-      }
-    }
-  }
-});
+// new Chart(linha, {
+//   type: 'line',
+//   data: {
+//     labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
+//     datasets: [
+//       {
+//         label: 'Umidade do ar',
+//         data: [40, 59, 60, 79, 90, 84, 78],
+//         borderColor: 'blue',
+//         backgroundColor: 'blue',
+//         borderWidth: 1
+//       },
+//       {
+//         label: 'Alerta Preocupante (50%)',
+//         data: [60, 60, 60, 60, 60, 60, 60],
+//         borderColor: 'orange',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       },
+//       {
+//         label: 'Alerta Grave (70%)',
+//         data: [70, 70, 70, 70, 70, 70, 70],
+//         borderColor: 'red',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       },
+//       {
+//         label: 'Alerta Preocupante Baixo (40%)',
+//         data: [40, 40, 40, 40, 40, 40, 40],
+//         borderColor: 'orange',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       },
+//       {
+//         label: 'Alerta Grave Baixo (30%)',
+//         data: [30, 30, 30, 30, 30, 30, 30],
+//         borderColor: 'red',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       }
+//     ]
+//   },
+//   options: {
+//     scales: {
+//       y: {
+//         beginAtZero: true,
+//         max: 100,
+//         title: {
+//           display: true,
+//           text: 'Umidade do ar'
+//         }
+//       },
+//       x: {
+//         title: {
+//           display: true,
+//           text: 'Horário'
+//         }
+//       }
+//     }
+//   }
+// });
 
 home.style.display = 'none'
 
@@ -167,125 +150,52 @@ function talhaoE() {
   //  status_mensagem.innerHTML = `Nenhum alerta ativo, ambiente seguro!`
 }
 
-const linha_safe = document.getElementById('chart_linha_safe');
+// const linha_safe = document.getElementById('chart_linha_safe');
 
-new Chart(linha_safe, {
-  type: 'line',
-  data: {
-    labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
-    datasets: [
-      {
-        label: 'Umidade do ar',
-        data: [40, 59, 60, 79, 90, 84, 78],
-        borderColor: 'red',
-        backgroundColor: 'red',
-        borderWidth: 1
-      },
-      {
-        label: 'Limite de umidade desejável (60%)',
-        data: [70, 70, 70, 70, 70, 70, 70],
-        borderColor: 'red',
-        backgroundColor: 'rgba(0, 0, 255, 0.1)',
-        borderWidth: 2,
-        borderDash: [5, 5],
-        pointRadius: 0
-      },
-      {
-        label: 'Limite Mínimo (30%)',
-        data: [30, 30, 30, 30, 30, 30, 30], // Linha constante
-        borderColor: 'red',
-        borderDash: [10, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false,
-      },
-      {
-        label: 'Alerta Preocupante (50%)',
-        data: [50, 50, 50, 50, 50, 50, 50],
-        borderColor: 'orange',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Alerta Grave (70%)',
-        data: [70, 70, 70, 70, 70, 70, 70],
-        borderColor: 'darkred',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Alerta Preocupante Baixo (40%)',
-        data: [40, 40, 40, 40, 40, 40, 40],
-        borderColor: 'yellow',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Alerta Grave Baixo (30%)',
-        data: [30, 30, 30, 30, 30, 30, 30],
-        borderColor: 'purple',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      }
-    ]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 100,
-        title: {
-          display: true,
-          text: 'Umidade do ar'
-        }
-      },
-      x: {
-        title: {
-          display: true,
-          text: 'Horário'
-        }
-      }
-    }
-  }
-});
-
-
-// grafico pra deixar dinamico
-
-// const linha_a = document.getElementById('chart_linha_a');
-
-// new Chart(linha_a, {
+// new Chart(linha_safe, {
 //   type: 'line',
 //   data: {
 //     labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
 //     datasets: [
 //       {
 //         label: 'Umidade do ar',
-//         data: [50, 69, 57, 59, 67, 74, 78],
-//         borderColor: 'yellow',
-//         backgroundColor: 'yellow',
+//         data: [40, 59, 60, 79, 90, 84, 78],
+//         borderColor: 'blue',
+//         backgroundColor: 'blue',
 //         borderWidth: 1
 //       },
 //       {
-//         label: 'Limite de umidade desejável (60%)',
-//         data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
-//         borderColor: 'red',
-//         backgroundColor: 'rgba(0, 0, 255, 0.1)',
+//         label: 'Alerta Preocupante (60%)',
+//         data: [60, 60, 60, 60, 60, 60, 60],
+//         borderColor: 'orange',
+//         borderDash: [5, 5], // Linha pontilhada
 //         borderWidth: 2,
-//         borderDash: [5, 5],
-//         pointRadius: 0
+//         fill: false
 //       },
 //       {
-//         label: 'Limite Mínimo (30%)',
-//         data: [30, 30, 30, 30, 30, 30, 30, 30, 30], // Linha constante
+//         label: 'Alerta Grave (70%)',
+//         data: [70, 70, 70, 70, 70, 70, 70],
 //         borderColor: 'red',
-//         borderDash: [10, 5], // Linha pontilhada
+//         borderDash: [5, 5], // Linha pontilhada
 //         borderWidth: 2,
-//         fill: false,
-//     },
+//         fill: false
+//       },
+//       {
+//         label: 'Alerta Preocupante Baixo (40%)',
+//         data: [40, 40, 40, 40, 40, 40, 40],
+//         borderColor: 'orange',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       },
+//       {
+//         label: 'Alerta Grave Baixo (30%)',
+//         data: [30, 30, 30, 30, 30, 30, 30],
+//         borderColor: 'red',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       }
 //     ]
 //   },
 //   options: {
@@ -308,90 +218,73 @@ new Chart(linha_safe, {
 //   }
 // });
 
-const linha_warning = document.getElementById('chart_linha_warning');
+// const linha_warning = document.getElementById('chart_linha_warning');
 
-new Chart(linha_warning, {
-  type: 'line',
-  data: {
-    labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
-    datasets: [
-      {
-        label: 'Umidade do ar',
-        data: [40, 59, 60, 79, 90, 84, 78],
-        borderColor: 'red',
-        backgroundColor: 'red',
-        borderWidth: 1
-      },
-      {
-        label: 'Limite de umidade desejável (60%)',
-        data: [70, 70, 70, 70, 70, 70, 70],
-        borderColor: 'red',
-        backgroundColor: 'rgba(0, 0, 255, 0.1)',
-        borderWidth: 2,
-        borderDash: [5, 5],
-        pointRadius: 0
-      },
-      {
-        label: 'Limite Mínimo (30%)',
-        data: [30, 30, 30, 30, 30, 30, 30], // Linha constante
-        borderColor: 'red',
-        borderDash: [10, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false,
-      },
-      {
-        label: 'Alerta Preocupante (50%)',
-        data: [50, 50, 50, 50, 50, 50, 50],
-        borderColor: 'orange',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Alerta Grave (70%)',
-        data: [70, 70, 70, 70, 70, 70, 70],
-        borderColor: 'darkred',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Alerta Preocupante Baixo (40%)',
-        data: [40, 40, 40, 40, 40, 40, 40],
-        borderColor: 'yellow',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      },
-      {
-        label: 'Alerta Grave Baixo (30%)',
-        data: [30, 30, 30, 30, 30, 30, 30],
-        borderColor: 'purple',
-        borderDash: [5, 5], // Linha pontilhada
-        borderWidth: 2,
-        fill: false
-      }
-    ]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 100,
-        title: {
-          display: true,
-          text: 'Umidade do ar'
-        }
-      },
-      x: {
-        title: {
-          display: true,
-          text: 'Horário'
-        }
-      }
-    }
-  }
-});
+// new Chart(linha_warning, {
+//   type: 'line',
+//   data: {
+//     labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
+//     datasets: [
+//       {
+//         label: 'Umidade do ar',
+//         data: [40, 59, 60, 79, 90, 84, 78],
+//         borderColor: 'blue ',
+//         backgroundColor: 'blue',
+//         borderWidth: 1
+//       },
+//       {
+//         label: 'Alerta Preocupante (60%)',
+//         data: [60, 60, 60, 60, 60, 60, 60],
+//         borderColor: 'orange',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       },
+//       {
+//         label: 'Alerta Grave (70%)',
+//         data: [70, 70, 70, 70, 70, 70, 70],
+//         borderColor: 'red',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       },
+//       {
+//         label: 'Alerta Preocupante Baixo (40%)',
+//         data: [40, 40, 40, 40, 40, 40, 40],
+//         borderColor: 'orange',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       },
+//       {
+//         label: 'Alerta Grave Baixo (30%)',
+//         data: [30, 30, 30, 30, 30, 30, 30],
+//         borderColor: 'red',
+//         borderDash: [5, 5], // Linha pontilhada
+//         borderWidth: 2,
+//         fill: false
+//       }
+//     ]
+//   },
+//   options: {
+//     scales: {
+//       y: {
+//         beginAtZero: true,
+//         max: 100,
+//         title: {
+//           display: true,
+//           text: 'Umidade do ar'
+//         }
+//       },
+//       x: {
+//         title: {
+//           display: true,
+//           text: 'Horário'
+//         }
+//       }
+//     }
+//   }
+// });
 
 
 function voltar(){
