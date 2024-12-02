@@ -111,6 +111,10 @@
         var email = document.getElementById('ipt_email').value;
         var password = document.getElementById('ipt_password').value;
 
+        if (email==="adm01@gmail.com" && password==="Urubu@100") {
+            window.location = "./tech.html"
+        }
+
         if (email == '' || password == '') {
             alert('Erro: um ou mais campos não foram encontrados!');
         } else {
