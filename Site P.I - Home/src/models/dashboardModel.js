@@ -3,7 +3,7 @@ var database = require("../database/config");
 function obterDadosUmidade(idSensor) {
     var instrucaoSql = `
         SELECT umidade, DATE_FORMAT(dtCaptura, '%H:%i:%s') AS dtCaptura
-        FROM dadosSensor
+        FROM DadosSensor
         WHERE fkSensor = ${idSensor}
         LIMIT 8;
     `;
@@ -14,7 +14,7 @@ function obterDadosUmidade(idSensor) {
 function obterAlertas(idSensor) {
     var instrucaoSql = `
         SELECT statusAlerta, umidadeAlerta, DATE_FORMAT(dtAlerta, '%H:%i:%s') AS dtAlerta
-        FROM alerta
+        FROM Alerta
         WHERE fkSensor = ${idSensor};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
