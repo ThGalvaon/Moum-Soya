@@ -29,6 +29,8 @@ CREATE TABLE endereco (
     foreign key (fkUsuario) references usuario (idUsuario)
 );
 
+select * from usuario;
+
 INSERT INTO endereco (cidade, bairro, logradouro, numero, cep, qtdTalhoes, fkUsuario) VALUES
 ('União da Serra', 'Santa Maria', 'Avenida Paulista', '100', '01311000', 4, 1);
 
@@ -80,4 +82,4 @@ primary key (fkUsuario, fkAlerta, fkSensor, fkDadosSensores)
 );
 
 INSERT INTO usuario (email, senha) VALUES
-('admin@admin', 'admin');
+('admin@admin.com', 'Admin#123');

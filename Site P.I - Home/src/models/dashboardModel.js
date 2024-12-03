@@ -1,28 +1,11 @@
 var database = require("../database/config");
 
-function inserirDadosSensor(idSensor, umidade) {
-    var instrucaoSql = `
-        INSERT INTO dadosSensor (fkSensor, umidade)
-        VALUES (${idSensor}, ${umidade});
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
-function inserirAlerta(idSensor, statusAlerta, umidade) {
-    var instrucaoSql = `
-        INSERT INTO alerta (fkSensor, statusAlerta, umidadeAlerta)
-        VALUES (${idSensor}, '${statusAlerta}', '${umidade}');
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
 function obterDadosUmidade(idSensor) {
     var instrucaoSql = `
-        SELECT umidade, dtCaptura
+        SELECT umidade, DATE_FORMAT(dtCaptura, '%H:%i:%s') AS dtCaptura
         FROM dadosSensor
-        WHERE fkSensor = ${idSensor};
+        WHERE fkSensor = 1
+        LIMIT 8;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -30,7 +13,7 @@ function obterDadosUmidade(idSensor) {
 
 function obterAlertas(idSensor) {
     var instrucaoSql = `
-        SELECT statusAlerta, umidadeAlerta, dtAlerta
+        SELECT statusAlerta, umidadeAlerta, DATE_FORMAT(dtAlerta, '%H:%i:%s') AS dtAlerta
         FROM alerta
         WHERE fkSensor = ${idSensor};
     `;
@@ -39,8 +22,6 @@ function obterAlertas(idSensor) {
 }
 
 module.exports = {
-    inserirDadosSensor,
-    inserirAlerta,
     obterDadosUmidade,
     obterAlertas
 };

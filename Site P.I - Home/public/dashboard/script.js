@@ -82,22 +82,22 @@ function talhaoB() {
   dashboard_warning.style.display = 'none';
    
 }
-function talhaoA() {
-  todas_dash.style.display = 'none';
-  dash_talhao.style.display = 'flex';
-  talhao_selecionada.innerHTML = `1`;
-  tempo_alerta.innerHTML = `10:00`
-  dashboardB.style.display = 'none';
-  dashboard_safe.style.display = 'none';
-  dashboard_a.style.display = 'flex';
-  dashboard_warning.style.display = 'none';
+// function talhaoA() {
+//   todas_dash.style.display = 'none';
+//   dash_talhao.style.display = 'flex';
+//   talhao_selecionada.innerHTML = `1`;
+//   tempo_alerta.innerHTML = `10:00`
+//   dashboardB.style.display = 'none';
+//   dashboard_safe.style.display = 'none';
+//   dashboard_a.style.display = 'flex';
+//   dashboard_warning.style.display = 'none';
 
-  tempo_alerta.style.color = 'green'
-  tempo_alerta.innerHTML = `Sem alertas ativos`
-  termino_alerta.innerHTML = `Sem alertas ativos`
-  home.style.display = 'flex'
+//   tempo_alerta.style.color = 'green'
+//   tempo_alerta.innerHTML = `Sem alertas ativos`
+//   termino_alerta.innerHTML = `Sem alertas ativos`
+//   home.style.display = 'flex'
 
-}
+// }
 function talhaoC() {
   todas_dash.style.display = 'none';
   dash_talhao.style.display = 'flex';
