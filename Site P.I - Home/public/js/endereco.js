@@ -108,10 +108,11 @@ function validarCadastro(event) {
                 if (resposta.ok) {
                     const dados = await resposta.json();
 
-                    alert("deu certo o cadastro do endereco" + dados)
+                    alert(`Endereço cadastrado! 
+                        Redirecionando para a tela de login`)
 
                     setTimeout(() => {
-                        window.location = "dashboard/dash_soya/dashSoya.html";
+                        window.location = "login.html";
                     }, "1000");
                 }
                 else {
