@@ -255,6 +255,11 @@ function carregarDadosTalhao(talhaoId) {
         const ultimaUmidade = valoresUmidade[valoresUmidade.length - 1] || 0;
         const statusAlerta = determinarStatusUmidade(ultimaUmidade);
 
+        const ultimoHorario = horarios[horarios.length - 1];
+        const ultimaCaptura = ultimoHorario
+        console.log(ultimoHorario)
+
+
         // Atualiza as KPIs com base no status
         const ultimoAlerta = alertas[alertas.length - 1] || {};
         atualizarKPIs({
@@ -271,6 +276,7 @@ function talhaoA() {
 
     document.getElementById("todas_dash").style.display = 'none';
     document.getElementById("dash_talhao").style.display = 'flex';
+    document.getElementById("home").style.display = 'flex'
     // Carrega os dados do Talhão 1
 }
 
