@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" type="text/javascript" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" src="script.js"></script>
+  <!-- <script src="main.js"></script> -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;700&display=swap" rel="stylesheet">
+  <title>Moum Soya - Dashboard</title>
+</head>
+
+<body>
+  <script data-jsd-embrdded data-key="3aee2473-cb3a-40d1-a766-58ca6d328ee7" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+  <div class="container_dashboard">
+    <div class="sidebar">
+      <div class="images">
+        <img src="assets\perfil-de-usuario.png" alt="Perfil" class="profile-pic">
+      </div>
+      <div class="user-bar">
+        <h2>Olá! XPTO</h2>
+        <p>xpto@gmail.school</p>
+      </div>
+      <a href="#" class="button" onclick="voltar()" id="home">Home</a>
+      <a href="#" id="verAlertas" onclick="toggleAlertas()" class="button">Dashboard Tática</a>
+      <a href="index.html" class="button">Voltar para o Site Institucional</a>
+      <p><a href="#" class="link">Suporte e Ajuda</a></p>
+    </div>
+
+    <div class="main_content">
+
+      <div class="container_sessoes">
+        <div id="todas_dash" class="container_monitorados">
+          <div class="header_sessoes">
+            <div class="box_kpi">
+              <h4>Talhões Monitoradas:</h4>
+              <p>5</p>
+            </div>
+            <div class="box_kpi">
+              <h4>Ultima Captura:</h4>
+              <p>10:00</p>
+            </div>
+            <div class="box_kpi">
+              <h4>Alertas Ativos:</h4>
+              <div class="imagem_danger_header"><span>2 !</span> </div>
+            </div>
+          </div>
+          <div class="linha">
+            <div class="box_sessao" onclick="talhaoA()"><img class="imagem_sessao" src="assets/safe.png" alt="">
+              <div class="title_sec">
+                <h4>Talhão 1</h4>
+              </div>
+            </div>
+          <div class="linha">
+            </div>
+          </div>
+        </div>
+
+        <div id="alertasTalhoes" style="display: none;">
+          <canvas id="graficoAlertas" class="grafico_semanal"></canvas>
+        </div>
+        <div id="dash_talhao" class="container_talhao">
+
+          <div class="box_talhao">
+            <div class="talhao" onclick="talhaoA()">
+              <div class="imagem_talhao_safe"></div>
+              <p>Talhão 1</p>
+            </div>
+          </div>
+          <div class="box_talhao">
+            <div class="talhao" onclick="talhaoB()">
+              <div class="imagem_talhao_safe"></div>
+              <p>Talhão 1</p>
+            </div>
+          </div>
+          <div class="box_dashboards">
+            <div class="box_kpi_dash">
+              <div class="kpi_dash">
+                <h4>Talhão Selelecionada:</h4>
+                <div style="display: flex;">
+                  <p style="margin-right: 1vw;">Talhão <b id="talhao_selecionada"> </b></p>
+                </div>
+              </div>
+              <div class="kpi_dash">
+                <h4>Tempo em Alerta:</h4>
+                <p id="tempo_alerta"></p>
+              </div>
+              <div class="kpi_dash">
+                <h4>Status:</h4>
+                <p id="termino_alerta"></p> <span id="status_alerta" class="status_mensagem"></span>
+              </div>
+            </div>
+            <div id="dashboard_a" class="dashboard">
+              <canvas id="sensorAnalogico" class="grafico"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>
+
+</html>
+<script>
+  const sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: [], // Horários
+      datasets: [{
+        label: 'Umidade do Ar',
+        data: [], // Dados da umidade
+        borderColor: 'green',
+        backgroundColor: 'rgba(0, 128, 0, 0.2)',
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Horário'
+          }
+        },
+        y: {
+          beginAtZero: true,
+          max: 100,
+          title: {
+            display: true,
+            text: 'Umidade (%)'
+          }
+        }
+      }
+    }
+  });
+
+
+let alertaAtivo = false; // Flag para saber se está em alerta
+let tempoInicioAlerta = null; // Momento em que o alerta começou
+let intervaloCronometro = null; // Intervalo para atualização do cronômetro
+
+// Atualiza o cronômetro visualmente
+function atualizarCronometro() {
+    const tempoAlertaElement = document.getElementById("tempo_alerta");
+
+    if (alertaAtivo && tempoInicioAlerta) {
+        const tempoDecorrido = Math.floor((Date.now() - tempoInicioAlerta) / 1000); // Tempo em segundos
+        const minutos = Math.floor(tempoDecorrido / 60);
+        const segundos = tempoDecorrido % 60;
+
+        tempoAlertaElement.textContent = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+
+        // Altera a cor com base no tempo decorrido
+        if (tempoDecorrido >= 60) {
+            tempoAlertaElement.style.color = "red";
+        } else if (tempoDecorrido >= 30) {
+            tempoAlertaElement.style.color = "orange";
+        } else {
+            tempoAlertaElement.style.color = "green";
+        }
+    }
+}
+
+// Inicia o cronômetro
+function iniciarCronometro() {
+    if (!alertaAtivo) {
+        alertaAtivo = true;
+        tempoInicioAlerta = Date.now();
+        intervaloCronometro = setInterval(atualizarCronometro, 1000);
+    }
+}
+
+// Atualiza as KPIs do Talhão 1
+function atualizarKPIs(talhoes) {
+    document.getElementById("talhao_selecionada").innerHTML = "1"; // Exibe o talhão selecionado
+    const tempoAlerta = talhoes.tempoAlerta || 'Sem dados';
+    const statusAlerta = talhoes.statusAlerta || 'Normal';
+
+    // Atualiza as informações de tempo e status do alerta
+    document.getElementById("tempo_alerta").innerHTML = tempoAlerta;
+    document.getElementById("termino_alerta").innerHTML = statusAlerta;
+
+    // Condicional para alterar a cor com base no status
+    if (statusAlerta.includes("Alerta")) {
+        document.getElementById("tempo_alerta").style.color = "red";
+    } else {
+        document.getElementById("tempo_alerta").style.color = "green";
+    }
+}
+function pararCronometro() {
+    if (alertaAtivo) {
+        alertaAtivo = false;
+        clearInterval(intervaloCronometro);
+        intervaloCronometro = null;
+
+        // Reseta o cronômetro visualmente
+        const tempoAlertaElement = document.getElementById("tempo_alerta");
+        tempoAlertaElement.textContent = "00:00";
+        tempoAlertaElement.style.color = "green";
+    }
+}
+
+// Função para determinar o status do alerta com base no valor da umidade
+function determinarStatusUmidade(umidade) {
+    if (umidade < 30) {
+        iniciarCronometro()
+        return "Umidade Muito Baixa";  // Umidade abaixo de 30%
+    } else if (umidade > 70) {
+      iniciarCronometro()
+        return "Umidade Muito Elevada";  // Umidade acima de 70%
+    } else if (umidade >= 60) {
+      iniciarCronometro()
+        return "Umidade Elevada";        // Umidade fora da faixa de 40% a 60%
+    } else if (umidade <= 40){
+      iniciarCronometro()
+        return "Umidade Baixa"
+    } else {
+      pararCronometro()
+        return "Normal";                // Umidade entre 40% e 60%
+    }
+}
+
+// Carrega os dados do talhão e atualiza o status do alerta
+function carregarDadosTalhao(talhaoId) {
+    console.log("ID TALHÃO: ", talhaoId)
+    fetch(`/dashboard/obterDadosDashboard/${talhaoId}`)
+      .then(response => response.json())
+      .then(dados => {
+        console.log("dados: ", dados);
+        const umidade = dados.umidade || [];
+        const alertas = dados.alertas || [];
+
+        // Atualiza o gráfico com novos dados
+        const horarios = umidade.map((data) => data.dtCaptura);
+        const valoresUmidade = umidade.map((data) => data.umidade);
+        console.log("horarios", horarios);
+        console.log("valoresUmidade", valoresUmidade);
+
+        sensorAnalogico.data.labels = horarios;
+        sensorAnalogico.data.datasets[0].data = valoresUmidade;
+        sensorAnalogico.update();
+
+        // Verifica a última umidade e determina o status
+        const ultimaUmidade = valoresUmidade[valoresUmidade.length - 1] || 0;
+        const statusAlerta = determinarStatusUmidade(ultimaUmidade);
+
+        // Atualiza as KPIs com base no status
+        const ultimoAlerta = alertas[alertas.length - 1] || {};
+        atualizarKPIs({
+          tempoAlerta: ultimoAlerta.dtAlerta || 'Sem dados',
+          statusAlerta: statusAlerta  // Atualiza com o novo status
+        });
+      })
+      .catch(erro => console.error("Erro ao carregar dados do talhão:", erro));
+}
+
+// Função ativada no clique para selecionar o Talhão 1
+function talhaoA() {
+    carregarDadosTalhao(1);
+
+    document.getElementById("todas_dash").style.display = 'none';
+    document.getElementById("dash_talhao").style.display = 'flex';
+    // Carrega os dados do Talhão 1
+}
+
+</script>

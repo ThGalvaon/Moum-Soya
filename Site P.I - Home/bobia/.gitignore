@@ -1,4 +1,8 @@
 node_modules
 package-lock.json
 
+<<<<<<< HEAD
 .github
+=======
+.github
+>>>>>>> 60151080c66fd19acc12ab8462f9bdfd9e353bd3
