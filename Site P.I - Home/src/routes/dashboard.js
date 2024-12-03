@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var dashboardController = require("../controllers/dashboardController");
 
-router.get("/obterDadosDashboard/:idSensor", function (req, res) {
+router.get("/obterDadosDashboard/:talhaoId", function (req, res) {
     dashboardController.obterDadosDashboard(req, res);
 });
 

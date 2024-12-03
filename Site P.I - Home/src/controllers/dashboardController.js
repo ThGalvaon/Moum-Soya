@@ -1,7 +1,7 @@
 var dashboardModel = require("../models/dashboardModel");
 
 function obterDadosDashboard(req, res) {
-    var idSensor = req.params.idSensor;
+    var idSensor = req.params.talhaoId;
 
     if (idSensor == undefined) {
         res.status(400).send("O ID do sensor está undefined!");
