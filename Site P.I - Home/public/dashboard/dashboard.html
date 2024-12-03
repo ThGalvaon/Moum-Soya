@@ -144,30 +144,6 @@
             </div>
           </div>
         </div>
-
-        <!-- <div class="container_barras" id="cont_barras">
-          <div class="box_barras">
-            <div class="texto_ano">
-              <h3>Quantidade de vazametos ao longo do ano:</h3>
-              <p>Ao longo do ano de <span>2024</span>, você teve um total de <span>96</span> alertas, sendo o mês de
-                <span>Outubro</span> o de maior número de alertas e o mês de <span>Agosto</span> o de menor número de
-                alertas!
-              </p>
-            </div>
-            <canvas class="barras_grafico" id="chart_linha_ano"></canvas>
-          </div>
-
-          <div class="box_barras">
-            <div class="texto_ano">
-              <h3 style="font-size: 1.3vw;;">Quantidade de vazametos no mês de outubro:</h3>
-              <p>No mês de <span>outubro</span>, você teve um total de <span>15</span> alertas, sendo a <span>Talhão
-                  A</span> a de maior número de alertas, tendo um total de <span>14 alertas</span> e a
-                <span>Talhão E</span> a de menor número de alertas, registrando <span>1 alerta</span>!
-              </p>
-            </div>
-            <canvas class="barras_grafico" id="chart_barra_mes"></canvas>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
@@ -217,39 +193,20 @@
       }
     }
   });
+  function talhaoA() {
+  todas_dash.style.display = 'none';
+  dash_talhao.style.display = 'flex';
+  talhao_selecionada.innerHTML = `1`;
+  tempo_alerta.innerHTML = `10:00`
+  dashboardB.style.display = 'none';
+  dashboard_safe.style.display = 'none';
+  dashboard_a.style.display = 'flex';
+  dashboard_warning.style.display = 'none';
 
-  // var paginacao = {};
-  // var tempo = {};
+  tempo_alerta.style.color = 'green'
+  tempo_alerta.innerHTML = `Sem alertas ativos`
+  termino_alerta.innerHTML = `Sem alertas ativos`
+  home.style.display = 'flex'
 
-  // function obterDados(grafico, endpoint) {
-  //   fetch('http://localhost:3300/sensores/' + endpoint)
-  //     .then(response => response.json())
-  //     .then(valores => {
-  //       if (paginacao[endpoint] == null) {
-  //         paginacao[endpoint] = 0;
-  //       }
-  //       if (tempo[endpoint] == null) {
-  //         tempo[endpoint] = 0;
-  //       }
-
-  //       var ultimaPaginacao = paginacao[endpoint];
-  //       paginacao[endpoint] = valores.length;
-  //       valores = valores.slice(ultimaPaginacao);
-
-  //       valores.forEach((valor) => {
-  //         if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-  //           grafico.data.labels.shift();
-  //           grafico.data.datasets[0].data.shift();
-  //         }
-
-  //         grafico.data.labels.push(tempo[endpoint]++);
-  //         grafico.data.datasets[0].data.push(parseFloat(valor));
-  //         grafico.update();
-  //       });
-  //     })
-  //     .catch(error => console.error('Erro ao obter dados:', error));
-  // }
-  // setInterval(() => {
-  //   obterDados(sensorAnalogico, 'analogico');
-  // }, 1000);
+}
 </script>
