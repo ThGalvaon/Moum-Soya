@@ -41,15 +41,15 @@
           <div class="header_sessoes">
             <div class="box_kpi">
               <h4>Talhões Monitoradas:</h4>
-              <p>5</p>
+              <p id="qtd_talhoes">5</p>
             </div>
             <div class="box_kpi">
               <h4>Ultima Captura:</h4>
-              <p>10:00</p>
+              <p id="ultima_captura">10:00</p>
             </div>
             <div class="box_kpi">
               <h4>Alertas Ativos:</h4>
-              <div class="imagem_danger_header"><span>2 !</span> </div>
+              <span id="alertas_ativos">0</span>
             </div>
           </div>
           <div class="linha">
@@ -146,7 +146,7 @@ function atualizarCronometro() {
     const tempoAlertaElement = document.getElementById("tempo_alerta");
 
     if (alertaAtivo && tempoInicioAlerta) {
-        const tempoDecorrido = Math.floor((Date.now() - tempoInicioAlerta) / 1000); // Tempo em segundos
+        const tempoDecorrido = Math.floor((Date.now() - tempoInicioAlerta) / 2000); // Tempo em segundos
         const minutos = Math.floor(tempoDecorrido / 60);
         const segundos = tempoDecorrido % 60;
 
@@ -168,7 +168,7 @@ function iniciarCronometro() {
     if (!alertaAtivo) {
         alertaAtivo = true;
         tempoInicioAlerta = Date.now();
-        intervaloCronometro = setInterval(atualizarCronometro, 1000);
+        intervaloCronometro = setInterval(atualizarCronometro, 2000);
     }
 }
 
@@ -177,10 +177,15 @@ function atualizarKPIs(talhoes) {
     document.getElementById("talhao_selecionada").innerHTML = "1"; // Exibe o talhão selecionado
     const tempoAlerta = talhoes.tempoAlerta || 'Sem dados';
     const statusAlerta = talhoes.statusAlerta || 'Normal';
+    const ultimaCaptura = talhoes.ultimaCaptura || 'Sem dados';
+    const alertaAtivos = talhoes.alertaAtivos || '0';
 
     // Atualiza as informações de tempo e status do alerta
     document.getElementById("tempo_alerta").innerHTML = tempoAlerta;
     document.getElementById("termino_alerta").innerHTML = statusAlerta;
+    document.getElementById("ultima_captura").innerHTML = ultimaCaptura
+    document.getElementById("qtd_talhoes").innerHTML = qtdTalhoes
+    document.getElementById("alertas_ativos").innerHTML = alertaAtivos
 
     // Condicional para alterar a cor com base no status
     if (statusAlerta.includes("Alerta")) {
@@ -195,10 +200,10 @@ function pararCronometro() {
         clearInterval(intervaloCronometro);
         intervaloCronometro = null;
 
-        // Reseta o cronômetro visualmente
-        const tempoAlertaElement = document.getElementById("tempo_alerta");
-        tempoAlertaElement.textContent = "00:00";
-        tempoAlertaElement.style.color = "green";
+        // // Reseta o cronômetro visualmente
+        // const tempoAlertaElement = document.getElementById("tempo_alerta");
+        // tempoAlertaElement.textContent = "00:00";
+        // tempoAlertaElement.style.color = "green";
     }
 }
 
@@ -206,19 +211,23 @@ function pararCronometro() {
 function determinarStatusUmidade(umidade) {
     if (umidade < 30) {
         iniciarCronometro()
+        alertaAtivos = `1 !`
         return "Umidade Muito Baixa";  // Umidade abaixo de 30%
     } else if (umidade > 70) {
+      alertaAtivos = `1 !`
       iniciarCronometro()
         return "Umidade Muito Elevada";  // Umidade acima de 70%
     } else if (umidade >= 60) {
+      alertaAtivos = `1 !`
       iniciarCronometro()
         return "Umidade Elevada";        // Umidade fora da faixa de 40% a 60%
     } else if (umidade <= 40){
+      alertaAtivos = `1 !`
       iniciarCronometro()
         return "Umidade Baixa"
     } else {
       pararCronometro()
-        return "Normal";                // Umidade entre 40% e 60%
+        return "Normal";            // Umidade entre 40% e 60%
     }
 }
 
