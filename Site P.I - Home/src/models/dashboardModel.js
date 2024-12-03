@@ -13,7 +13,7 @@ function obterDadosUmidade(idSensor) {
 
 function obterAlertas(idSensor) {
     var instrucaoSql = `
-        SELECT statusAlerta, umidadeAlerta, DATE_FORMAT(dtAlerta, '%H:%i:%s') AS dtAlerta
+        SELECT statusAlerta, DATE_FORMAT(dtAlerta, '%H:%i:%s') AS dtAlerta
         FROM Alerta
         WHERE fkSensor = ${idSensor};
     `;
