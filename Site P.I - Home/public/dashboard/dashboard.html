@@ -151,62 +151,86 @@
 
 </html>
 <script>
-  var sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
+  const sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
     type: 'line',
     data: {
-      labels: ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00'],
-      datasets: [
-        {
-          label: 'Umidade do ar',
-          data: [20, 39, 40, 59, 70, 74, 68],
-          borderColor: 'green',
-          backgroundColor: 'green',
-          borderWidth: 1
-        },
-        {
-          label: 'Limite de umidade desejável (60%)',
-          data: [70, 70, 70, 70, 70, 70, 70, 70, 70],
-          borderColor: 'red',
-          backgroundColor: 'rgba(0, 0, 255, 0.1)',
-          borderWidth: 2,
-          borderDash: [5, 5],
-          pointRadius: 0
-        }
-      ]
+      labels: [], // Horários
+      datasets: [{
+        label: 'Umidade do Ar',
+        data: [], // Dados da umidade
+        borderColor: 'green',
+        backgroundColor: 'rgba(0, 128, 0, 0.2)',
+        borderWidth: 2,
+      }]
     },
     options: {
       scales: {
-        y: {
-          beginAtZero: true,
-          max: 100,
-          title: {
-            display: true,
-            text: 'Umidade do ar'
-          }
-        },
         x: {
           title: {
             display: true,
             text: 'Horário'
           }
+        },
+        y: {
+          beginAtZero: true,
+          max: 100,
+          title: {
+            display: true,
+            text: 'Umidade (%)'
+          }
         }
       }
     }
   });
+
+  // Atualiza as KPIs do Talhão 1
+  function atualizarKPIs(talhoes) {
+    document.getElementById("talhao_selecionada").innerHTML = "1"; // Exibe o talhão selecionado
+    const tempoAlerta = talhoes.tempoAlerta || 'Sem dados';
+    const statusAlerta = talhoes.statusAlerta || 'Normal';
+
+    document.getElementById("tempo_alerta").innerHTML = tempoAlerta;
+    document.getElementById("termino_alerta").innerHTML = statusAlerta;
+
+    if (statusAlerta.includes("Alerta")) {
+      document.getElementById("tempo_alerta").style.color = "red";
+    } else {
+      document.getElementById("tempo_alerta").style.color = "green";
+    }
+  }
+
+  // Função para obter e renderizar os dados
+  function carregarDadosTalhao(talhaoId) {
+    fetch(`/dashboard/obterDadosDashboard/${talhaoId}`)
+      .then(response => response.json())
+      .then(dados => {
+        const umidade = dados.umidade || [];
+        const alertas = dados.alertas || [];
+
+        // Atualiza o gráfico com novos dados
+        const horarios = umidade.map((data) => data.dtCaptura.split(" ")[1]);
+        const valoresUmidade = umidade.map((data) => data.umidade);
+
+        sensorAnalogico.data.labels = horarios;
+        sensorAnalogico.data.datasets[0].data = valoresUmidade;
+        sensorAnalogico.update();
+
+        // Atualiza as KPIs
+        const ultimoAlerta = alertas[alertas.length - 1] || {};
+        atualizarKPIs({
+          tempoAlerta: ultimoAlerta.dtAlerta || 'Sem dados',
+          statusAlerta: ultimoAlerta.statusAlerta || 'Normal'
+        });
+      })
+      .catch(erro => console.error("Erro ao carregar dados do talhão:", erro));
+  }
+
+  // Função ativada no clique para selecionar o Talhão 1
   function talhaoA() {
-  todas_dash.style.display = 'none';
-  dash_talhao.style.display = 'flex';
-  talhao_selecionada.innerHTML = `1`;
-  tempo_alerta.innerHTML = `10:00`
-  dashboardB.style.display = 'none';
-  dashboard_safe.style.display = 'none';
-  dashboard_a.style.display = 'flex';
-  dashboard_warning.style.display = 'none';
+    document.getElementById("todas_dash").style.display = 'none';
+    document.getElementById("dash_talhao").style.display = 'flex';
 
-  tempo_alerta.style.color = 'green'
-  tempo_alerta.innerHTML = `Sem alertas ativos`
-  termino_alerta.innerHTML = `Sem alertas ativos`
-  home.style.display = 'flex'
-
-}
+    // Carrega os dados do Talhão 1
+    carregarDadosTalhao(1);
+  }
 </script>
