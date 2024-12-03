@@ -1,0 +1,368 @@
+/* Estilo da barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+/* Estilo do "trilho" da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: transparent; /* Fundo do trilho transparente */
+}
+
+/* Estilo do "polegar" da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background: #092B43; /* Cor do polegar */
+  border-radius: 4px; /* Bordas arredondadas */
+}
+
+/* Efeito ao passar o mouse sobre o polegar */
+::-webkit-scrollbar-thumb:hover {
+  background: #0b4b68; /* Cor do polegar ao passar o mouse */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-optical-sizing: auto;
+    transition: all 0.3s ease; /* Para animações suaves em elementos */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+} 
+html{
+    background-color: white;
+    font-family: "Saira", sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 6vw;
+    position: fixed;
+    
+    
+  z-index: 3;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+.cabecalho{
+    display: flex;
+    align-items: center;
+    z-index: 2
+}
+
+
+.sidebar {
+  position: auto;
+  width: 20%;
+  height: 100%;
+  background-color: #d3d3d3;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-pic {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.user-bar{
+  margin-bottom: 20%;
+}
+.link{
+  position: absolute;
+  bottom: 15px;
+  left: 4%;
+  color: blue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.images{
+  display: flex;
+  flex-direction: row;
+}
+.button {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+}
+a{
+  font-style: normal;
+  color: white;
+  text-decoration: none; 
+  font-size: 1.2vw;
+  font-weight:400;
+  text-align: center;
+}
+a:hover{
+  font-weight: bold;
+}
+
+h2{
+  font-size: 2.5vw;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+/*aqui começa a dashboard*/
+.container_dashboard{
+display: flex;
+height: 100vh;
+width: 100%;
+background-color: #eeeeee;
+  }
+/*estrutura das dashboard*/
+.container_sessoes{
+  margin-top: 2vw;
+  margin-left: 1vw;
+  width: 80vw;
+  height: 75vh;
+  color:#092B43;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.header_sessoes{
+  display: flex;
+  width: 78vw;
+  margin-left: 1vw;
+  justify-content: space-between;
+  margin-bottom: 1vw;
+}
+
+.box_kpi{
+  padding-left: 1vw;
+  padding-top: 1vw;
+  width: 25.5vw;
+  height: 8vw;
+  border-radius: 0.6vw;
+  border: 1px solid #D9D9D9;
+  background-color:#FFFFFF;
+}
+.box_kpi h4{
+  font-size: 1.5vw;
+  font-weight: 700;
+}
+.box_kpi p{
+  font-size: 2.5vw;
+  font-weight: 500;
+  color:#092B43;
+}
+.box_kpi span{
+  font-size: 2.5vw;
+  font-weight: 600;
+  color: red;
+}
+  .box_kpi img{
+    width: 4vw;
+    margin-right: 2vw;
+  }
+  .linha{
+    display: flex;
+    justify-content: flex-start;
+    cursor: pointer;
+  margin-bottom: 1vw
+  }
+ 
+  .box_sessao{
+    width: 25vw;
+    border-radius: 0.5vw;
+    height: 13vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .box_sessao:hover{
+    width: 25.5vw;
+    height: 13.5vw;
+  }
+  .imagem_sessao{
+    width: 12vw;
+    height: 12vw;
+    border-radius: 0.5vw;
+  }
+  .title_sec{
+    margin-left: 0svw;
+    font-size: 1.4vw;
+    align-self: center;
+  }
+
+  .container_monitorados{
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex; /*ESTÁ FAZENDO A CAIXA SUMIR, PRECISA FAZER UMA LÓGICA COM ONCLICK!!!*/
+  }
+ 
+  .container_talhao{
+    margin-top: 1vw;
+    margin-left: 0vw;
+    width: 80vw;
+    height: 75vh;
+    display: none;
+    justify-content: space-between;    
+  }
+
+  .box_talhao{
+width: 17%;
+height: 78.5vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding-top: 1vw;
+overflow-y: auto;
+flex-shrink: 0;
+  }
+
+  .talhao{
+    width: 85%;
+    height: 10vw;
+    border: 1px solid #D9D9D9;
+    border-radius: 0.5vw;
+    margin-bottom: 1vw;
+    border: 1px solid #D9D9D9;
+    overflow-y: auto ;
+    word-wrap: break-word; /* Garante a quebra de palavras longas */
+    word-break: break-all;
+    flex-shrink: 0;
+    font-size: 1.8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  background-color: #FFFFFF;
+cursor: pointer;
+  }
+  /* Estilizando a barra de rolagem para navegadores baseados em Webkit */
+.box_talhao::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+  height: 8px; /* Altura da barra de rolagem horizontal (se aplicável) */
+  border-radius: 2vw;
+}
+
+.box_talhao::-webkit-scrollbar-track {
+  background: transparent; /* Fundo transparente para a barra de rolagem */
+  border-radius: 10px; /* Bordas arredondadas do fundo */
+  border-radius: 2vw;
+}
+
+.box_talhao::-webkit-scrollbar-thumb {
+  background: #D9D9D9; /* Cor da thumb */
+  border-radius: 10px; /* Bordas arredondadas da thumb */
+  border: 2px solid #ffffff; /* Borda ao redor da thumb */
+  border-radius: 2vw;
+}
+
+.box_talhao::-webkit-scrollbar-thumb:hover {
+  background: #D9D9D9; /* Cor da thumb quando o mouse passa sobre ela */
+}
+
+/* Estilizando a barra de rolagem no Firefox */
+.box_talhao {
+  scrollbar-color: #D9D9D9 transparent; /* thumb e trilho transparente */
+  scrollbar-width: thin; /* Barra de rolagem fina */
+  cursor: pointer;
+}
+.imagem_talhao_safe{
+  width: 80%;
+  height: 7vw;
+  background-image: url(./assets/safe.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5vw;
+  margin-top: 1vw;
+}
+.imagem_talhao_warning{
+  width: 80%;
+  height: 7vw;
+  background-image: url(./assets/warning.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5vw;
+  margin-top: 1vw;
+}
+.imagem_talhao_danger{
+  width: 80%;
+  height: 7vw;
+  background-image: url(./assets/danger.png);
+  background-size: cover;
+  background-position: center;
+  margin-top: 1vw; 
+  border-radius: 0.5vw;
+
+}
+.talhao p{
+padding-left: 2vw;
+  align-self: flex-start;
+}
+.box_dashboards{
+  width: 65vw;
+  height: 100%;
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: space-around;
+}
+.kpi_dash{
+  width: 20vw;
+  height: 10vw;
+  background-color: #ffffff;
+  border-radius: 0.4vw;
+  padding-left: 1vw;
+  padding-top: 1vw;
+}
+.kpi_dash h4{
+  font-size: 1.3vw;
+}
+.kpi_dash p{
+  margin-top: 1.5vw;
+  font-size: 1.6vw;
+}
+.box_kpi_dash{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 12vw;
+}
+.dashboard{
+  width: 85%;
+  height: 22vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  /* margin-left: 1vw; */
+border-radius: 0.4vw;
+}
+.grafico{
+  width: 100vw;
+  height: 100%;
+}
+
+.status_mensagem{
+  width: 10vw;
+  font-size: 1.4vw;
+  font-weight: bold;
+ background-color: rgb(145, 145, 28);
+  color: white;
+  padding-left: 0.2vw;
+  border-radius: 0.4vw;
+  position: absolute;
+  margin-bottom: 10vw;
+  margin-top: -9.5vw;
+  right: 7.5vw;
+}
+#graficoAlertas {
+  margin: 20px auto;
+  position: fixed;
+  top: 10%;
+  z-index: 1;
+}
