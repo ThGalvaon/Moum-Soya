@@ -54,6 +54,18 @@ dtAlerta datetime,
 check (statusAlerta in('Umidade elevada', 'Umidade alta', 'Umidade crítica'))
 );
 
+CREATE TABLE UsuarioAlerta (
+fkUsuario int,
+foreign key (fkusuario) references Usuario (idUsuario),
+fkAlerta int,
+foreign key (fkAlerta) references Alerta (idAlerta),
+fkSensor int,
+foreign key (fkSensor) references Sensor (idSensor),
+fkDadosSensores int,
+foreign key (fkDadosSensores) references DadosSensor (idDadosSensor),
+primary key (fkUsuario, fkAlerta, fkSensor, fkDadosSensores)
+);
+
 -- SELECIONAR TODOS OS DADOS DA TABELA USUARIO
 SELECT * FROM usuario;
 
