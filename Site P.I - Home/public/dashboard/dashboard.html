@@ -17,7 +17,7 @@
   <title>Moum Soya - Dashboard</title>
 </head>
 
-<body onload="carregar()">
+<body>
   <script data-jsd-embrdded data-key="3aee2473-cb3a-40d1-a766-58ca6d328ee7" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
   <div class="container_dashboard">
     <div class="sidebar">
@@ -42,10 +42,6 @@
             <div class="box_kpi">
               <h4>Talhões Monitoradas:</h4>
               <p id="qtd_talhoes">1</p>
-            </div>
-            <div class="box_kpi">
-              <h4>Ultima Captura:</h4>
-              <p id="ultima_captura">10:00</p>
             </div>
             <div class="box_kpi">
               <h4>Alertas Ativos:</h4>
@@ -166,10 +162,6 @@ function atualizarCronometro() {
     }
 }
 
-async function carregar(){
-  document.getElementById("ultima_captura").innerHTML = ultimaCaptura
-}
-
 // Inicia o cronômetro
 function iniciarCronometro() {
     if (!alertaAtivo) {
@@ -228,7 +220,7 @@ function determinarStatusUmidade(umidade) {
         return "Normal";            // Umidade entre 40% e 60%
     }
 }
-var ultimaCaptura
+
 // Carrega os dados do talhão e atualiza o status do alerta
 function carregarDadosTalhao(talhaoId) {
     console.log("ID TALHÃO: ", talhaoId)
@@ -252,11 +244,6 @@ function carregarDadosTalhao(talhaoId) {
         // Verifica a última umidade e determina o status
         const ultimaUmidade = valoresUmidade[valoresUmidade.length - 1] || 0;
         const statusAlerta = determinarStatusUmidade(ultimaUmidade);
-
-        const ultimoHorario = horarios[horarios.length - 1];
-        ultimaCaptura = ultimoHorario
-        console.log(ultimaCaptura)
-
 
         // Atualiza as KPIs com base no status
         const ultimoAlerta = alertas[alertas.length - 1] || {};
