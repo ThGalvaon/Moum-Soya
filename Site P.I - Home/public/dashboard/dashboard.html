@@ -187,14 +187,15 @@ function iniciarCronometro() {
         intervaloCronometro = setInterval(atualizarCronometro, 1000);
     }
 }
+const tempoAlerta = talhoes.tempoAlerta;
+document.getElementById("tempo_alerta").innerHTML = tempoAlerta;
+
 
 
 function atualizarKPIs(talhoes) {
     document.getElementById("talhao_selecionada").innerHTML = "1"; 
-    const tempoAlerta = talhoes.tempoAlerta;
     const statusAlerta = talhoes.statusAlerta || 'Normal';
 
-    document.getElementById("tempo_alerta").innerHTML = tempoAlerta;
     document.getElementById("termino_alerta").innerHTML = statusAlerta;
 
 
