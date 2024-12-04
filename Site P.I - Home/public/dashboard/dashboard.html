@@ -144,7 +144,7 @@ function atualizarCronometro() {
     if (alertaAtivo && tempoInicioAlerta) {
         const tempoDecorrido = Math.floor((Date.now() - tempoInicioAlerta) / 1000); // Tempo em segundos
         const minutos = Math.floor(tempoDecorrido / 60);
-        const segundos = tempoDecorrido % 30;
+        const segundos = tempoDecorrido % 60;
 
         tempoAlertaElement.textContent = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
 
