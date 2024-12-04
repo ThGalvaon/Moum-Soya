@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
   <script src="script.js" type="text/javascript" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <script src="https://cdn.jsdelivr.net/npm/chart.js" src="script.js"></script>
@@ -13,7 +14,6 @@
   <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;700&display=swap" rel="stylesheet">
   <title>Moum Soya - Dashboard</title>
 </head>
@@ -100,6 +100,7 @@
 
 </body>
 
+
 </html>
 <script>
 
@@ -122,93 +123,91 @@ const nomeUsuario = localStorage.getItem("NOME_USUARIO");
 });
 
 const sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
-    type: 'line',
-    data: {
-        labels: [], // Adicione seus rótulos (ex: horários)
-        datasets: [{
-            label: 'Umidade do Ar',
-            data: [], // Adicione os dados de umidade
-            borderColor: 'green',
-            backgroundColor: 'rgba(0, 128, 0, 0.2)',
-            borderWidth: 2,
-        }]
-    },
-    options: {
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: 'Horário'
-                }
-            },
-            y: {
-                beginAtZero: true,
-                max: 100,
-                title: {
-                    display: true,
-                    text: 'Umidade (%)'
-                }
-            }
-        },
-        plugins: {
-            annotation: {
-                annotations: {
-                    lineRed70: {
-                        type: 'line',
-                        yMin: 70,
-                        yMax: 70,
-                        borderColor: 'red',
-                        borderWidth: 2,
-                        label: {
-                            display: true,
-                            content: '70%',
-                            position: 'end'
-                        }
-                    },
-                    lineRed30: {
-                        type: 'line',
-                        yMin: 30,
-                        yMax: 30,
-                        borderColor: 'red',
-                        borderWidth: 2,
-                        label: {
-                            display: true,
-                            content: '30%',
-                            position: 'end'
-                        }
-                    },
-                    lineOrange40: {
-                        type: 'line',
-                        yMin: 40,
-                        yMax: 40,
-                        borderColor: 'orange',
-                        borderWidth: 2,
-                        label: {
-                            display: true,
-                            content: '40%',
-                            position: 'end'
-                        }
-                    },
-                    lineOrange60: {
-                        type: 'line',
-                        yMin: 60,
-                        yMax: 60,
-                        borderColor: 'orange',
-                        borderWidth: 2,
-                        label: {
-                            display: true,
-                            content: '60%',
-                            position: 'end'
-                        }
-                    }
-                }
-            }
+  type: 'line',
+  data: {
+    labels: [], // Preenchido dinamicamente
+    datasets: [{
+      label: 'Umidade do Ar',
+      data: [], // Dados da umidade, vindos do Arduino
+      borderColor: 'green',
+      backgroundColor: 'rgba(0, 128, 0, 0.2)',
+      borderWidth: 2,
+    }]
+  },
+  options: {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Horário'
         }
+      },
+      y: {
+        beginAtZero: true,
+        max: 100,
+        title: {
+          display: true,
+          text: 'Umidade (%)'
+        }
+      }
     },
-    plugins: [Chart.plugins.getAll().find(p => p.id === 'annotation')]
+    plugins: {
+      annotation: {
+        annotations: {
+          lineRed70: {
+            type: 'line',
+            yMin: 70,
+            yMax: 70,
+            borderColor: 'red',
+            borderWidth: 2,
+            label: {
+              display: true,
+              content: '70%',
+              position: 'end'
+            }
+          },
+          lineRed30: {
+            type: 'line',
+            yMin: 30,
+            yMax: 30,
+            borderColor: 'red',
+            borderWidth: 2,
+            label: {
+              display: true,
+              content: '30%',
+              position: 'end'
+            }
+          },
+          lineOrange40: {
+            type: 'line',
+            yMin: 40,
+            yMax: 40,
+            borderColor: 'orange',
+            borderWidth: 2,
+            label: {
+              display: true,
+              content: '40%',
+              position: 'end'
+            }
+          },
+          lineOrange60: {
+            type: 'line',
+            yMin: 60,
+            yMax: 60,
+            borderColor: 'orange',
+            borderWidth: 2,
+            label: {
+              display: true,
+              content: '60%',
+              position: 'end'
+            }
+          }
+        }
+      }
+    }
+  },
+  plugins: [Chart.plugins.getAll().find(p => p.id === 'annotation')]
 });
-
-
 
 let alertaAtivo = false; 
 let tempoInicioAlerta = null; 
