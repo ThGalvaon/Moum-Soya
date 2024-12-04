@@ -107,21 +107,6 @@
 const nomeUserSpan = document.getElementById("nome_user").innerHTML;
 const nomeUsuario = localStorage.getItem("NOME_USUARIO");
 
-  document.addEventListener("DOMContentLoaded", () => {
-    fetch('/api/getUserData') 
-        .then(response => response.json())
-        .then(userData => {
-            if (userData.name && userData.email) {
-             
-                document.querySelector(".user-bar h2").textContent = `Olá! ${userData.name}`;
-                document.querySelector(".user-bar p").textContent = userData.email;
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao carregar os dados do usuário:", error);
-        });
-});
-
 const sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
   type: 'line',
   data: {
