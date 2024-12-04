@@ -82,7 +82,7 @@
               </div>
               <div class="kpi_dash">
                 <h4>Tempo em Alerta:</h4>
-                <p id="tempo_alerta"></p>
+                <p id="tempo_alerta">Sem Dados</p>
               </div>
               <div class="kpi_dash">
                 <h4>Status:</h4>
@@ -121,91 +121,37 @@ const nomeUsuario = localStorage.getItem("NOME_USUARIO");
         });
 });
 
-const sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
+  const sensorAnalogico = new Chart(document.getElementById('sensorAnalogico').getContext('2d'), {
     type: 'line',
     data: {
-        labels: [], 
-        datasets: [{
-            label: 'Umidade do Ar',
-            data: [], 
-            borderColor: 'green',
-            backgroundColor: 'rgba(0, 128, 0, 0.2)',
-            borderWidth: 2,
-        }]
+      labels: [], 
+      datasets: [{
+        label: 'Umidade do Ar',
+        data: [], 
+        borderColor: 'green',
+        backgroundColor: 'rgba(0, 128, 0, 0.2)',
+        borderWidth: 2,
+      }]
     },
     options: {
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: 'Horário'
-                }
-            },
-            y: {
-                beginAtZero: true,
-                max: 100,
-                title: {
-                    display: true,
-                    text: 'Umidade (%)'
-                }
-            }
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Horário'
+          }
         },
-        plugins: {
-            annotation: {
-                annotations: {
-                    linha30: {
-                        type: 'line',
-                        yMin: 30,
-                        yMax: 30,
-                        borderColor: 'red',
-                        borderWidth: 2,
-                        label: {
-                            content: '30%',
-                            enabled: true,
-                            position: 'right'
-                        }
-                    },
-                    linha40: {
-                        type: 'line',
-                        yMin: 40,
-                        yMax: 40,
-                        borderColor: 'orange',
-                        borderWidth: 2,
-                        label: {
-                            content: '40%',
-                            enabled: true,
-                            position: 'right'
-                        }
-                    },
-                    linha60: {
-                        type: 'line',
-                        yMin: 60,
-                        yMax: 60,
-                        borderColor: 'orange',
-                        borderWidth: 2,
-                        label: {
-                            content: '60%',
-                            enabled: true,
-                            position: 'right'
-                        }
-                    },
-                    linha70: {
-                        type: 'line',
-                        yMin: 70,
-                        yMax: 70,
-                        borderColor: 'red',
-                        borderWidth: 2,
-                        label: {
-                            content: '70%',
-                            enabled: true,
-                            position: 'right'
-                        }
-                    }
-                }
-            }
+        y: {
+          beginAtZero: true,
+          max: 100,
+          title: {
+            display: true,
+            text: 'Umidade (%)'
+          }
         }
+      }
     }
-});
+  });
 
 
 let alertaAtivo = false; 
