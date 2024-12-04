@@ -102,7 +102,8 @@
 </html>
 <script>
 
-  nome_user.innerHTML = localStorage.getItem("NOME_USUARIO")
+const nomeUserSpan = document.getElementById("nome_user");
+const nomeUsuario = localStorage.getItem("NOME_USUARIO");
 
   document.addEventListener("DOMContentLoaded", () => {
     fetch('/api/getUserData') 
