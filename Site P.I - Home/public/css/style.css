@@ -20,13 +20,13 @@ body {
     padding: 25px;
     border-radius: 20px;
     margin-top: 20px;
-    transition: all 0.5s ease; /* Suaviza as mudanças de estilo */
-    border: 2px solid transparent; /* Define uma borda inicial transparente */
+    transition: all 0.5s ease;
+    border: 2px solid transparent; 
 }
 
 .container.active {
-    margin-top: 50px; /* Aumenta a margem superior após a ação */
-    border-color: #7ed957; /* Aplica a borda verde */
+    margin-top: 50px; 
+    border-color: #7ed957; 
 }
 
 .cabecalho {
@@ -53,8 +53,8 @@ input {
     border-radius: 30px;
     cursor: pointer;
     transition: 0.5s;
-    width: 100%; /* Para responsividade */
-    box-sizing: border-box; /* Inclui padding na largura total */
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 .btnVerificar {
