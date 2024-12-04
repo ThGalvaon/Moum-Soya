@@ -5,122 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moum Soya - Simulador Financeiro</title>
-    <style>
-        
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #e9e9e9;
-            margin: 0;
-        }
-
-        .container{
-            width: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 20px;
-        }
-
-        .cabecalho{
-            display: flex;
-            align-items: center;
-
-        }
-
-        img{
-            width: 100px;
-            height: 100px;
-        }
-
-        h1{
-            margin-left: 30px;
-            text-align: center;
-        }
-
-        input{
-            margin-top: 5px;
-        }
-
-        .btnVerificar{
-            display: flex;
-            justify-content: center;
-        }
-
-        button{
-            width: 100px;
-        }
-
-        #div_mensagem{
-            text-align: justify;
-            font-size: 20px;
-            margin-top: 20px;
-        }
-
-        .perda{
-            color: #ff0000;
-        }
-
-        .ganho{
-            color: #00b900;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body style="background-image: url('assets/imagem.jpg'); background-size: cover; background-repeat: no-repeat;">
     <div class="container">
-    <div class="cabecalho"><h1>Simulador Financeiro Moum Soya</h1></div>
-    Quantidade de sacas produzidas por hectare: <input id="input_qtdSacas" type="number" placeholder="Digite a quantidade de sacas"><br>
-    Numeros de hectare: <input type="number" id="input_num" placeholder=" Digite o número de hectares"><br>
+        <div class="cabecalho"><h1>Simulador Financeiro <br> Moum Soya</h1></div>
+        Quantidade de sacas produzidas por hectare: 
+        <input id="input_qtdSacas" type="number" placeholder="Digite a quantidade de sacas"><br>
+        Número de hectares: 
+        <input type="number" id="input_num" placeholder="Digite o número de hectares"><br>
 
-    <div class="btnVerificar">
-        <button onclick="calcular()">Verificar</button><br>
+        <div class="btnVerificar">
+            <button onclick="calcular()" id="btn_Calcular">Verificar</button><br>
+        </div>
+
+        <div id="div_mensagem"></div>
     </div>
 
-    <div id="div_mensagem"></div>
-</div>
-</body>
-
-</html>
-<script>
-
-    function calcular() {
-        var NumHec = Number(input_num.value);
-        var qtdSacas = Number(input_qtdSacas.value);
-        var valorSaca = 150
+    <script>
         
-        var valorSem = qtdSacas * valorSaca
-        var valorCom = (qtdSacas * 0.8) * valorSaca
-        var diferenca = valorSem - valorCom
-        var totalCom = valorCom * NumHec
-        var totalSem = valorSem * NumHec
+        function calcular() {
+            const inputNum = document.getElementById('input_num');
+            const inputQtdSacas = document.getElementById('input_qtdSacas');
+            const divMensagem = document.getElementById('div_mensagem');
+            
+            var NumHec = Number(inputNum.value);
+            var qtdSacas = Number(inputQtdSacas.value);
+            var valorSaca = 150;
+            var valorSem = qtdSacas * valorSaca;
+            var valorCom = (qtdSacas * 0.8) * valorSaca;
+            var diferenca = valorSem - valorCom;
+            var totalCom = valorCom * NumHec;
+            var totalSem = valorSem * NumHec;
 
-        if (qtdSacas == '' || qtdSacas <= 0) {
-            alert('Por favor, insira uma quantidade válida de sacas')
+            if (qtdSacas <= 0 || isNaN(qtdSacas)) {
+                alert('Por favor, insira uma quantidade válida de sacas');
+            } else if (NumHec < 10 || isNaN(NumHec)) {
+                divMensagem.innerHTML = '';
+                alert("O número mínimo de hectares é 10");
+            } else {
+                divMensagem.innerHTML = `
+                    Com base nas informações fornecidas, sem o nosso monitoramento você perderia R$<span class="perda">${diferenca * NumHec}</span> reais por colheita,
+                    usando o valor médio da saca de soja como R$${valorSaca} multiplicado pela quantidade de sacas que é <span class="ganho">${qtdSacas}</span> e multiplicado por <span class="ganho">${NumHec}</span>, que é o número de hectares de soja na sua fazenda. <br>
+
+                    Com o nosso monitoramento, seus lucros totais podem ir de R$<span class="perda">${totalCom}</span>, para R$<span class="ganho">${totalSem}</span> reais, que é o valor total previsto caso o fungo não se desenvolva.
+                    <br><br>
+                    <span class="ganho">*</span> Para o cálculo nós utilizamos o R$<span class="ganho">${valorSem}</span>, que é o valor aproximado do faturamento por hectare caso não desenvolva a ferrugem asiática, menos R$<span class="perda">${valorCom}</span>, 
+                    que é o valor aproximado por hectare caso a plantação desenvolva o fungo, multiplicado por <span class="ganho">${NumHec}</span>, que é o número de hectares. <span class="ganho">*</span>`;
+            }
         }
-        else if (NumHec <= 10) {
-            div_mensagem.innerHTML = '';
-            alert("O numero minimo de Hectares é 10")
-        }
-        else {
-            div_mensagem.innerHTML = `
+            document.querySelector('.container').classList.add('active');
 
-            Com base nas informações fornecidas, sem o nosso monitoramento você perderia R$<span class="perda">${diferenca * NumHec}</span> reais por colheita,
-            usando o valor médio da saca de soja como R$${valorSaca} multiplicado pela quantidade de sacas que é ${qtdSacas} e multiplicado por ${NumHec}. <br>
-
-            Com o nosso monitoramento, seus lucros totais podem ir de R$<span class="perda">${totalCom}*</span>, para R$<span class="ganho">${totalSem}</span> reais que é o valor total previsto caso o fungo não se desenvolva
-            <br><br>
-            * Para o cálculo nós utilizamos o R$${valorSem}, que é o valor aproximado do faturamento por hectare caso não desenvolva a ferrugem asiática, menos R$${valorCom}, que é o valor aproximado por hectare caso desenvolva o fungo, multiplicado por ${NumHec}`
-        }
-
-
-    }
-
-</script> 
+            document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('btn_Calcular').click();
+                event.preventDefault(); 
+            }
+        });
+    </script>
+</body>
+</html>
