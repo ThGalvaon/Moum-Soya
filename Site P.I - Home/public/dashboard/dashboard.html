@@ -258,7 +258,7 @@ function carregarDadosTalhao(talhaoId) {
        
         const ultimoAlerta = alertas[alertas.length - 1] || {};
         atualizarKPIs({
-          tempoAlerta: ultimoAlerta.dtAlerta || 'Sem dados',
+          tempoAlerta: ultimoAlerta.dtAlerta,
           statusAlerta: statusAlerta  
         });
       })
