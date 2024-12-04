@@ -20,7 +20,7 @@ function obterAlertas(idSensor) {
     var instrucaoSql = `
         SELECT statusAlerta, DATE_FORMAT(dtAlerta, '%H:%i:%s') AS dtAlerta
         FROM Alerta
-        WHERE fkSensor = ${idSensor};
+        WHERE fkSensor = 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
