@@ -6,7 +6,7 @@ function obterDadosUmidade(idSensor) {
 FROM (
     SELECT umidade, dtCaptura
     FROM DadosSensor
-    WHERE fkSensor = ${idSensor}
+    WHERE fkSensor = 1
     ORDER BY dtCaptura DESC
     LIMIT 8
 ) AS ultimos_registros
