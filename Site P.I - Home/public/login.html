@@ -9,6 +9,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/Login-style.css">
     <title>Login</title>
+    <script src="./js/sessao.js"></script>
 </head>
 
 <body>
@@ -132,6 +133,8 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
+                    sessionStorage.setItem("EMAIL_USUARIO", dados.email);
+                    sessionStorage.setItem("NOME_USUARIO", dados.nome); 
                     alert('Login autenticado com sucesso! Redirecionando para tela da dashboard...');
 
                     setTimeout(() => {

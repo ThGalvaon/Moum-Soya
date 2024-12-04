@@ -25,12 +25,12 @@
         <img src="assets\perfil-de-usuario.png" alt="Perfil" class="profile-pic">
       </div>
       <div class="user-bar">
-        <h2>Olá!</h2> 
+        <h2>Olá! <span id="nome_user"></span></h2> 
         <p></p> 
       </div>
       
       <a href="#" class="button" onclick="voltar()" id="home">Home</a>
-      <a href="#" id="verAlertas" onclick="toggleAlertas()" class="button">Dashboard Tática</a>
+      <!-- <a href="#" id="verAlertas" onclick="toggleAlertas()" class="button">Dashboard Tática</a> -->
       <a href="../login.html" class="button">Sair</a>
       <!-- <p><a href="#" class="link">Suporte e Ajuda</a></p> -->
     </div>
@@ -101,6 +101,9 @@
 
 </html>
 <script>
+
+  nome_user.innerHTML = localStorage.getItem("NOME_USUARIO")
+
   document.addEventListener("DOMContentLoaded", () => {
     fetch('/api/getUserData') 
         .then(response => response.json())
