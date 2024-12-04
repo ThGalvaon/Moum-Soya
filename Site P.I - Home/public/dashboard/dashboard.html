@@ -187,7 +187,7 @@ function iniciarCronometro() {
 
 function atualizarKPIs(talhoes) {
     document.getElementById("talhao_selecionada").innerHTML = "1"; 
-    const tempoAlerta = talhoes.tempoAlerta || 'Sem dados';
+    const tempoAlerta = talhoes.tempoAlerta;
     const statusAlerta = talhoes.statusAlerta || 'Normal';
 
     document.getElementById("tempo_alerta").innerHTML = tempoAlerta;
