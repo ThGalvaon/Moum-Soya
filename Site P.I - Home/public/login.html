@@ -133,8 +133,8 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    sessionStorage.setItem("EMAIL_USUARIO", dados.email);
-                    sessionStorage.setItem("NOME_USUARIO", dados.nome); 
+                    sessionStorage.setItem("EMAIL_USUARIO", email);
+                    sessionStorage.setItem("NOME_USUARIO", password); 
                     alert('Login autenticado com sucesso! Redirecionando para tela da dashboard...');
 
                     setTimeout(() => {
