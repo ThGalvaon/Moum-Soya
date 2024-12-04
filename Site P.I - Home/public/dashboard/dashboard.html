@@ -17,7 +17,7 @@
   <title>Moum Soya - Dashboard</title>
 </head>
 
-<body onload="carregarDadosTalhao(1)">
+<body>
   <script data-jsd-embrdded data-key="3aee2473-cb3a-40d1-a766-58ca6d328ee7" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
   <div class="container_dashboard">
     <div class="sidebar">
@@ -41,7 +41,7 @@
           <div class="header_sessoes">
             <div class="box_kpi">
               <h4>Talhões Monitoradas:</h4>
-              <p id="qtd_talhoes">5</p>
+              <p id="qtd_talhoes">1</p>
             </div>
             <div class="box_kpi">
               <h4>Ultima Captura:</h4>
@@ -146,22 +146,22 @@ function atualizarCronometro() {
     const tempoAlertaElement = document.getElementById("tempo_alerta");
 
     if (alertaAtivo && tempoInicioAlerta) {
-        const tempoDecorrido = Math.floor((Date.now() - tempoInicioAlerta) / 2000); // Tempo em segundos
+        const tempoDecorrido = Math.floor((Date.now() - tempoInicioAlerta) / 1000); // Tempo em segundos
         const minutos = Math.floor(tempoDecorrido / 60);
-        const segundos = tempoDecorrido % 60;
+        const segundos = tempoDecorrido % 30;
 
         tempoAlertaElement.textContent = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
 
         // Altera a cor com base no tempo decorrido
         if (tempoDecorrido >= 60) {
             tempoAlertaElement.style.color = "red";
-            alertaAtivos = `1 !`
+            document.getElementById("alertas_ativos").innerHTML = alertaAtivos = `1 !`
         } else if (tempoDecorrido >= 30) {
             tempoAlertaElement.style.color = "orange";
-            alertaAtivos = `1 !`
+            document.getElementById("alertas_ativos").innerHTML = alertaAtivos = `1 !`
         } else {
-        alertaAtivos = `0`
             tempoAlertaElement.style.color = "green";
+            document.getElementById("alertas_ativos").innerHTML = alertaAtivos = `0 !`
         }
     }
 }
@@ -180,14 +180,10 @@ function atualizarKPIs(talhoes) {
     document.getElementById("talhao_selecionada").innerHTML = "1"; // Exibe o talhão selecionado
     const tempoAlerta = talhoes.tempoAlerta || 'Sem dados';
     const statusAlerta = talhoes.statusAlerta || 'Normal';
-    const ultimaCaptura = talhoes.ultimaCaptura || 'Sem dados';
-    const alertaAtivos = talhoes.alertaAtivos || '0';
 
     // Atualiza as informações de tempo e status do alerta
     document.getElementById("tempo_alerta").innerHTML = tempoAlerta;
     document.getElementById("termino_alerta").innerHTML = statusAlerta;
-    document.getElementById("ultima_captura").innerHTML = ultimaCaptura
-    document.getElementById("alertas_ativos").innerHTML = alertaAtivos
 
     // Condicional para alterar a cor com base no status
     if (statusAlerta.includes("Alerta")) {
@@ -254,7 +250,7 @@ function carregarDadosTalhao(talhaoId) {
         const statusAlerta = determinarStatusUmidade(ultimaUmidade);
 
         const ultimoHorario = horarios[horarios.length - 1];
-        const ultimaCaptura = ultimoHorario
+        ultimaCaptura = ultimoHorario
         console.log(ultimoHorario)
 
 
@@ -267,7 +263,12 @@ function carregarDadosTalhao(talhaoId) {
       })
       .catch(erro => console.error("Erro ao carregar dados do talhão:", erro));
 }
+const ultimaCaptura = ''
 
+function telainicio(){
+  document.getElementById("ultima_captura").innerHTML = ultimaCaptura
+
+}
 // Função ativada no clique para selecionar o Talhão 1
 function talhaoA() {
     carregarDadosTalhao(1);
