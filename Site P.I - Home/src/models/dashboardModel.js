@@ -3,10 +3,14 @@ var database = require("../database/config");
 function obterDadosUmidade(idSensor) {
     var instrucaoSql = `
         SELECT umidade, DATE_FORMAT(dtCaptura, '%H:%i:%s') AS dtCaptura
-        FROM DadosSensor
-        WHERE fkSensor = ${idSensor}
-        ORDER BY dtCaptura ASC
-        LIMIT 8;
+FROM (
+    SELECT umidade, dtCaptura
+    FROM DadosSensor
+    WHERE fkSensor = ${idSensor}
+    ORDER BY dtCaptura DESC
+    LIMIT 8
+) AS ultimos_registros
+ORDER BY dtCaptura ASC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
