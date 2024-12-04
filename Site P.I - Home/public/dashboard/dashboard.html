@@ -180,7 +180,7 @@ function iniciarCronometro() {
     if (!alertaAtivo) {
         alertaAtivo = true;
         tempoInicioAlerta = Date.now();
-        intervaloCronometro = setInterval(atualizarCronometro, 2000);
+        intervaloCronometro = setInterval(atualizarCronometro, 1000);
     }
 }
 
@@ -274,7 +274,7 @@ function talhaoA() {
 }
 
 function atualizarGrafico(){
-  setInterval(carregarDadosTalhao, 2000)
+  setInterval(carregarDadosTalhao, 1000)
 }
 
 atualizarGrafico()
