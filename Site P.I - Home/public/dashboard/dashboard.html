@@ -201,7 +201,7 @@ function atualizarKPIs(talhoes) {
     }
 }
 function pararCronometro() {
-    if (alertaAtivo) {a
+    if (alertaAtivo) {
         alertaAtivo = true;
         clearInterval(intervaloCronometro);
         intervaloCronometro = null;
@@ -215,20 +215,20 @@ function pararCronometro() {
 
 function determinarStatusUmidade(umidade) {
     if (umidade < 30) {
-        iniciarCronometro()
+        iniciarCronometro();
         return "Umidade Muito Baixa";  // Umidade abaixo de 30%
     } else if (umidade > 70) {
-      iniciarCronometro()
+        iniciarCronometro();
         return "Umidade Muito Elevada";  // Umidade acima de 70%
     } else if (umidade >= 60) {
-      iniciarCronometro()
-        return "Umidade Elevada";        // Umidade fora da faixa de 40% a 60%
-    } else if (umidade <= 40){
-      iniciarCronometro()
-        return "Umidade Baixa"
+        iniciarCronometro();
+        return "Umidade Elevada";  // Umidade fora da faixa de 40% a 60%
+    } else if (umidade <= 40) {
+        iniciarCronometro();
+        return "Umidade Baixa";  // Umidade entre 30% e 40%
     } else {
-      pararCronometro()
-        return "Normal";            // Umidade entre 40% e 60%
+        pararCronometro();  // Parar o cronômetro quando está em níveis normais
+        return "Normal";  // Umidade entre 40% e 60%
     }
 }
 
@@ -258,7 +258,7 @@ function carregarDadosTalhao(talhaoId) {
        
         const ultimoAlerta = alertas[alertas.length - 1] || {};
         atualizarKPIs({
-          tempoAlerta: ultimoAlerta.dtAlerta,
+          tempoAlerta: ultimoAlerta.dtAlerta || 'Sem dados',
           statusAlerta: statusAlerta  
         });
       })
