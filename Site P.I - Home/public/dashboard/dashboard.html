@@ -180,7 +180,7 @@ function iniciarCronometro() {
     if (!alertaAtivo) {
         alertaAtivo = true;
         tempoInicioAlerta = Date.now();
-        intervaloCronometro = setInterval(atualizarCronometro, 2000);
+        intervaloCronometro = setInterval(atualizarCronometro, 1000);
     }
 }
 
@@ -201,8 +201,8 @@ function atualizarKPIs(talhoes) {
     }
 }
 function pararCronometro() {
-    if (alertaAtivo) {a
-        alertaAtivo = true;
+    if (alertaAtivo) {
+        alertaAtivo = false;
         clearInterval(intervaloCronometro);
         intervaloCronometro = null;
 
@@ -258,7 +258,7 @@ function carregarDadosTalhao(talhaoId) {
        
         const ultimoAlerta = alertas[alertas.length - 1] || {};
         atualizarKPIs({
-          tempoAlerta: ultimoAlerta.dtAlerta || 'Sem dados',
+          // tempoAlerta: ultimoAlerta.dtAlerta || 'Sem dados',
           statusAlerta: statusAlerta  
         });
       })
