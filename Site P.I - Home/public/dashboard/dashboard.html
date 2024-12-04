@@ -250,7 +250,7 @@ function carregarDadosTalhao(talhaoId) {
         const statusAlerta = determinarStatusUmidade(ultimaUmidade);
 
         const ultimoHorario = horarios[horarios.length - 1];
-        ultimaCaptura = ultimoHorario
+        const ultimaCaptura = ultimoHorario
         console.log(ultimoHorario)
 
 
@@ -263,12 +263,7 @@ function carregarDadosTalhao(talhaoId) {
       })
       .catch(erro => console.error("Erro ao carregar dados do talhão:", erro));
 }
-const ultimaCaptura = ''
 
-function telainicio(){
-  document.getElementById("ultima_captura").innerHTML = ultimaCaptura
-
-}
 // Função ativada no clique para selecionar o Talhão 1
 function talhaoA() {
     carregarDadosTalhao(1);
