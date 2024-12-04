@@ -5,7 +5,8 @@ function obterDadosUmidade(idSensor) {
         SELECT umidade, DATE_FORMAT(dtCaptura, '%H:%i:%s') AS dtCaptura
         FROM DadosSensor
         WHERE fkSensor = ${idSensor}
-        LIMIT 8;
+        LIMIT 8
+        ORDER BY dtCaptura DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
