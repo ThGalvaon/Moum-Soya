@@ -42,7 +42,7 @@
       <div class="container_sessoes">
         <div id="todas_dash" class="container_monitorados">
           <div class="header_sessoes">
-            <!-- KPIs Aqui -->
+         
           </div>
           <div class="linha">
             <div class="box_sessao" onclick="talhaoA()">
@@ -51,13 +51,13 @@
                 <h4>Talhão 1</h4>
               </div>
             </div>
-            <!-- Outros Talhões -->
+            
           </div>
         </div>
         
         <div id="dash_talhao" class="container_talhao hidden">
           <div class="box_dashboards">
-            <!-- Gráficos e detalhes -->
+           
           </div>
         </div>
         
@@ -128,7 +128,7 @@ function carregarGraficosTatica() {
       labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
       datasets: [{
         label: 'Variação de Umidade Mensal (%)',
-        data: [45, 50, 55, 48, 60, 63, 67, 70, 65, 58, 53, 50], // Exemplo de dados
+        data: [45, 50, 55, 48, 60, 63, 67, 70, 65, 58, 53, 50], 
         borderColor: 'blue',
         backgroundColor: 'rgba(0, 0, 255, 0.2)',
         borderWidth: 2,
@@ -160,7 +160,7 @@ function carregarGraficosTatica() {
       labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
       datasets: [{
         label: 'Variação de Umidade Semanal (%)',
-        data: [40, 42, 50, 45, 55, 60, 58], // Exemplo de dados
+        data: [40, 42, 50, 45, 55, 60, 58], 
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
@@ -300,10 +300,7 @@ function pararCronometro() {
         clearInterval(intervaloCronometro);
         intervaloCronometro = null;
 
-        // // Reseta o cronômetro visualmente
-        // const tempoAlertaElement = document.getElementById("tempo_alerta");
-        // tempoAlertaElement.textContent = "00:00";
-        // tempoAlertaElement.style.color = "green";
+        
     }
 }
 
